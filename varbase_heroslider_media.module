@@ -1,0 +1,5 @@
+<?php
+
+function varbase_heroslider_media_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'varbase_heroslider_media/hero_slider.styling';
+}

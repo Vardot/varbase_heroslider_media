@@ -1,0 +1,22 @@
+{
+  "name": "vardot/varbase_heroslider_media",
+  "description": "Varbase hero slider",
+  "type": "drupal-module",
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "kenwheeler/slick",
+        "version": "1.6.0",
+        "type": "drupal-library",
+        "dist": {
+          "url": "https://github.com/kenwheeler/slick/archive/1.6.0.zip",
+          "type": "zip"
+        }
+      }
+    }
+  ],
+  "require": {
+    "kenwheeler/slick": "~1.6"
+  }
+}

@@ -1,0 +1,4 @@
+.slick-slide .unpublished {
+  padding: 0;
+  height: auto;
+}

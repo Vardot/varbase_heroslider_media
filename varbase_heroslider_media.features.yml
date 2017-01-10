@@ -1,0 +1,5 @@
+bundle: varbase
+excluded:
+  - page_manager.page.test
+  - page_manager.page_variant.test-panels_variant-0
+required: true

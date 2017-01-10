@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.varbase_media_hero_slider
+    - field.field.media.image.field_image
+    - image.style.varbase_media_hero_slider
+    - media_entity.bundle.image
+  module:
+    - image
+id: media.image.varbase_media_hero_slider
+targetEntityType: media
+bundle: image
+mode: varbase_media_hero_slider
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: varbase_media_hero_slider
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true
