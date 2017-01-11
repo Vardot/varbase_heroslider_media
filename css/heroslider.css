@@ -1,3 +1,4 @@
+/* Varbase Hero slider media style */
 .slide__caption {
   position: absolute;
   left: 0;
@@ -72,7 +73,7 @@
   color: #FFFFFF;
 }
 
-// If media is unpublished.
+/* If media is unpublished. */
 .slick-slide .unpublished {
   padding: 0;
   height: auto;
