@@ -16,9 +16,10 @@
         "name": "kenwheeler/slick",
         "version": "1.6.0",
         "type": "drupal-library",
-        "dist": {
-          "url": "https://github.com/kenwheeler/slick/archive/1.6.0.zip",
-          "type": "zip"
+        "source": {
+          "url": "https://github.com/kenwheeler/slick",
+          "type": "git",
+          "reference": "origin/master"
         }
       }
     }
