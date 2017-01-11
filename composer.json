@@ -12,8 +12,7 @@
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/kenwheeler/slick.git",
-      "vendor-alias": "kenwheeler"
+      "url": "https://github.com/kenwheeler/slick.git"
     }
   ],
   "require": {
