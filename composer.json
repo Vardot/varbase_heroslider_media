@@ -2,6 +2,13 @@
   "name": "vardot/varbase_heroslider_media",
   "description": "Varbase hero slider",
   "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Vardot",
+      "role": "Development"
+    }
+  ],
   "repositories": [
     {
       "type": "package",
