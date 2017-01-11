@@ -24,6 +24,6 @@
     }
   ],
   "require": {
-    "kenwheeler/slick": "~1.6"
+    "kenwheeler/slick": "1.6.0"
   }
 }
