@@ -11,6 +11,8 @@
   ],
   "repositories": [
     {
+      "name": "kenwheeler/slick",
+      "version": "1.6.0",
       "type": "vcs",
       "url": "https://github.com/kenwheeler/slick"
     }
