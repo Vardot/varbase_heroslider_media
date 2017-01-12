@@ -15,23 +15,9 @@
     {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "kenwheeler/slick",
-        "version": "1.6.0",
-        "type": "drupal-library",
-        "source": {
-          "url": "https://github.com/kenwheeler/slick",
-          "type": "git",
-          "reference": "origin/master"
-        }
-      }
     }
   ],
   "require": {
-    "kenwheeler/slick": "1.6.0",
     "drupal/slick": "1.0-beta6",
     "drupal/slick_views": "1.0-beta5"
   }
