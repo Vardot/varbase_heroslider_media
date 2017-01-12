@@ -1,8 +1,13 @@
+/**
+ * @file
+ * Behaviors Varbase hero slider media.
+ */
+
 (function ($, _, Drupal) {
   "use strict";
   Drupal.behaviors.VarbaseHeroSlider = {
     attach: function (context) {
-      // On before slide change
+      // On before slide change.
       $('.slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         var currentSlideObject = $('.slide--' + currentSlide + '.slick-active');
         var nextSlideObject = $('.slide--' + nextSlide);
@@ -21,7 +26,7 @@
         }
       });
 
-      // When first slide has a video (Pause the slider and play the video)
+      // When first slide has a video (Pause the slider and play the video).
       $('.video-embed-field-responsive-video iframe').on("load", function () {
         var firstSlideVideo = $('.slick__slider .slick-active').find('.media-video').length !== 0;
         if (firstSlideVideo) {
@@ -30,11 +35,12 @@
         }
       });
 
-      // Vimeo variable 
+      // Vimeo variable.
       var iframe = $('.video-embed-field-responsive-video iframe')[0];
       var player = $f(iframe);
 
-      // When the player is ready, add listeners for pause, finish, and playProgress
+      // When the player is ready, add listeners for pause, finish,
+      // and playProgress.
       player.addEvent('ready', function () {
         player.addEvent('pause', onPause);
         player.addEvent('finish', onFinish);
@@ -54,5 +60,4 @@
       }
     }
   };
-
 })(jQuery, _, Drupal);

@@ -1,3 +1,8 @@
+/**
+ * @file
+ * Behaviors froogaloop.
+ */
+
 (function ($, _, Drupal) {
   "use strict";
   Drupal.behaviors.text = {

@@ -10,7 +10,7 @@
 .slide__caption .slick__text,
 .slick__arrow .slick-arrow::before,
 .slide__link a {
-  color: #FFFFFF;
+  color: #fff;
 }
 
 .slide__caption .slide__link {
@@ -65,12 +65,12 @@
   bottom: 20%;
   left: 0;
   z-index: 999;
-  color: #FFFFFF;
+  color: #fff;
   padding: 20px;
 }
 
 .node--type-varbase-heroslider-media.node--view-mode-full .content-wrapper a {
-  color: #FFFFFF;
+  color: #fff;
 }
 
 /* If media is unpublished. */
