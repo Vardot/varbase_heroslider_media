@@ -5,3 +5,7 @@ hero_slider.styling:
   css:
     component:
       css/heroslider.css:
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - slick/slick

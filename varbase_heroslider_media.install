@@ -12,10 +12,7 @@ function varbase_heroslider_media_requirements($phase) {
 
   $requirements = [];
 
-  $path = DRUPAL_ROOT . '/libraries/slick/slick/slick.min.js';
-  if (\Drupal::moduleHandler()->moduleExists('libraries')) {
-    $path = libraries_get_path('slick') . '/slick/slick/slick.min.js';
-  }
+  $path = DRUPAL_ROOT . '/libraries/slick/slick/slick.min.js'; 
 
   // Is the library found in the root libraries path.
   $library_found = file_exists($path);
