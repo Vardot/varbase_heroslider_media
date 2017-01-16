@@ -1,0 +1,11 @@
+hero_slider.styling:
+  js:
+    js/froogaloop.js: { }
+    js/heroslider.js: { }
+  css:
+    component:
+      css/heroslider.css:
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - slick/slick

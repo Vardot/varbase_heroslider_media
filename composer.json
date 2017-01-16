@@ -1,0 +1,24 @@
+{
+  "name": "vardot/varbase_heroslider_media",
+  "description": "Varbase hero slider",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Vardot",
+      "role": "Development"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "drupal/slick": "1.0-beta6",
+    "drupal/slick_views": "1.0-beta5"
+  }
+}

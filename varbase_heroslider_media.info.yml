@@ -1,0 +1,28 @@
+name: 'Media Hero Slider'
+description: 'A rich hero slider that allows you to display video and/or image slides.'
+type: module
+core: 8.x
+dependencies:
+  - ds
+  - entityqueue
+  - field
+  - field_group
+  - image
+  - language
+  - link
+  - media_entity
+  - menu_ui
+  - node
+  - page_manager
+  - panelizer
+  - panels
+  - path
+  - slick
+  - slick_ui
+  - slick_views
+  - user
+  - varbase_media
+  - video_embed_field
+  - views
+version: 8.x-4.0-alpha1
+package: Varbase

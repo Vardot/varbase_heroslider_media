@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: test
+label: test
+description: ''
+use_admin_theme: false
+path: /home
+access_logic: and
+access_conditions: {  }
+parameters: {  }
