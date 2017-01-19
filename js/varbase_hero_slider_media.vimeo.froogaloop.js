@@ -1,11 +1,12 @@
 /**
  * @file
- * Behaviors froogaloop.
+ * Behaviors Varbase hero slider media vimeo froogaloop.
  */
 
-(function ($, _, Drupal) {
+ (function ($, _, Drupal, drupalSettings) {
   "use strict";
-  Drupal.behaviors.text = {
+
+  Drupal.behaviors.varbaseHeroSliderMediaVimeofroogaloop = {
     attach: function (context) {
       // Init style shamelessly stolen from jQuery http://jquery.com
       var Froogaloop = (function () {
@@ -292,4 +293,5 @@
     }
   };
 
-})(jQuery, _, Drupal);
+})(window.jQuery, window._, window.Drupal, window.drupalSettings);
+s

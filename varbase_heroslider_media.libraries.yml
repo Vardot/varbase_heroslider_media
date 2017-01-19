@@ -1,11 +1,29 @@
-hero_slider.styling:
-  js:
-    js/froogaloop.js: { }
-    js/heroslider.js: { }
+general-styling:
   css:
     component:
-      css/heroslider.css:
+      css/varbase_hero_slider_media.style.css:
+        minified: true
   dependencies:
     - core/drupal
     - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+    - slick/slick
+general-scripts:
+  js:
+    js/varbase_hero_slider_media.scripts.js: { }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+    - slick/slick
+vimeo.froogaloop:
+  js:
+    js/varbase_hero_slider_media.vimeo.froogaloop.js: { }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
     - slick/slick

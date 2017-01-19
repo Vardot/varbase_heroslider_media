@@ -1,11 +1,12 @@
 /**
  * @file
- * Behaviors Varbase hero slider media.
+ * Behaviors Varbase hero slider media general scripts.
  */
 
-(function ($, _, Drupal) {
+ (function ($, _, Drupal, drupalSettings) {
   "use strict";
-  Drupal.behaviors.VarbaseHeroSlider = {
+
+  Drupal.behaviors.varbaseHeroSliderMedia = {
     attach: function (context) {
       // On before slide change.
       $('.slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
@@ -36,28 +37,34 @@
       });
 
       // Vimeo variable.
-      var iframe = $('.video-embed-field-responsive-video iframe')[0];
-      var player = $f(iframe);
+      if ($('.video-embed-field-responsive-video iframe').length > 0) {
+        var iframe = $('.video-embed-field-responsive-video iframe')[0];
+        var player = $f(iframe);
 
-      // When the player is ready, add listeners for pause, finish,
-      // and playProgress.
-      player.addEvent('ready', function () {
-        player.addEvent('pause', onPause);
-        player.addEvent('finish', onFinish);
-        player.addEvent('playProgress', onPlayProgress);
-      });
+        // When the player is ready, add listeners for pause, finish,
+        // and playProgress.
+        player.addEvent('ready', function () {
+          player.addEvent('pause', onPause);
+          player.addEvent('finish', onFinish);
+          player.addEvent('playProgress', onPlayProgress);
+        });
+      }
 
+      // Play when paused.
       function onPause() {
         $('.slick__slider').slick('slickPlay');
       }
 
+      // Play when finished.
       function onFinish() {
         $('.slick__slider').slick('slickPlay');
       }
 
+      // Puse on play prgress.
       function onPlayProgress() {
         $('.slick__slider').slick('slickPause');
       }
+
     }
   };
-})(jQuery, _, Drupal);
+})(window.jQuery, window._, window.Drupal, window.drupalSettings);
