@@ -294,4 +294,3 @@
   };
 
 })(window.jQuery, window._, window.Drupal, window.drupalSettings);
-s
