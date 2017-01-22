@@ -1,16 +1,32 @@
 {
   "name": "vardot/varbase_heroslider_media",
-  "description": "Varbase hero slider",
+  "description": "Varbase Hero slider media : This app will populate the universal implementation of a \"Hero Slider\" to be used on the homepage in most cases. A rich hero slider that allows you to display video and/or image slides.",
   "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/varbase_heroslider_media",
   "license": "GPL-2.0+",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "authors": [
     {
-      "name": "Vardot",
-      "role": "Development"
+      "name": "Mohammed J. Razem",
+      "homepage": "https://github.com/moerazem",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Ahmad Abbad",
+      "homepage": "https://github.com/ahmad-abbad",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Rajab Natshah",
+      "homepage": "https://github.com/Natshah",
+      "role": "Maintainer"
     }
   ],
+  "support": {
+    "issues": "http://drupal.org/project/issues/varbase_heroslider_media",
+    "source": "http://cgit.drupalcode.org/varbase_heroslider_media"
+  },
   "repositories": [
     {
       "type": "composer",
@@ -20,5 +36,11 @@
   "require": {
     "drupal/slick": "1.0-beta6",
     "drupal/slick_views": "1.0-beta5"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-8.x-4.x": "8.4.x-dev",
+      "dev-8.x-4.x": "8.x-4.x-dev"
+    }
   }
 }
