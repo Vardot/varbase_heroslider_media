@@ -34,8 +34,9 @@
     }
   ],
   "require": {
-    "drupal/slick": "1.0-beta6",
-    "drupal/slick_views": "1.0-beta5"
+    "drupal/slick": "^1.0-rc2",
+    "drupal/slick_views": "^1.0-rc2",
+    "drupal/inline_entity_form": "^1.0-beta1"
   },
   "extra": {
     "branch-alias": {

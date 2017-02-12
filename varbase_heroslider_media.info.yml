@@ -1,9 +1,11 @@
 name: 'Media Hero Slider'
 description: 'This app will populate the universal implementation of a "Hero Slider" to be used on the homepage in most cases. A rich hero slider that allows you to display video and/or image slides.'
 type: module
-core: 8.x
 dependencies:
+  - dropzonejs_eb_widget
   - ds
+  - entity_browser
+  - entity_browser_entity_form
   - entityqueue
   - field
   - field_group
@@ -24,5 +26,8 @@ dependencies:
   - varbase_media
   - video_embed_field
   - views
-version: 8.x-4.x
 package: Varbase
+version: 8.x-4.0-alpha3
+core: 8.x
+project: varbase_heroslider_media
+datestamp: 1486658005

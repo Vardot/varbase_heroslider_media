@@ -16,7 +16,7 @@ dependencies:
 id: varbase_heroslider_media
 label: 'Media Hero Slider'
 module: views
-description: ''
+description: 'Shows a list of media hero sliders, which are connected to the Media Hero Slider entity queue'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -431,7 +431,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      display_description: ''
+      display_description: 'Shows a list of media hero sliders, which are connected to the Media Hero Slider entity queue'
     cache_metadata:
       max-age: -1
       contexts:
