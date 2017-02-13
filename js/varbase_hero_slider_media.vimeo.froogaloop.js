@@ -3,16 +3,16 @@
  * Behaviors Varbase hero slider media vimeo froogaloop.
  */
 
- (function ($, _, Drupal, drupalSettings) {
+(function ($, _, Drupal, drupalSettings) {
   "use strict";
 
   Drupal.behaviors.varbaseHeroSliderMediaVimeofroogaloop = {
     attach: function (context) {
       // Init style shamelessly stolen from jQuery http://jquery.com
       var Froogaloop = (function () {
-        // Define a local copy of Froogaloop
+        // Define a local copy of Froogaloop.
         function Froogaloop(iframe) {
-          // The Froogaloop object is actually just the init constructor
+          // The Froogaloop object is actually just the init constructor.
           return new Froogaloop.fn.init(iframe);
         }
 
@@ -31,7 +31,7 @@
 
             this.element = iframe;
 
-            // Register message event listeners
+            // Register message event listeners.
             playerDomain = getDomainFromUrl(this.element.getAttribute('src'));
 
             return this;
@@ -54,7 +54,7 @@
                     params = !isFunction(valueOrCallback) ? valueOrCallback : null,
                     callback = isFunction(valueOrCallback) ? valueOrCallback : null;
 
-            // Store the callback for get functions
+            // Store the callback for get functions.
             if (callback) {
               storeCallback(method, callback, target_id);
             }
@@ -63,10 +63,12 @@
             return self;
           },
           /*
-           * Registers an event listener and a callback function that gets called when the event fires.
+           * Registers an event listener and a callback function that gets
+           * called when the event fires.
            *
            * @param eventName (String): Name of the event to listen for.
-           * @param callback (Function): Function that should be called when the event fires.
+           * @param callback (Function): Function that should be called when
+           * the event fires.
            */
           addEvent: function (eventName, callback) {
             if (!this.element) {
@@ -77,10 +79,10 @@
                     element = self.element,
                     target_id = element.id !== '' ? element.id : null;
 
-
             storeCallback(eventName, callback, target_id);
 
-            // The ready event is not registered via postMessage. It fires regardless.
+            // The ready event is not registered via postMessage.
+            // It fires regardless.
             if (eventName != 'ready') {
               postMessage('addEventListener', eventName, element);
             }
@@ -105,7 +107,7 @@
                     target_id = element.id !== '' ? element.id : null,
                     removed = removeCallback(eventName, target_id);
 
-            // The ready event is not registered
+            // The ready event is not registered.
             if (eventName != 'ready' && removed) {
               postMessage('removeEventListener', eventName, element);
             }
@@ -128,17 +130,18 @@
           }
 
           var url = target.getAttribute('src').split('?')[0],
-                  data = JSON.stringify({
-                    method: method,
-                    value: params
-                  });
+                    data = JSON.stringify({
+                      method: method,
+                      value: params
+                    });
 
-          target.contentWindow.postMessage(data, url);
+                    target.contentWindow.postMessage(data, url);
         }
 
         /**
-         * Event that fires whenever the window receives a message from its parent
-         * via window.postMessage.
+         * Event that fires whenever the window receives a message.
+         *
+         * From its parent via window.postMessage.
          */
         function onMessageReceived(event) {
           var data, method;
@@ -148,14 +151,14 @@
             method = data.event || data.method;
           }
           catch (e) {
-            //fail silently... like a ninja!
+            // Fail silently... like a ninja! .
           }
 
           if (method == 'ready' && !isReady) {
             isReady = true;
           }
 
-          // Handles messages from moogaloop only
+          // Handles messages from moogaloop only.
           if (event.origin != playerDomain) {
             return false;
           }
@@ -185,10 +188,10 @@
           return params.length > 0 ? callback.apply(null, params) : callback.call();
         }
 
-
         /**
-         * Stores submitted callbacks for each iframe being tracked and each
-         * event for that iframe.
+         * Stores submitted callbacks for each iframe being tracked.
+         *
+         * And each event for that iframe.
          *
          * @param eventName (String): Name of the event. Eg. api_onPlay
          * @param callback (Function): Function that should get executed when the
@@ -240,9 +243,12 @@
 
         /**
          * Returns a domain's root domain.
-         * Eg. returns http://vimeo.com when http://vimeo.com/channels is sbumitted
+         *
+         * Eg. returns http://vimeo.com when http://vimeo.com/channels
+         * is sbumitted.
          *
          * @param url (String): Url to test against.
+         *
          * @return url (String): Root domain of submitted url
          */
         function getDomainFromUrl(url) {
@@ -272,25 +278,23 @@
           return toString.call(obj) === '[object Array]';
         }
 
-        // Give the init function the Froogaloop prototype for later instantiation
+        // Give the init function Froogaloop prototype for later instantiation.
         Froogaloop.fn.init.prototype = Froogaloop.fn;
 
-        // Listens for the message event.
-        // W3C
+        // Listens for the message event W3C.
         if (window.addEventListener) {
           window.addEventListener('message', onMessageReceived, false);
         }
-        // IE
+        // IE.
         else {
           window.attachEvent('onmessage', onMessageReceived, false);
         }
 
-        // Expose froogaloop to the global object
+        // Expose froogaloop to the global object.
         return (window.Froogaloop = window.$f = Froogaloop);
 
       })();
 
     }
   };
-
 })(window.jQuery, window._, window.Drupal, window.drupalSettings);

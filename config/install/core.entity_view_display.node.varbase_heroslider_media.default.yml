@@ -8,7 +8,6 @@ dependencies:
     - node.type.varbase_heroslider_media
   module:
     - ds
-    - field_group
     - link
     - panelizer
     - user
@@ -31,10 +30,8 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - group_wrapper
-        - node_title
-        - group_media_wrapper
         - field_media_single
+        - node_title
         - field_brief
         - field_link
     fields:
@@ -48,41 +45,6 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-  field_group:
-    group_wrapper:
-      children:
-        - node_title
-        - field_brief
-        - field_link
-      parent_name: ''
-      weight: 0
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: content-wrapper
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: Wrapper
-    group_media_wrapper:
-      children:
-        - field_media_single
-      parent_name: ''
-      weight: 1
-      format_type: html_element
-      format_settings:
-        id: ''
-        classes: media-wrapper
-        element: div
-        show_label: false
-        label_element: h3
-        attributes: ''
-        effect: none
-        speed: fast
-      label: 'Media Wrapper'
 id: node.varbase_heroslider_media.default
 targetEntityType: node
 bundle: varbase_heroslider_media
@@ -106,7 +68,7 @@ content:
     third_party_settings: {  }
     type: link
   field_media_single:
-    weight: 2
+    weight: 0
     label: hidden
     settings:
       view_mode: varbase_media_hero_slider
@@ -114,5 +76,4 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
 hidden:
-  langcode: true
   links: true

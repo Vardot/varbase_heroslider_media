@@ -48,11 +48,6 @@ content:
         view_mode: field_preview
     third_party_settings: {  }
     type: entity_browser_entity_reference
-  langcode:
-    type: language_select
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
   path:
     type: path
     weight: 7

@@ -23,7 +23,6 @@ content:
     type: image
 hidden:
   created: true
-  langcode: true
   name: true
   thumbnail: true
   uid: true
