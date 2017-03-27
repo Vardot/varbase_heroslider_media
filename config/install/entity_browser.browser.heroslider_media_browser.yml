@@ -58,6 +58,7 @@ widgets:
       max_filesize: 32M
       extensions: 'jpg jpeg gif png'
       submit_text: 'Select Image'
+      auto_select: false
     uuid: 28f9bdee-9e03-4269-8644-c06d65b58592
     weight: -9
     label: 'Upload Image'
