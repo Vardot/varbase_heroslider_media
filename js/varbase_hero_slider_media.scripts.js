@@ -9,7 +9,7 @@
   Drupal.behaviors.varbaseHeroSliderMedia = {
     attach: function (context) {
       // On before slide change.
-      $('.slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+      $('.slick--view--varbase-heroslider-media .slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
           var currentSlideObject = $('.slide--' + currentSlide + '.slick-active');
           var nextSlideObject = $('.slide--' + nextSlide);
           var currentIframe = currentSlideObject.find('.video-embed-field-responsive-video iframe', context);
@@ -30,7 +30,7 @@
       });
 
         // When first slide has a video (Pause the slider and play the video).
-        $('.video-embed-field-responsive-video iframe').on("load", function () {
+        $('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe').on("load", function () {
           var firstSlideVideo = $('.slick__slider .slick-active').find('.media-video').length !== 0;
           if (firstSlideVideo) {
             $('.slick__slider').slick('slickPause');
@@ -39,7 +39,7 @@
         });
 
         // Vimeo variable.
-        if ($('.video-embed-field-responsive-video iframe').length > 0) {
+        if ($('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe').length > 0) {
           var iframe = $('.video-embed-field-responsive-video iframe')[0];
           var player = $f(iframe);
 
