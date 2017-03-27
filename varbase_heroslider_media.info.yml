@@ -8,6 +8,7 @@ dependencies:
   - entity_browser_entity_form
   - entityqueue
   - field
+  - field_group
   - image
   - link
   - media_entity

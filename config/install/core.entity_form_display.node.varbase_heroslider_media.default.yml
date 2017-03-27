@@ -9,8 +9,26 @@ dependencies:
     - node.type.varbase_heroslider_media
   module:
     - entity_browser
+    - field_group
     - link
     - path
+third_party_settings:
+  field_group:
+    group_slide_info:
+      children:
+        - title
+        - field_brief
+        - field_media_single
+        - field_link
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Slide information'
 id: node.varbase_heroslider_media.default
 targetEntityType: node
 bundle: varbase_heroslider_media
@@ -18,7 +36,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 6
     settings: {  }
     third_party_settings: {  }
   field_brief:
@@ -50,20 +68,20 @@ content:
     type: entity_browser_entity_reference
   path:
     type: path
-    weight: 7
+    weight: 10
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 8
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 9
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -74,7 +92,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
