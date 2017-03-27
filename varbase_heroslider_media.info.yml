@@ -24,7 +24,7 @@ dependencies:
   - video_embed_field
   - views
 package: Varbase
-version: 8.x-4.0-alpha4
+version: 8.x-4.0-dev
 core: 8.x
 project: varbase_heroslider_media
-datestamp: 1486905486
+
