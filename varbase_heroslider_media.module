@@ -13,18 +13,3 @@ function varbase_heroslider_media_page_attachments(array &$attachments) {
   $attachments['#attached']['library'][] = 'varbase_heroslider_media/vimeo.froogaloop';
   $attachments['#attached']['library'][] = 'varbase_heroslider_media/general-scripts';
 }
-
-/**
- * Implement hook_form_FORM_ID_alter().
- */
-function varbase_heroslider_media_form_node_varbase_heroslider_media_form_alter(&$form, &$form_state) {
-  // Hide promoted options.
-  if (isset($form['options'])) {
-    $form['options']['#access'] = FALSE;
-  }
-
-  // Hide path settings.
-  if (isset($form['path_settings'])) {
-    $form['path_settings']['#access'] = FALSE;
-  }
-}

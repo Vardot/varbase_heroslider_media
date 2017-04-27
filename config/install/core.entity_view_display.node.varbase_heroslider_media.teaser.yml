@@ -16,7 +16,9 @@ mode: teaser
 content:
   links:
     weight: 100
+    region: content
 hidden:
   field_brief: true
   field_link: true
   field_media_single: true
+  langcode: true

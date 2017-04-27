@@ -11,7 +11,6 @@ dependencies:
     - entity_browser
     - field_group
     - link
-    - path
 third_party_settings:
   field_group:
     group_slide_info:
@@ -36,9 +35,10 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 3
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_brief:
     weight: 2
     settings:
@@ -46,6 +46,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
   field_link:
     weight: 4
     settings:
@@ -53,6 +54,7 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   field_media_single:
     weight: 3
     settings:
@@ -66,22 +68,12 @@ content:
         view_mode: field_preview
     third_party_settings: {  }
     type: entity_browser_entity_reference
-  path:
-    type: path
-    weight: 10
+    region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
     settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 8
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 9
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -90,12 +82,17 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+    region: content
+hidden:
+  path: true
+  promote: true
+  sticky: true
