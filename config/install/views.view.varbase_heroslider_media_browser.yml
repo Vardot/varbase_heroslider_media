@@ -298,8 +298,11 @@ display:
         - url.query_args
         - user.permissions
       tags:
-        - 'config:core.entity_view_display.media.document.browser_teaser'
+        - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
+        - 'config:core.entity_view_display.media.video.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.document.browser_teaser'
         - 'config:core.entity_view_display.media.document.field_preview'
         - 'config:core.entity_view_display.media.document.teaser'
         - 'config:core.entity_view_display.media.image.browser_teaser'
@@ -317,7 +320,6 @@ display:
         - 'config:core.entity_view_display.media.image.small'
         - 'config:core.entity_view_display.media.image.teaser'
         - 'config:core.entity_view_display.media.image.token'
-        - 'config:core.entity_view_display.media.image.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.image.xlarge'
         - 'config:core.entity_view_display.media.image.xsmall'
         - 'config:core.entity_view_display.media.video.browser_teaser'
@@ -327,14 +329,12 @@ display:
         - 'config:core.entity_view_display.media.video.cropped_small'
         - 'config:core.entity_view_display.media.video.cropped_xlarge'
         - 'config:core.entity_view_display.media.video.cropped_xsmall'
-        - 'config:core.entity_view_display.media.video.default'
         - 'config:core.entity_view_display.media.video.field_preview'
         - 'config:core.entity_view_display.media.video.full'
         - 'config:core.entity_view_display.media.video.large'
         - 'config:core.entity_view_display.media.video.medium'
         - 'config:core.entity_view_display.media.video.small'
         - 'config:core.entity_view_display.media.video.teaser'
-        - 'config:core.entity_view_display.media.video.varbase_media_hero_slider'
         - 'config:core.entity_view_display.media.video.xlarge'
         - 'config:core.entity_view_display.media.video.xsmall'
   heroslider_media_browser:
