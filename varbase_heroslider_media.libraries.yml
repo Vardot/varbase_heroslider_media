@@ -27,3 +27,14 @@ vimeo.froogaloop:
     - core/jquery
     - core/jquery.once
     - slick/slick
+
+youtube-player:
+  header: true
+  js:
+    js/player_api.js: { }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/jquery.once
+    - slick/slick
