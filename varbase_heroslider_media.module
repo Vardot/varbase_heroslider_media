@@ -14,3 +14,28 @@ function varbase_heroslider_media_page_attachments(array &$attachments) {
   $attachments['#attached']['library'][] = 'varbase_heroslider_media/youtube-player';
   $attachments['#attached']['library'][] = 'varbase_heroslider_media/general-scripts';
 }
+
+/**
+ * Implements hook_preprocess_video_embed_iframe__youtube().
+ */
+function varbase_heroslider_media_preprocess_video_embed_iframe__youtube(&$variables) {
+  // Hide youtube logo and controls
+  $variables['attributes']['id'] = "youtubeVideo";
+  $variables['query']['modestbranding'] = '0';
+  $variables['query']['enablejsapi'] = '1';
+  $variables['query']['showinfo'] = '0';
+  $variables['query']['controls'] = '0';
+ }
+
+/**
+ * Implements hook_preprocess_video_embed_iframe__youtube_playlist().
+ */
+function varbase_heroslider_media_preprocess_video_embed_iframe__youtube_playlist(&$variables) {
+  // Hide youtube logo and controls if playlist url is choose
+  $variables['attributes']['id'] = "youtubeVideo";
+  $variables['query']['modestbranding'] = '0';
+  $variables['query']['enablejsapi'] = '1';
+  $variables['query']['showinfo'] = '0';
+  $variables['query']['controls'] = '0';
+ }
+ 
