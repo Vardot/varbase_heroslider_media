@@ -5,21 +5,10 @@
   "homepage": "https://www.drupal.org/project/varbase_heroslider_media",
   "license": "GPL-2.0+",
   "minimum-stability": "dev",
-  "prefer-stable": true,
   "authors": [
     {
-      "name": "Mohammed J. Razem",
-      "homepage": "https://github.com/moerazem",
-      "role": "Maintainer"
-    },
-    {
-      "name": "Ahmad Abbad",
-      "homepage": "https://github.com/ahmad-abbad",
-      "role": "Maintainer"
-    },
-    {
-      "name": "Rajab Natshah",
-      "homepage": "https://github.com/Natshah",
+      "name": "Vardot",
+      "homepage": "https://www.drupal.org/vardot",
       "role": "Maintainer"
     }
   ],
