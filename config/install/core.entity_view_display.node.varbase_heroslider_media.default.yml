@@ -109,7 +109,7 @@ third_party_settings:
       format_type: html_element
       format_settings:
         id: ''
-        classes: 'col-12-xs col-12-md no-padding'
+        classes: 'col-xs-12 col-md-12 no-padding'
         element: div
         show_label: false
         label_element: h3
