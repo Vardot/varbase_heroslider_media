@@ -9,7 +9,8 @@
   Drupal.behaviors.varbaseHeroSliderMedia_vimeo = {
     attach: function (context) {
       // On before slide change.
-      $('.slick--view--media-hero-slider .slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+
+      $('.slick--view--varbase-heroslider-media .slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         var currentSlideObject = $('.slide--' + currentSlide + '.slick-active');
         var nextSlideObject = $('.slide--' + nextSlide);
         var currentIframe = currentSlideObject.find('.video-embed-field-responsive-video iframe', context);
@@ -30,7 +31,7 @@
       });
 
       // When first slide has a video (Pause the slider and play the video).
-      $('.slick--view--media-hero-slider .video-embed-field-responsive-video iframe').on("load", function () {
+      $('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe').on("load", function () {
         var firstSlideVideo = $('.slick__slider .slick-active').find('.media-video').length !== 0;
         if (firstSlideVideo) {
           $('.slick__slider').slick('slickPause');
@@ -39,7 +40,7 @@
       });
 
       // Vimeo variable.
-      if ($('.slick--view--media-hero-slider .video-embed-field-responsive-video iframe').length > 0) {
+      if ($('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe').length > 0) {
         var iframe = $('.video-embed-field-responsive-video iframe')[0];
         var player = $f(iframe);
 
@@ -85,12 +86,12 @@
 
         //Play youtube video on ready
         function onPlayerReady() {
-          var firstSlideVideo = $('.slick--view--media-hero-slider .slick__slider .slick-active').find('.media-video').length !== 0;
+          var firstSlideVideo = $('.slick--view--varbase-heroslider-media .slick__slider .slick-active').find('.media-video').length !== 0;
           if (firstSlideVideo) {
-            $('.slick--view--media-hero-slider .slick__slider').slick('slickPause');
+            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPause');
             yotubePlayer.playVideo();
           } else {// if hero slider has one Slide
-            var onlySlide = $('.slick--view--media-hero-slider .slick').find('.media-video').length !== 0;
+            var onlySlide = $('.slick--view--varbase-heroslider-media .slick').find('.media-video').length !== 0;
             if (onlySlide) {
               yotubePlayer.playVideo();
             }
@@ -100,17 +101,17 @@
         //video status
         function onPlayerStateChange(event) {
           if (event.data === 0) { // On finish
-            $('.slick--view--media-hero-slider .slick__slider').slick('slickPlay');
+            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPlay');
           } else if (event.data === 1) { // On playing
-            $('.slick--view--media-hero-slider .slick__slider').slick('slickPause');
+            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPause');
           } else if (event.data === 2) { // Onpause
-            $('.slick--view--media-hero-slider .slick__slider').slick('slickPause');
+            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPause');
           }
         }
 
-        $('.slick--view--media-hero-slider .slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          var currentSlideObject = $('.slick--view--media-hero-slider .slide--' + currentSlide + '.slick-active');
-          var nextSlideObject = $('.slick--view--media-hero-slider .slide--' + nextSlide);
+        $('.slick--view--varbase-heroslider-media .slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+          var currentSlideObject = $('.slick--view--varbase-heroslider-media .slide--' + currentSlide + '.slick-active');
+          var nextSlideObject = $('.slick--view--varbase-heroslider-media .slide--' + nextSlide);
           var currentIframe = currentSlideObject.find('.video-embed-field-responsive-video #youtubeVideo', context);
           var nextIframe = nextSlideObject.find('.video-embed-field-responsive-video #youtubeVideo', context);
 
@@ -126,10 +127,10 @@
         });
 
         // When first slide has a video (Pause the slider and play the video).
-        $('.slick--view--media-hero-slider .video-embed-field-responsive-video #youtubeVide').on("load", function () {
-          var firstSlideVideo = $('.slick--view--media-hero-slider .slick__slider .slick-active').find('.media-video').length !== 0;
+        $('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video #youtubeVide').on("load", function () {
+          var firstSlideVideo = $('.slick--view--varbase-heroslider-media .slick__slider .slick-active').find('.media-video').length !== 0;
           if (firstSlideVideo) {
-            $('.slick--view--media-hero-slider .slick__slider').slick('slickPause');
+            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPause');
             yotubePlayer.playVideo();
           }
         });
