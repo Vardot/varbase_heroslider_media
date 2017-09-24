@@ -32,14 +32,16 @@ third_party_settings:
       ds_content:
         - field_media_single
         - group_div
+        - group_row
+        - group_col
         - node_title
-        - group_container
         - field_brief
         - field_link
+        - group_container
     fields:
       node_title:
         plugin_id: node_title
-        weight: 6
+        weight: 9
         label: hidden
         formatter: default
   panelizer:
@@ -67,11 +69,9 @@ third_party_settings:
       label: 'Hero slide content'
     group_container:
       children:
-        - node_title
-        - field_brief
-        - field_link
+        - group_row
       parent_name: group_div
-      weight: 7
+      weight: 20
       format_type: html_element
       format_settings:
         id: ''
@@ -83,20 +83,54 @@ third_party_settings:
         effect: none
         speed: fast
       label: container
+    group_row:
+      children:
+        - group_col
+      parent_name: group_container
+      weight: 4
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: row
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: row
+    group_col:
+      children:
+        - node_title
+        - field_brief
+        - field_link
+      parent_name: group_row
+      weight: 8
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: 'col-12-xs col-12-md no-padding'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: col
 id: node.varbase_heroslider_media.default
 targetEntityType: node
 bundle: varbase_heroslider_media
 mode: default
 content:
   field_brief:
-    weight: 7
+    weight: 10
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: ds_content
   field_link:
-    weight: 8
+    weight: 11
     label: hidden
     settings:
       trim_length: 80

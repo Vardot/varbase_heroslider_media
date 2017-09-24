@@ -23,6 +23,8 @@
   .slick__arrow {
     .slick-arrow::before {
       color: @hero-title-text-color;
+      background-color: @hero-content-background-color2;
+      border-radius: 50%;
     }
   }
 
@@ -88,51 +90,53 @@
       position: relative;
     }
 
-    .slide-content {
+    .hero-slide-content {
       position: absolute;
       bottom: 7%;
       padding: 1.2em;
       z-index: 999;
+      width: 100%;
+      
+      .container {
+        .row {
+          background-color: @hero-content-background-color1;
+          background-color: @hero-content-background-color2;
+        }
+      }
 
-      .hero-slide-content {
-        margin-right: auto;
-        margin-left: auto;
-        padding: 0 30px;
+      .field {
+        padding: 1.2em;
+        color: @hero-title-text-color;
+      }
 
-        .field {
-          padding: 1.2em;
+      .field--name-node-title {
+        bottom: 30%;
+
+        h2,
+        h3, {
+          margin: 0;
+          padding: 0;
           color: @hero-title-text-color;
+          font-size: @hero-xlarge-title-font-size;
         }
-        
-        .field--name-node-title {
-          bottom: 30%;
-          
-          h2,
-          h3, {
-            margin: 0;
-            padding: 0;
-            color: @hero-title-text-color;
-            font-size: @hero-xlarge-title-font-size;
-          }
-        }
+      }
 
-        .field--name-field-brief {
-          bottom: 20%;
-          color: @hero-brief-text-color;
-        }
+      .field--name-field-brief {
+        bottom: 20%;
+        color: @hero-brief-text-color;
+      }
 
-        .field--name-field-link {
-          bottom: 10%;
+      .field--name-field-link {
+        bottom: 10%;
 
-          a {
-            color: @hero-link-text-color;
-            text-decoration: none;
+        a {
+          color: @hero-link-text-color;
+          text-decoration: none;
 
-            &:hover,
-            &:focus,
-            &:active {
-              opacity: @hero-content-hover-opacity;
-            }
+          &:hover,
+          &:focus,
+          &:active {
+            opacity: @hero-content-hover-opacity;
           }
         }
       }

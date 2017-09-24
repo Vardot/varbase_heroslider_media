@@ -13,6 +13,8 @@
 }
 .varbase-heroslider-media .slick__arrow .slick-arrow::before {
   color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
 }
 .varbase-heroslider-media .slide__link {
   margin: 10px auto;
@@ -63,45 +65,45 @@
 .varbase-heroslider-media .node--type-varbase-heroslider-media.node--view-mode-full {
   position: relative;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content {
   position: absolute;
   bottom: 7%;
   padding: 1.2em;
   z-index: 999;
+  width: 100%;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content {
-  margin-right: auto;
-  margin-left: auto;
-  padding: 0 30px;
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .container .row {
+  background-color: #000000;
+  background-color: rgba(0, 0, 0, 0.3);
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field {
   padding: 1.2em;
   color: #fff;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-node-title {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title {
   bottom: 30%;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-node-title h2,
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-node-title h3 {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
   margin: 0;
   padding: 0;
   color: #fff;
   font-size: 3em;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-field-brief {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-brief {
   bottom: 20%;
   color: #fff;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-field-link {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link {
   bottom: 10%;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-field-link a {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a {
   color: #fff;
   text-decoration: none;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-field-link a:hover,
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-field-link a:focus,
-.varbase-heroslider-media .node--type-varbase-heroslider-media .slide-content .hero-slide-content .field--name-field-link a:active {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:hover,
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:focus,
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:active {
   opacity: 0.7;
 }
 .varbase-heroslider-media > .view-empty {
