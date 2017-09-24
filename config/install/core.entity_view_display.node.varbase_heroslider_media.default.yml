@@ -107,5 +107,4 @@ content:
     type: entity_reference_entity_view
     region: ds_content
 hidden:
-  langcode: true
   links: true

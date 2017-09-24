@@ -13,7 +13,6 @@ content: {  }
 hidden:
   created: true
   field_image: true
-  langcode: true
   name: true
   thumbnail: true
   uid: true
