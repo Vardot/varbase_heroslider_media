@@ -25,7 +25,7 @@ function varbase_heroslider_media_preprocess_video_embed_iframe__youtube(&$varia
   $variables['query']['enablejsapi'] = '1';
   $variables['query']['showinfo'] = '0';
   $variables['query']['controls'] = '0';
- }
+}
 
 /**
  * Implements hook_preprocess_video_embed_iframe__youtube_playlist().
@@ -37,4 +37,15 @@ function varbase_heroslider_media_preprocess_video_embed_iframe__youtube_playlis
   $variables['query']['enablejsapi'] = '1';
   $variables['query']['showinfo'] = '0';
   $variables['query']['controls'] = '0';
- }
+}
+
+/**
+ * Implements hook_preprocess_video_embed_iframe__vimeo().
+ */
+function varbase_heroslider_media_preprocess_video_embed_iframe__vimeo(&$variables) {
+  // Hide Vimeo play control.
+  $variables['query']['background'] = 1;
+  
+  // Stop Vimeo vedio from looping.
+  $variables['query']['loop'] = 0;
+}
