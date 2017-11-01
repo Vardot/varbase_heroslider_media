@@ -1,3 +1,4 @@
+# Varbase hero slider media general styling.
 general-styling:
   css:
     component:
@@ -9,6 +10,8 @@ general-styling:
     - core/jquery
     - core/jquery.once
     - slick/slick
+
+# Varbase hero slider media general scripts.
 general-scripts:
   js:
     js/varbase_hero_slider_media.scripts.js: { }
@@ -18,9 +21,11 @@ general-scripts:
     - core/jquery
     - core/jquery.once
     - slick/slick
-vimeo.froogaloop:
+
+# Vimeo player library.
+vimeo-player:
   js:
-    js/varbase_hero_slider_media.vimeo.froogaloop.js: { }
+    js/vimeo/player.min.js: { }
   dependencies:
     - core/drupal
     - core/drupalSettings
@@ -28,10 +33,11 @@ vimeo.froogaloop:
     - core/jquery.once
     - slick/slick
 
+# Youtube player library.
 youtube-player:
   header: true
   js:
-    js/player_api.js: { }
+    js/youtube/player.min.js: { }
   dependencies:
     - core/drupal
     - core/drupalSettings

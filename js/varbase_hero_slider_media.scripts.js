@@ -17,16 +17,16 @@
         var nextIframe = nextSlideObject.find('.video-embed-field-responsive-video iframe', context);
 
         if (currentIframe.length !== 0) {
-          var currentPlayer = $f(currentIframe[0]);
-          currentPlayer.api("pause");
+          var currentPlayer = new Vimeo.Player(currentIframe[0]);
+          currentPlayer.pause();
         }
 
         if (nextIframe.length !== 0) {
-          var nextPlayer = $f(nextIframe[0]);
-          nextPlayer.addEvent('pause', onPause);
-          nextPlayer.addEvent('finish', onFinish);
-          nextPlayer.addEvent('playProgress', onPlayProgress);
-          nextPlayer.api("play");
+          var nextPlayer = new Vimeo.Player(nextIframe[0]);
+          nextPlayer.on('pause', onPause);
+          nextPlayer.on('ended', onFinish);
+          nextPlayer.on('play', onPlayProgress);
+          nextPlayer.play();
         }
       });
 
@@ -35,22 +35,20 @@
         var firstSlideVideo = $('.slick__slider .slick-active').find('.media-video').length !== 0;
         if (firstSlideVideo) {
           $('.slick__slider').slick('slickPause');
-          player.api("play");
+          player.play();
         }
       });
 
       // Vimeo variable.
       if ($('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe').length > 0) {
         var iframe = $('.video-embed-field-responsive-video iframe')[0];
-        var player = $f(iframe);
+        var player = new Vimeo.Player(iframe);
 
         // When the player is ready, add listeners for pause, finish,
         // and playProgress.
-        player.addEvent('ready', function () {
-          player.addEvent('pause', onPause);
-          player.addEvent('finish', onFinish);
-          player.addEvent('playProgress', onPlayProgress);
-        });
+        player.on('pause', onPause);
+        player.on('ended', onFinish);
+        player.on('play', onPlayProgress);
       }
 
       // Play when paused.
@@ -63,7 +61,7 @@
         $('.slick__slider').slick('slickPlay');
       }
 
-      // Puse on play prgress.
+      // Pause on play prgress.
       function onPlayProgress() {
         $('.slick__slider').slick('slickPause');
       }

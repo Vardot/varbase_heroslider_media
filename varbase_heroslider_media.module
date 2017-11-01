@@ -10,7 +10,7 @@
  */
 function varbase_heroslider_media_page_attachments(array &$attachments) {
   $attachments['#attached']['library'][] = 'varbase_heroslider_media/general-styling';
-  $attachments['#attached']['library'][] = 'varbase_heroslider_media/vimeo.froogaloop';
+  $attachments['#attached']['library'][] = 'varbase_heroslider_media/vimeo-player';
   $attachments['#attached']['library'][] = 'varbase_heroslider_media/youtube-player';
   $attachments['#attached']['library'][] = 'varbase_heroslider_media/general-scripts';
 }
@@ -45,7 +45,7 @@ function varbase_heroslider_media_preprocess_video_embed_iframe__youtube_playlis
 function varbase_heroslider_media_preprocess_video_embed_iframe__vimeo(&$variables) {
   // Hide Vimeo play control.
   $variables['query']['background'] = 1;
-  
+
   // Stop Vimeo vedio from looping.
   $variables['query']['loop'] = 0;
 }
