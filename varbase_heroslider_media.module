@@ -46,6 +46,9 @@ function varbase_heroslider_media_preprocess_video_embed_iframe__vimeo(&$variabl
   // Hide Vimeo play control.
   $variables['query']['background'] = 1;
 
+  // Prevent vedio autoplay.
+  $variables['query']['autoplay'] = 0;
+
   // Stop Vimeo vedio from looping.
   $variables['query']['loop'] = 0;
 }
