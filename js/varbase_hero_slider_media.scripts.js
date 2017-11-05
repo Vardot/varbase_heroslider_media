@@ -7,14 +7,14 @@
   "use strict";
 
   Drupal.behaviors.varbaseHeroSliderMedia_vimeo = {
-    attach: function (context) {
-      // On before slide change.
+    attach: function (context, settings) {
 
+      // On before slide change.
       $('.slick--view--varbase-heroslider-media .slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         var currentSlideObject = $('.slide--' + currentSlide + '.slick-active');
         var nextSlideObject = $('.slide--' + nextSlide);
-        var currentIframe = currentSlideObject.find('.video-embed-field-responsive-video iframe', context);
-        var nextIframe = nextSlideObject.find('.video-embed-field-responsive-video iframe', context);
+        var currentIframe = currentSlideObject.find('.video-embed-field-responsive-video iframe[src*="vimeo.com"]', context);
+        var nextIframe = nextSlideObject.find('.video-embed-field-responsive-video iframe[src*="vimeo.com"]', context);
 
         if (currentIframe.length !== 0) {
           var currentPlayer = new Vimeo.Player(currentIframe[0]);
@@ -31,7 +31,7 @@
       });
 
       // When first slide has a video (Pause the slider and play the video).
-      $('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe').on("load", function () {
+      $('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe[src*="vimeo.com"]').on("load", function () {
         var firstSlideVideo = $('.slick__slider .slick-active').find('.media-video').length !== 0;
         if (firstSlideVideo) {
           $('.slick__slider').slick('slickPause');
@@ -40,8 +40,8 @@
       });
 
       // Vimeo variable.
-      if ($('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe').length > 0) {
-        var iframe = $('.video-embed-field-responsive-video iframe')[0];
+      if ($('.slick--view--varbase-heroslider-media .video-embed-field-responsive-video iframe[src*="vimeo.com"]').length > 0) {
+        var iframe = $('.video-embed-field-responsive-video iframe[src*="vimeo.com"]')[0];
         var player = new Vimeo.Player(iframe);
 
         // When the player is ready, add listeners for pause, finish,
@@ -65,7 +65,6 @@
       function onPlayProgress() {
         $('.slick__slider').slick('slickPause');
       }
-
     }
   };
 
@@ -73,7 +72,7 @@
     attach: function (context, settings) {
       $(window).on('load', function () {
 
-        //Youtube API
+        // Youtube API.
         var yotubePlayer;
         yotubePlayer = new YT.Player('youtubeVideo', {
           events: {
@@ -82,7 +81,7 @@
           }
         });
 
-        //Play youtube video on ready
+        // Play youtube video on ready.
         function onPlayerReady() {
           var firstSlideVideo = $('.slick--view--varbase-heroslider-media .slick__slider .slick-active').find('.media-video').length !== 0;
           if (firstSlideVideo) {
@@ -96,7 +95,7 @@
           }
         }
 
-        //video status
+        // Video status.
         function onPlayerStateChange(event) {
           if (event.data === 0) { // On finish
             $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPlay');

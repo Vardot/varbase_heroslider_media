@@ -35,7 +35,6 @@ vimeo-player:
 
 # Youtube player library.
 youtube-player:
-  header: true
   js:
     js/youtube/player.min.js: { }
   dependencies:
