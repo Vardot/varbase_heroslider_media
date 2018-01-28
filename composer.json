@@ -3,7 +3,7 @@
   "description": "Varbase Hero slider media : This app will populate the universal implementation of a \"Hero Slider\" to be used on the homepage in most cases. A rich hero slider that allows you to display video and/or image slides.",
   "type": "drupal-module",
   "homepage": "https://www.drupal.org/project/varbase_heroslider_media",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "authors": [
     {
