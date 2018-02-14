@@ -125,21 +125,9 @@
     background-size: 100px;
   }
 }
-.varbase-heroslider-media .btn.hidden-anonymous {
-  display: none;
-}
-.varbase-heroslider-media .btn.add-slider,
-.varbase-heroslider-media .btn.add-slider:hover {
-  background-color: #428bca;
-  color: #fff;
-}
-body.user-logged-in .varbase-heroslider-media .btn.visible-admin {
-  display: inline-block !important;
-}
 body .hero_slider {
   color: #fff;
   margin-bottom: 50px;
   position: relative;
   top: -20px;
 }
-/*# sourceMappingURL=varbase_hero_slider_media.style.css.map */
