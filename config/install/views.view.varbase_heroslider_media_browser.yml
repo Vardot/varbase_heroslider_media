@@ -3,8 +3,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.browser_teaser
-    - media.bundle.image
-    - media.bundle.video
+    - media.type.image
+    - media.type.video
   module:
     - entity_browser
     - media
