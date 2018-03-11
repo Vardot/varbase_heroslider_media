@@ -4,7 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.varbase_media_hero_slider
     - field.field.media.video.field_media_video_embed_field
-    - media_entity.bundle.video
+    - media.bundle.video
   module:
     - video_embed_field
 id: media.video.varbase_media_hero_slider

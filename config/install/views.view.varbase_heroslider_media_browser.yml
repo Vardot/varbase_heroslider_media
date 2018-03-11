@@ -3,11 +3,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.browser_teaser
-    - media_entity.bundle.image
-    - media_entity.bundle.video
+    - media.bundle.image
+    - media.bundle.video
   module:
     - entity_browser
-    - media_entity
+    - media
     - user
 id: varbase_heroslider_media_browser
 label: 'Media Hero Slider browser'

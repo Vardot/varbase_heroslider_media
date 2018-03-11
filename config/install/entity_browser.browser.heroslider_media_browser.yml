@@ -2,12 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - media_entity.bundle.image
+    - media.bundle.image
     - views.view.varbase_heroslider_media_browser
   module:
     - dropzonejs_eb_widget
     - entity_browser_entity_form
-    - media_entity
+    - media
     - views
 name: heroslider_media_browser
 label: 'Heroslider Media Browser'
@@ -53,7 +53,7 @@ widgets:
   1f088e55-f55c-42c2-b8c2-a64a405812a1:
     settings:
       form_mode: default
-      media_entity_bundle: image
+      media_bundle: image
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop image files here to upload them'
       max_filesize: 32M
@@ -62,4 +62,4 @@ widgets:
     uuid: 1f088e55-f55c-42c2-b8c2-a64a405812a1
     weight: -9
     label: 'Upload an image'
-    id: dropzonejs_media_entity_inline_entity_form
+    id: dropzonejs_media_inline_entity_form
