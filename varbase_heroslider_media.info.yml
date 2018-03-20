@@ -14,7 +14,7 @@ dependencies:
   - field_group
   - image
   - link
-  - media
+  - media_entity
   - menu_ui
   - node
   - page_manager

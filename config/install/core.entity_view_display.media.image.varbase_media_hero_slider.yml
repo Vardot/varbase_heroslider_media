@@ -4,7 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.varbase_media_hero_slider
     - field.field.media.image.field_image
-    - media.type.image
+    - media_entity.bundle.image
 id: media.image.varbase_media_hero_slider
 targetEntityType: media
 bundle: image
