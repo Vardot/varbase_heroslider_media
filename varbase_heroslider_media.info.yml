@@ -14,7 +14,7 @@ dependencies:
   - field_group
   - image
   - link
-  - media_entity
+  - media
   - menu_ui
   - node
   - page_manager
@@ -25,6 +25,7 @@ dependencies:
   - slick
   - slick_views
   - system
+  - tour
   - user
   - varbase_media
   - video_embed_field
