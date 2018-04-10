@@ -2,6 +2,7 @@ name: 'Media Hero Slider'
 description: 'This app will populate the universal implementation of a "Hero Slider" to be used on the homepage in most cases. A rich hero slider that allows you to display video and/or image slides.'
 type: module
 dependencies:
+  - varbase_media:varbase_media
   - block
   - block_class
   - block_content
@@ -27,7 +28,6 @@ dependencies:
   - system
   - tour
   - user
-  - varbase_media
   - video_embed_field
   - views
 package: Varbase
