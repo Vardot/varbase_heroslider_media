@@ -28,6 +28,7 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Slide information'
+      region: content
 id: node.varbase_heroslider_media.default
 targetEntityType: node
 bundle: varbase_heroslider_media
@@ -69,6 +70,20 @@ content:
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 1
@@ -86,6 +101,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  url_redirects:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   path: true
   promote: true

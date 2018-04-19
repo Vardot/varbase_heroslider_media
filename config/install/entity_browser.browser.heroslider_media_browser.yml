@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - media.type.image
+    - media.type.video
     - views.view.varbase_heroslider_media_browser
   module:
     - dropzonejs_eb_widget
@@ -43,11 +44,11 @@ widgets:
   42c2cb74-26e8-49b4-8a83-e343f1b5733f:
     settings:
       entity_type: media
-      bundle: video
+      bundle: video_embed
       form_mode: default
       submit_text: 'Embed video'
     uuid: 42c2cb74-26e8-49b4-8a83-e343f1b5733f
-    weight: -8
+    weight: -7
     label: 'Embed a video'
     id: entity_form
   1f088e55-f55c-42c2-b8c2-a64a405812a1:
@@ -60,7 +61,7 @@ widgets:
       clientside_resize: false
       resize_width: null
       resize_height: null
-      resize_quality: 1
+      resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
       submit_text: 'Select image'
@@ -69,4 +70,23 @@ widgets:
     uuid: 1f088e55-f55c-42c2-b8c2-a64a405812a1
     weight: -9
     label: 'Upload an image'
+    id: dropzonejs_media_entity
+  5b12624e-fabb-450a-bd3d-497c00ef04fd:
+    settings:
+      media_type: video
+      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      dropzone_description: 'Drop video files here to upload them'
+      max_filesize: 32M
+      extensions: mp4
+      clientside_resize: false
+      resize_width: null
+      resize_height: null
+      resize_quality: !!float 1
+      resize_method: contain
+      thumbnail_method: contain
+      submit_text: 'Select video'
+      auto_select: false
+    uuid: 5b12624e-fabb-450a-bd3d-497c00ef04fd
+    weight: -8
+    label: 'Upload a Video'
     id: dropzonejs_media_entity

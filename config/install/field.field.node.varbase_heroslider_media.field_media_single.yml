@@ -5,6 +5,7 @@ dependencies:
     - field.storage.node.field_media_single
     - media.type.image
     - media.type.video
+    - media.type.video_embed
     - node.type.varbase_heroslider_media
 id: node.varbase_heroslider_media.field_media_single
 field_name: field_media_single
@@ -21,6 +22,7 @@ settings:
   handler_settings:
     target_bundles:
       image: image
+      video_embed: video_embed
       video: video
     sort:
       field: _none
