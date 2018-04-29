@@ -45,11 +45,11 @@ widgets:
     settings:
       entity_type: media
       bundle: video_embed
-      form_mode: default
-      submit_text: 'Embed video'
+      form_mode: entity_browser
+      submit_text: Embed
     uuid: 42c2cb74-26e8-49b4-8a83-e343f1b5733f
     weight: -7
-    label: 'Embed a video'
+    label: Embed
     id: entity_form
   1f088e55-f55c-42c2-b8c2-a64a405812a1:
     settings:
@@ -64,12 +64,12 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Select image'
+      submit_text: 'Add image'
       auto_select: false
       form_mode: default
     uuid: 1f088e55-f55c-42c2-b8c2-a64a405812a1
     weight: -9
-    label: 'Upload an image'
+    label: 'Upload image'
     id: dropzonejs_media_entity
   5b12624e-fabb-450a-bd3d-497c00ef04fd:
     settings:
@@ -84,9 +84,9 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Select video'
+      submit_text: 'Add video'
       auto_select: false
     uuid: 5b12624e-fabb-450a-bd3d-497c00ef04fd
     weight: -8
-    label: 'Upload a Video'
+    label: 'Upload video'
     id: dropzonejs_media_entity
