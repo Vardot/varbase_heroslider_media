@@ -7,7 +7,7 @@ dependencies:
     - views.view.varbase_heroslider_media_browser
   module:
     - dropzonejs_eb_widget
-    - entity_browser_entity_form
+    - entity_browser_generic_embed
     - media
     - views
 name: heroslider_media_browser
@@ -41,16 +41,6 @@ widgets:
     weight: -10
     label: Library
     id: view
-  42c2cb74-26e8-49b4-8a83-e343f1b5733f:
-    settings:
-      entity_type: media
-      bundle: video_embed
-      form_mode: entity_browser
-      submit_text: Embed
-    uuid: 42c2cb74-26e8-49b4-8a83-e343f1b5733f
-    weight: -7
-    label: Embed
-    id: entity_form
   1f088e55-f55c-42c2-b8c2-a64a405812a1:
     settings:
       media_type: image
@@ -90,3 +80,11 @@ widgets:
     weight: -8
     label: 'Upload video'
     id: dropzonejs_media_entity
+  91fd896e-e8c5-415c-9d14-5bc59c60e630:
+    settings:
+      submit_text: 'Select media'
+      form_mode: media_browser
+    uuid: 91fd896e-e8c5-415c-9d14-5bc59c60e630
+    weight: 4
+    label: Embed
+    id: embed_code
