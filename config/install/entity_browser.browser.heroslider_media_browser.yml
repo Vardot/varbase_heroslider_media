@@ -14,9 +14,9 @@ name: heroslider_media_browser
 label: 'Heroslider Media Browser'
 display: modal
 display_configuration:
-  width: '750'
-  height: '550'
-  link_text: 'Select Media'
+  width: '1200'
+  height: ''
+  link_text: 'Select media'
   auto_open: false
 selection_display: no_display
 selection_display_configuration:
@@ -54,7 +54,7 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Add image'
+      submit_text: 'Select image(s)'
       auto_select: false
       form_mode: default
     uuid: 1f088e55-f55c-42c2-b8c2-a64a405812a1
@@ -66,7 +66,7 @@ widgets:
       media_type: video
       upload_location: 'public://[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop video files here to upload them'
-      max_filesize: 32M
+      max_filesize: 128M
       extensions: mp4
       clientside_resize: false
       resize_width: null
@@ -74,7 +74,7 @@ widgets:
       resize_quality: !!float 1
       resize_method: contain
       thumbnail_method: contain
-      submit_text: 'Add video'
+      submit_text: 'Select video(s)'
       auto_select: false
     uuid: 5b12624e-fabb-450a-bd3d-497c00ef04fd
     weight: -8
@@ -82,7 +82,7 @@ widgets:
     id: dropzonejs_media_entity
   91fd896e-e8c5-415c-9d14-5bc59c60e630:
     settings:
-      submit_text: 'Select media'
+      submit_text: 'Embed media'
       form_mode: media_browser
     uuid: 91fd896e-e8c5-415c-9d14-5bc59c60e630
     weight: 4
