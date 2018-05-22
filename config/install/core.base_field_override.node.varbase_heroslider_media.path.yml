@@ -3,15 +3,17 @@ status: true
 dependencies:
   config:
     - node.type.varbase_heroslider_media
-id: node.varbase_heroslider_media.title
-field_name: title
+  module:
+    - path
+id: node.varbase_heroslider_media.path
+field_name: path
 entity_type: node
 bundle: varbase_heroslider_media
-label: 'Slide title'
+label: 'URL alias'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string
+field_type: path

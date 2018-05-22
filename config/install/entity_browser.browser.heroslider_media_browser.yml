@@ -41,10 +41,19 @@ widgets:
     weight: -10
     label: Library
     id: view
-  1f088e55-f55c-42c2-b8c2-a64a405812a1:
+  91fd896e-e8c5-415c-9d14-5bc59c60e630:
     settings:
+      submit_text: 'Embed media'
+      form_mode: media_browser
+    uuid: 91fd896e-e8c5-415c-9d14-5bc59c60e630
+    weight: -7
+    label: Embed
+    id: embed_code
+  0a2903ed-f5ef-42bb-9041-fb3081f7f64e:
+    settings:
+      form_mode: entity_browser
       media_type: image
-      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      upload_location: 'public://images/[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop image files here to upload them'
       max_filesize: 32M
       extensions: 'jpg jpeg gif png'
@@ -55,19 +64,18 @@ widgets:
       resize_method: contain
       thumbnail_method: contain
       submit_text: 'Select image(s)'
-      auto_select: false
-      form_mode: default
-    uuid: 1f088e55-f55c-42c2-b8c2-a64a405812a1
+    uuid: 0a2903ed-f5ef-42bb-9041-fb3081f7f64e
     weight: -9
     label: 'Upload image'
-    id: dropzonejs_media_entity
-  5b12624e-fabb-450a-bd3d-497c00ef04fd:
+    id: dropzonejs_media_entity_inline_entity_form
+  c4c8ea33-b84d-49fe-9fb7-0992287b3c9e:
     settings:
+      form_mode: entity_browser
       media_type: video
-      upload_location: 'public://[date:custom:Y]-[date:custom:m]'
+      upload_location: 'public://videos/[date:custom:Y]-[date:custom:m]'
       dropzone_description: 'Drop video files here to upload them'
       max_filesize: 128M
-      extensions: mp4
+      extensions: 'mp4 webm ogg'
       clientside_resize: false
       resize_width: null
       resize_height: null
@@ -75,16 +83,7 @@ widgets:
       resize_method: contain
       thumbnail_method: contain
       submit_text: 'Select video(s)'
-      auto_select: false
-    uuid: 5b12624e-fabb-450a-bd3d-497c00ef04fd
+    uuid: c4c8ea33-b84d-49fe-9fb7-0992287b3c9e
     weight: -8
     label: 'Upload video'
-    id: dropzonejs_media_entity
-  91fd896e-e8c5-415c-9d14-5bc59c60e630:
-    settings:
-      submit_text: 'Embed media'
-      form_mode: media_browser
-    uuid: 91fd896e-e8c5-415c-9d14-5bc59c60e630
-    weight: 4
-    label: Embed
-    id: embed_code
+    id: dropzonejs_media_entity_inline_entity_form
