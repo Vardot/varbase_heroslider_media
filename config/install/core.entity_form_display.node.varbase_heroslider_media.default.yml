@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.heroslider_media_browser
+    - entity_browser.browser.media_browser
     - field.field.node.varbase_heroslider_media.field_brief
     - field.field.node.varbase_heroslider_media.field_link
     - field.field.node.varbase_heroslider_media.field_media_single
@@ -59,7 +59,7 @@ content:
   field_media_single:
     weight: 3
     settings:
-      entity_browser: heroslider_media_browser
+      entity_browser: media_browser
       field_widget_display: rendered_entity
       field_widget_edit: true
       field_widget_remove: true
@@ -67,6 +67,7 @@ content:
       selection_mode: selection_append
       field_widget_display_settings:
         view_mode: field_preview
+      field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content

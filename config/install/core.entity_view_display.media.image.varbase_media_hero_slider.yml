@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.varbase_media_hero_slider
     - field.field.media.image.field_media_image
+    - field.field.media.image.field_media_in_library
     - media.type.image
 id: media.image.varbase_media_hero_slider
 targetEntityType: media
@@ -13,6 +14,7 @@ content: {  }
 hidden:
   created: true
   field_media_image: true
+  field_media_in_library: true
   langcode: true
   name: true
   thumbnail: true
