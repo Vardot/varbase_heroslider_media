@@ -10,7 +10,6 @@ dependencies:
     - ds
     - field_group
     - link
-    - panelizer
     - user
 third_party_settings:
   ds:
@@ -44,11 +43,6 @@ third_party_settings:
         weight: 9
         label: hidden
         formatter: default
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   field_group:
     group_div:
       children:
