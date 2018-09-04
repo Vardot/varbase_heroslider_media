@@ -7,30 +7,8 @@ core: 8.x
 project: varbase_heroslider_media
 dependencies:
   - varbase_media
-  - block
-  - block_class
-  - block_content
-  - dropzonejs_eb_widget
-  - ds
-  - entity_browser
-  - entity_browser_entity_form
+  - varbase_seo
   - entityqueue
-  - field
-  - field_group
-  - image
-  - link
-  - media
-  - menu_ui
-  - node
-  - page_manager
-  - panels
-  - path
-  - rabbit_hole
   - slick
   - slick_views
-  - system
-  - tour
-  - user
-  - video_embed_field
-  - views
   
