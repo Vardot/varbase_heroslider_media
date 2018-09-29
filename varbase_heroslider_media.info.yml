@@ -6,9 +6,8 @@ version: 8.x-6.x-dev
 core: 8.x
 project: varbase_heroslider_media
 dependencies:
-  - varbase_media
-  - varbase_seo
-  - entityqueue
-  - slick
-  - slick_views
-  
+  - varbase_media:varbase_media
+  - varbase_seo:varbase_seo
+  - entityqueue:entityqueue
+  - slick:slick
+  - slick_views:slick_views
