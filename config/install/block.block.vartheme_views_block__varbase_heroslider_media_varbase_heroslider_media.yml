@@ -4,14 +4,10 @@ dependencies:
   config:
     - views.view.varbase_heroslider_media
   module:
-    - block_class
     - system
     - views
   theme:
     - vartheme
-third_party_settings:
-  block_class:
-    classes: ''
 id: vartheme_views_block__varbase_heroslider_media_varbase_heroslider_media
 theme: vartheme
 region: hero_slider
