@@ -7,7 +7,11 @@ core: 8.x
 project: varbase_heroslider_media
 dependencies:
   - varbase_media:varbase_media
-  - varbase_seo:varbase_seo
-  - entityqueue:entityqueue
   - slick:slick
   - slick_views:slick_views
+install:
+  - link
+  - menu_ui
+  - entityqueue
+  - rh_node
+  - field_group
