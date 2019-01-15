@@ -10,11 +10,51 @@
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
 }
+@media screen and (max-width: 767px) {
+  .varbase-heroslider-media .slick__arrow {
+    top: calc(300px/2);
+    transform: translateY(-calc(150px));
+  }
+}
+@media screen and (min-width: 768px) {
+  .varbase-heroslider-media .slick__arrow {
+    top: calc(600px/2);
+    transform: translateY(-calc(300px));
+  }
+}
+.varbase-heroslider-media .slick-prev {
+  left: 10px;
+  right: auto;
+}
+.varbase-heroslider-media [dir="rtl"] .slick-prev {
+  right: 10px;
+  left: auto;
+}
+.varbase-heroslider-media .slick-next {
+  right: 10px;
+  left: auto;
+}
+.varbase-heroslider-media [dir="rtl"] .slick-next {
+  left: 10px;
+  right: auto;
+}
 .varbase-heroslider-media .slide__link {
   margin: 10px auto;
 }
 .varbase-heroslider-media .slide__link a {
   color: #fff;
+}
+@media screen and (max-width: 767px) {
+  .varbase-heroslider-media .node--type-varbase-heroslider-media {
+    min-height: 300px;
+    max-height: 300px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .varbase-heroslider-media .node--type-varbase-heroslider-media {
+    min-height: 600px;
+    max-height: 600px;
+  }
 }
 .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .container .row {
   background-color: #000000;
@@ -32,7 +72,30 @@
   margin: 0;
   padding: 0;
   color: #fff;
-  font-size: 3em;
+}
+@media screen and (max-width: 767px) {
+  .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
+  .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
+    font-size: 3.3rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
+  .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
+    font-size: 57px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
+  .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
+    font-size: 57px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
+  .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
+    font-size: 57px;
+  }
 }
 .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-brief {
   bottom: 20%;
@@ -74,4 +137,9 @@ body .hero_slider {
   margin-bottom: 50px;
   position: relative;
   top: -20px;
+}
+@media screen and (max-width: 767px) {
+  body .hero_slider {
+    margin-top: 50px;
+  }
 }

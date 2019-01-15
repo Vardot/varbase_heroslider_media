@@ -1,7 +1,6 @@
 /* Varbase Hero slider media style */
 @import "../variables.less";
 .varbase-heroslider-media {
-
   .slide__caption {
     .slide__title {
       a {
@@ -20,6 +19,35 @@
       background-color: @hero-content-background-color2;
       border-radius: 50%;
     }
+
+    @media screen and (max-width: @screen-xs-max) {
+      top: calc(@hero-max-height-xs/2);
+      transform: translateY(-calc(@hero-max-height-xs/2));
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+      top: calc(@hero-min-height-sm/2);
+      transform: translateY(-calc(@hero-min-height-sm/2));
+    }
+
+  }
+
+  .slick-prev {
+    left: @hero-arrow-gatter;
+    right: auto;
+  }
+  [dir="rtl"] .slick-prev {
+    right: @hero-arrow-gatter;
+    left: auto;
+  }
+
+  .slick-next {
+    right: @hero-arrow-gatter;
+    left: auto;
+  }
+  [dir="rtl"] .slick-next {
+    left: @hero-arrow-gatter;
+    right: auto;
   }
 
   .slide__link {
@@ -31,6 +59,17 @@
   }
 
   .node--type-varbase-heroslider-media {
+
+    @media screen and (max-width: @screen-xs-max) {
+      min-height: @hero-min-height-xs;
+      max-height: @hero-max-height-xs;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+      min-height: @hero-min-height-sm;
+      max-height: @hero-max-height-sm;
+    }
+
     .hero-slide-content {
       .container {
         .row {
@@ -52,7 +91,22 @@
           margin: 0;
           padding: 0;
           color: @hero-title-text-color;
-          font-size: @hero-xlarge-title-font-size;
+
+          @media screen and (max-width: @screen-xs-max) {
+            font-size: @hero-xlarge-title-font-size-xs;
+          }
+
+          @media screen and (min-width: @screen-sm-min) {
+            font-size: @hero-xlarge-title-font-size-sm;
+          }
+
+          @media screen and (min-width: @screen-md-min) {
+            font-size: @hero-xlarge-title-font-size-md;
+          }
+
+          @media screen and (min-width: @screen-lg-min) {
+            font-size: @hero-xlarge-title-font-size-lg;
+          }
         }
       }
 
@@ -104,4 +158,7 @@ body .hero_slider {
   margin-bottom: 50px;
   position: relative;
   top: -20px;
+  @media screen and (max-width: @screen-xs-max) {
+    margin-top: @navbar-height;
+  }
 }
