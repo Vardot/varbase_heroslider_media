@@ -3,73 +3,62 @@
  * Behaviors of Varbase hero slider media for Youtube video scripts.
  */
 
-(function ($, _, Drupal, drupalSettings) {
+(function ($, Drupal) {
   "use strict";
+
   Drupal.behaviors.varbaseHeroSliderMedia_youtube = {
     attach: function (context, settings) {
       $(window).on('load', function () {
-
-        // Youtube API.
-        var yotubePlayer;
-        yotubePlayer = new YT.Player('youtubeVideo', {
-          events: {
-            'onStateChange': onPlayerStateChange,
-            'onReady': onPlayerReady
-          }
-        });
-
-        // Play youtube video on ready.
-        function onPlayerReady() {
-          var firstSlideVideo = $('.slick--view--varbase-heroslider-media .slick__slider .slick-active').find('.media-video').length !== 0;
-          if (firstSlideVideo) {
-            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPause');
-            yotubePlayer.playVideo();
-          } else {// if hero slider has one Slide
-            var onlySlide = $('.slick--view--varbase-heroslider-media .slick').find('.media-video').length !== 0;
-            if (onlySlide) {
-              yotubePlayer.playVideo();
-            }
-          }
-        }
-
-        // Video status.
-        function onPlayerStateChange(event) {
-          if (event.data === 0) { // On finish
-            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPlay');
-          } else if (event.data === 1) { // On playing
-            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPause');
-          } else if (event.data === 2) { // Onpause
-            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPause');
-          }
-        }
-
+        // On before slide change.
         $('.slick--view--varbase-heroslider-media .slick__slider', context).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          var currentSlideObject = $('.slick--view--varbase-heroslider-media .slide--' + currentSlide + '.slick-active');
-          var nextSlideObject = $('.slick--view--varbase-heroslider-media .slide--' + nextSlide);
-          var currentIframe = currentSlideObject.find('.varbase-video-player #youtubeVideo', context);
-          var nextIframe = nextSlideObject.find('.varbase-video-player #youtubeVideo', context);
+          var currentSlideObject = $('.slide--' + currentSlide + '.slick-active');
+          var nextSlideObject = $('.slide--' + nextSlide);
+          var currentVideo = currentSlideObject.find('.varbase-video-player iframe[src*="youtube.com"]', context);
+          var nextVideo = nextSlideObject.find('.varbase-video-player iframe[src*="youtube.com"]', context);
 
-          if (currentIframe.length !== 0) {
-            yotubePlayer.a = currentIframe.get(0);
-            yotubePlayer.pauseVideo();
+          if (currentVideo.length > 0) {
+            var currentPlayer = currentVideo.get(0).contentWindow;
+            currentPlayer.postMessage('pause_youtube', Drupal.url().toAbsolute);
           }
 
-          if (nextIframe.length !== 0) {
-            yotubePlayer.a = nextIframe.get(0);
-            yotubePlayer.playVideo();
+          if (nextVideo.length > 0) {
+            var nextPlayer = nextVideo.get(0).contentWindow;
+            nextPlayer.postMessage('play_youtube', Drupal.url().toAbsolute);
+          }
+        });
+       
+        // When first slide has a video (Pause the slider and play the video).       
+        $('.slick--view--varbase-heroslider-media', context).once('.slick-active').each(function () {
+          var firstIframeVideo = $(this).find('.varbase-video-player iframe[src*="youtube.com"]', context);
+
+          if (firstIframeVideo.length > 0) {
+            $('.slick__slider').slick('slickPause');
+            var firstIframeVideoPlayer = firstIframeVideo.get(0).contentWindow;
+            firstIframeVideoPlayer.postMessage('play_youtube', Drupal.url().toAbsolute);
           }
         });
 
-        // When first slide has a video (Pause the slider and play the video).
-        $('.slick--view--varbase-heroslider-media .varbase-video-player #youtubeVide').on("load", function () {
-          var firstSlideVideo = $('.slick--view--varbase-heroslider-media .slick__slider .slick-active').find('.media-video').length !== 0;
-          if (firstSlideVideo) {
-            $('.slick--view--varbase-heroslider-media .slick__slider').slick('slickPause');
-            yotubePlayer.playVideo();
+
+        
+        function youtubeActionProcessor(e) {
+          if (e.data === "ended_youtube" || e.message === "ended_youtube") {
+            $('.slick__slider').slick('slickPlay');
           }
-        });
+          else {
+            $('.slick__slider').slick('slickPause');
+          }
+        }
+        
+        // Setup the event listener for messaging.
+        if (window.addEventListener) {
+          window.addEventListener("message", youtubeActionProcessor, false);
+        }
+        else {
+          window.attachEvent("onmessage", youtubeActionProcessor);
+        }
+        
+        
       });
     }
   };
-
-})(window.jQuery, window._, window.Drupal, window.drupalSettings);
+})(window.jQuery, window.Drupal);

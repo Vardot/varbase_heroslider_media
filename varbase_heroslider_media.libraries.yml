@@ -3,8 +3,6 @@ general-styling:
   css:
     component:
       css/component/varbase-heroslider-media.component.css: { }
-    theme:
-      css/theme/varbase-heroslider-media.theme.css: { }
         
 # Varbase hero slider media default general scripts.
 general-scripts:
