@@ -18,12 +18,12 @@
 
           if (currentVideo.length > 0) {
             var currentPlayer = currentVideo.get(0).contentWindow;
-            currentPlayer.postMessage('pause_youtube', Drupal.url().toAbsolute);
+            currentPlayer.postMessage('pause', Drupal.url().toAbsolute);
           }
 
           if (nextVideo.length > 0) {
             var nextPlayer = nextVideo.get(0).contentWindow;
-            nextPlayer.postMessage('play_youtube', Drupal.url().toAbsolute);
+            nextPlayer.postMessage('play', Drupal.url().toAbsolute);
           }
         });
        
@@ -34,14 +34,12 @@
           if (firstIframeVideo.length > 0) {
             $('.slick__slider').slick('slickPause');
             var firstIframeVideoPlayer = firstIframeVideo.get(0).contentWindow;
-            firstIframeVideoPlayer.postMessage('play_youtube', Drupal.url().toAbsolute);
+            firstIframeVideoPlayer.postMessage('play', Drupal.url().toAbsolute);
           }
         });
 
-
-        
         function youtubeActionProcessor(e) {
-          if (e.data === "ended_youtube" || e.message === "ended_youtube") {
+          if (e.data === "ended" || e.message === "ended") {
             $('.slick__slider').slick('slickPlay');
           }
           else {

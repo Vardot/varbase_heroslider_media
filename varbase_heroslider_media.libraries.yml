@@ -2,7 +2,7 @@
 general-styling:
   css:
     component:
-      css/component/varbase-heroslider-media.component.css: { }
+      css/components/varbase-heroslider-media.component.css: { }
         
 # Varbase hero slider media default general scripts.
 general-scripts:
@@ -20,20 +20,30 @@ general-scripts:
 # Behaviors of Varbase hero slider media for local video scripts.
 local_video_slider:
   js:
-    js/video.heroslider.local-video.js: { }
+    js/video.heroslider.local.js: { }
   dependencies:
     - slick/slick
 
 # Behaviors of Varbase hero slider media for Youtube video scripts.
 youtube_video_slider:
   js:
-    js/video.heroslider.youtube-video.js: { }
+    js/video.heroslider.youtube.js: { }
   dependencies:
     - varbase_media/youtube_player
 
 # Behaviors of Varbase hero slider media for vimeo embeded videos scripts.
 vimeo_video_slider:
   js:
-    js/video.heroslider.vimeo-video.js: { }
+    js/video.heroslider.vimeo.js: { }
   dependencies:
     - varbase_media/vimeo_player
+
+# Oembed frame for Youtube video behaviors.
+oembed-frame-video-youtube:
+  js:
+    js/oembed-frame.heroslider.youtube.js: { }
+
+# Oembed frame for Vimeo video behaviors.
+oembed-frame-video-youtube:
+  js:
+    js/oembed-frame.heroslider.vimeo.js: { }
