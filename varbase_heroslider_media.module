@@ -12,39 +12,32 @@ use Drupal\views\ViewExecutable;
 /**
  * Implements hook_theme().
  */
-function varbase_heroslider_media_theme() {
+function varbase_heroslider_media_theme($existing, $type, $theme, $path) {
   return [
     'node__varbase_heroslider_media' => [
       'template' => 'node--varbase-heroslider-media',
       'base hook' => 'node',
     ],
+    'media_oembed_iframe' => [
+      'template' => 'media-oembed-iframe--heroslider',
+    ],
   ];
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK_alter().
+ * Implements hook_theme_suggestions_media_oembed_iframe_alter().
  */
-function varbase_heroslider_media_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+function varbase_heroslider_media_theme_suggestions_media_oembed_iframe_alter(array &$suggestions, array &$variables) {
 
-  if ($hook == 'media_oembed_iframe') {
-    if (isset($variables['provider_name'])) {
-        $suggestions[] = 'media-oembed-iframe--heroslider';
-        $suggestions[] = 'media-oembed-iframe--heroslider--remote-video--provider--' . $variables['provider_name'];
-    }
+  if (isset($variables['provider_name'])) {
+    $suggestions[] = 'media-oembed-iframe--heroslider';
+    $suggestions[] = 'media-oembed-iframe--heroslider--provider--' . $variables['provider_name'];
   }
-}
 
-/**
- * Implements hook_theme_registry_alter().
- */
-function varbase_heroslider_media_theme_registry_alter(&$theme_registry) {
+  $variables['module_handler_path'] = \Drupal::service('module_handler')->getModule("varbase_heroslider_media")->getPath();
+  $variables['theme_handler_path'] = \Drupal::theme()->getActiveTheme()->getPath();
+  $variables['base_path'] = base_path();
 
-  if (isset($theme_registry['media_oembed_iframe'])) {
-    $theme_registry['media_oembed_iframe']['path'] = drupal_get_path('module', 'varbase_heroslider_media') . '/templates';
-    $theme_registry['media_oembed_iframe']['template'] = 'media-oembed-iframe--heroslider';
-    $theme_registry['media_oembed_iframe']['theme path'] = \Drupal::service('module_handler')->getModule("varbase_heroslider_media")->getPath();
-    $theme_registry['media_oembed_iframe']['variables']['module_handler_path'] = \Drupal::service('module_handler')->getModule("varbase_heroslider_media")->getPath();
-    $theme_registry['media_oembed_iframe']['variables']['theme_handler_path'] = \Drupal::theme()->getActiveTheme()->getPath();
-    $theme_registry['media_oembed_iframe']['variables']['base_path'] = base_path();
-  }
+  return $suggestions;
+
 }
