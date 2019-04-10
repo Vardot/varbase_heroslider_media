@@ -45,8 +45,9 @@ ready(function() {
           youtubeURL = youtubeURL + "&cc_load_policy=1";  // Hide closed captions
           youtubeURL = youtubeURL + "&iv_load_policy=1";  // Hide the Video Annotations
           youtubeURL = youtubeURL + "&volume=0";
+          youtubeURL = youtubeURL + "&rel=0";
           youtube_iframe.src = youtubeURL;
-          youtubeURL = undefined; 
+          youtubeURL = undefined;
 
           youtube_player = new YT.Player(youtube_iframe.id, {
             playerVars: {
@@ -56,7 +57,8 @@ ready(function() {
               modestbranding: 1,  // Hide the Youtube Logo
               loop: 1,            // Run the video in a loop
               fs: 0,              // Hide the full screen button
-              autohide: 0         // Hide video controls when playing
+              autohide: 0,        // Hide video controls when playing
+              rel: 0,             // Hide related videos
             },
             events: {
               'onReady': onPlayerReady,
@@ -86,6 +88,9 @@ ready(function() {
           }
 
           player_confgured = true;
+        }else{
+          youtube_player.seekTo(0);
+          youtube_player.playVideo();
         }
 
       }

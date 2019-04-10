@@ -26,11 +26,10 @@
             nextPlayer.postMessage('play', Drupal.url().toAbsolute);
           }
         });
-       
-        // When first slide has a video (Pause the slider and play the video).       
-        $('.slick--view--varbase-heroslider-media', context).once('.slick-active').each(function () {
-          var firstIframeVideo = $(this).find('.varbase-video-player iframe[src*="youtube.com"]', context);
 
+        // When first slide has a video (Pause the slider and play the video).
+        $('.slick--view--varbase-heroslider-media', context).once('.slick-active').each(function () {
+          var firstIframeVideo = $(this).find('.slide--0 .varbase-video-player iframe[src*="youtube.com"]', context);
           if (firstIframeVideo.length > 0) {
             $('.slick__slider').slick('slickPause');
             var firstIframeVideoPlayer = firstIframeVideo.get(0).contentWindow;
@@ -46,7 +45,7 @@
             $('.slick__slider').slick('slickPause');
           }
         }
-        
+
         // Setup the event listener for messaging.
         if (window.addEventListener) {
           window.addEventListener("message", youtubeActionProcessor, false);
@@ -54,8 +53,8 @@
         else {
           window.attachEvent("onmessage", youtubeActionProcessor);
         }
-        
-        
+
+
       });
     }
   };
