@@ -31,13 +31,15 @@ ready(function() {
     if (evt.data === "play") {
       if (!player_confgured) {
         var vimeo_iframe = document.querySelector('iframe[src*="vimeo.com"]');
-        
+
         var vimeo_options = {
             background: true,
-            muted: false
+            muted: true,
+            controls: false
         };
-        
+
         vimeo_player = new Vimeo.Player(vimeo_iframe, vimeo_options);
+        vimeo_player.setVolume(0);
         vimeo_player.on('ended', function() {
           window.parent.postMessage("ended", "*");
           vimeo_player.play();

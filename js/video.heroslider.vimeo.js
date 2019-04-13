@@ -28,8 +28,8 @@
         });
 
         // When first slide has a video (Pause the slider and play the video).
-        $('.slick--view--varbase-heroslider-media', context).once('.slick-active').each(function () {
-          var firstIframeVideo = $(this).find('.varbase-video-player iframe[src*="vimeo.com"]', context);
+        $('.slick--view--varbase-heroslider-media', context).each(function () {
+          var firstIframeVideo = $(this).find('.slide').first().find('.varbase-video-player iframe[src*="vimeo.com"]', context);
 
           if (firstIframeVideo.length > 0) {
             $('.slick__slider').slick('slickPause');
@@ -46,7 +46,7 @@
             $('.slick__slider').slick('slickPause');
           }
         }
-        
+
         // Setup the event listener for messaging.
         if (window.addEventListener) {
           window.addEventListener("message", vimeoActionProcessor, false);
@@ -54,7 +54,7 @@
         else {
           window.attachEvent("onmessage", vimeoActionProcessor);
         }
- 
+
       });
     }
   };

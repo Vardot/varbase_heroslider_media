@@ -28,8 +28,8 @@
         });
 
         // When first slide has a video (Pause the slider and play the video).
-        $('.slick--view--varbase-heroslider-media', context).once('.slick-active').each(function () {
-          var firstIframeVideo = $(this).find('.slide--0 .varbase-video-player iframe[src*="youtube.com"]', context);
+        $('.slick--view--varbase-heroslider-media', context).each(function () {
+          var firstIframeVideo = $(this).find('.slide').first().find('.varbase-video-player iframe[src*="youtube.com"]', context);
           if (firstIframeVideo.length > 0) {
             $('.slick__slider').slick('slickPause');
             var firstIframeVideoPlayer = firstIframeVideo.get(0).contentWindow;
