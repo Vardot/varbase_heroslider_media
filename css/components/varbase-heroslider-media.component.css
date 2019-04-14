@@ -170,7 +170,11 @@
   }
 }
 .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .varbase-video-player.embed-responsive {
-  position: unset;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .varbase-video-player.embed-responsive .embed-responsive-item,
 .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .varbase-video-player.embed-responsive video {
@@ -203,11 +207,6 @@
   left: 0;
   width: 100%;
 }
-.varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media iframe iframe {
-  top: 0;
-  left: 0;
-  width: 100%;
-}
 @media (min-aspect-ratio: 1.77777778) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single img {
     height: 300%;
@@ -226,10 +225,6 @@
     top: -100%;
   }
   .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media iframe {
-    height: 300%;
-    top: -100%;
-  }
-  .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media iframe iframe {
     height: 300%;
     top: -100%;
   }
@@ -252,10 +247,6 @@
     left: -100%;
   }
   .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media iframe {
-    width: 300%;
-    left: -100%;
-  }
-  .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media iframe iframe {
     width: 300%;
     left: -100%;
   }
@@ -300,17 +291,9 @@
     object-fit: cover;
   }
   .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media iframe {
-    top: 0;
+    position: absolute;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media iframe iframe {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
     object-fit: cover;
   }
 }

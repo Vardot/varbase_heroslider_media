@@ -30,6 +30,7 @@ ready(function() {
     // Manage Youtube video.
     if (evt.data === "play") {
       var youtube_iframe = document.querySelector('iframe[src*="youtube.com"]');
+      console.log("youtube_iframe", evt.data);
       if (youtube_iframe !== undefined && youtube_iframe.src !== undefined) {
 
         if (!player_confgured) {
@@ -82,8 +83,10 @@ ready(function() {
             }
 
             if (event.data === YT.PlayerState.ENDED) {
-              window.parent.postMessage("ended", "*");
-              youtube_player.playVideo();
+              window.parent.postMessage("endedYoutube", "*");
+              youtube_player.pauseVideo();
+            }else{
+              window.parent.postMessage("playingYoutube", "*");
             }
           }
 
@@ -95,7 +98,7 @@ ready(function() {
 
       }
     }
-    else if (evt.data === "pause") {
+    else if (evt.data  === "pause") {
       if (player_confgured) {
         youtube_player.pauseVideo();
         youtube_player.isPlaying = false;

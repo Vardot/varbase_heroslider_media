@@ -41,8 +41,12 @@ ready(function() {
         vimeo_player = new Vimeo.Player(vimeo_iframe, vimeo_options);
         vimeo_player.setVolume(0);
         vimeo_player.on('ended', function() {
-          window.parent.postMessage("ended", "*");
-          vimeo_player.play();
+          window.parent.postMessage("endedVimeo", "*");
+          vimeo_player.pause();
+        });
+
+        vimeo_player.on('play', function() {
+          window.parent.postMessage("playingVimeo", "*");
         });
         player_confgured = true;
       }

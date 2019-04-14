@@ -24,6 +24,8 @@
           if (nextVideo.length > 0) {
             var nextPlayer = nextVideo.get(0).contentWindow;
             nextPlayer.postMessage('play', Drupal.url().toAbsolute);
+          }else{
+            $('.slick__slider').slick('slickPlay');
           }
         });
 
@@ -38,8 +40,8 @@
         });
 
         function youtubeActionProcessor(e) {
-          if (e.data === "ended" || e.message === "ended") {
-            $('.slick__slider').slick('slickPlay');
+          if (e.data === "endedYoutube" || e.message === "endedYoutube") {
+            $('.slick__slider').slick('slickNext');
           }
           else {
             $('.slick__slider').slick('slickPause');

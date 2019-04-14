@@ -29,10 +29,12 @@
           if (nextVideo.length > 0) {
             var nextPlayer = nextVideo.get(0);
             nextPlayer.muted = true;
-            nextPlayer.onpause = onPause();
-            nextPlayer.onended = onFinish();
-            nextPlayer.onplay = onPlayProgress();
+            nextPlayer.onpause = onPause;
+            nextPlayer.onended = onFinish;
+            nextPlayer.onplay = onPlayProgress;
             nextPlayer.play();
+          }else{
+            $('.slick__slider').slick('slickPlay');
           }
         });
 
@@ -65,14 +67,14 @@
 
           // When the player is ready, add listeners for pause, finish,
           // and playProgress.
-          player.onpause = onPause();
-          player.onended = onFinish();
-          player.onplay = onPlayProgress();
+          player.onpause = onPause ;
+          player.onended = onFinish ;
+          player.onplay = onPlayProgress ;
         }
 
         // Play when paused.
         function onPause() {
-          $('.slick__slider').slick('slickPlay');
+          $('.slick__slider').slick('slickNext');
         }
 
         // Play when finished.
