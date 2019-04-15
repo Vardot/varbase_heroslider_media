@@ -30,7 +30,6 @@ ready(function() {
     // Manage Youtube video.
     if (evt.data === "play") {
       var youtube_iframe = document.querySelector('iframe[src*="youtube.com"]');
-      console.log("youtube_iframe", evt.data);
       if (youtube_iframe !== undefined && youtube_iframe.src !== undefined) {
 
         if (!player_confgured) {
