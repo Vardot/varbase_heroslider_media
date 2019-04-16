@@ -33,7 +33,8 @@
             nextPlayer.onended = onFinish;
             nextPlayer.onplay = onPlayProgress;
             nextPlayer.play();
-          }else{
+          }
+          else {
             $('.slick__slider').slick('slickPlay');
           }
         });

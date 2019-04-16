@@ -24,7 +24,8 @@
           if (nextVideo.length > 0) {
             var nextPlayer = nextVideo.get(0).contentWindow;
             nextPlayer.postMessage('play', "*");
-          }else{
+          }
+          else {
             $('.slick__slider').slick('slickPlay');
           }
         });
@@ -55,7 +56,6 @@
         else {
           window.attachEvent("onmessage", youtubeActionProcessor);
         }
-
 
       });
     }

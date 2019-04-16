@@ -1,3 +1,7 @@
+/**
+ * @file
+ * Behaviors of Youtube player in the Hero slider OEmbed iframe.
+ */
 
 function ready(fn) {
   if (document.readyState != 'loading'){

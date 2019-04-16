@@ -1,3 +1,7 @@
+/**
+ * @file
+ * Behaviors of Vimeo player in the Hero slider OEmbed iframe.
+ */
 
 function ready(fn) {
   if (document.readyState != 'loading'){
@@ -12,6 +16,7 @@ function ready(fn) {
   }
 }
 
+// Load the Vimeo API library.
 var tag = document.createElement('script');
 tag.src = "//player.vimeo.com/api/player.js";
 var firstScriptTag = document.getElementsByTagName('script')[0];
