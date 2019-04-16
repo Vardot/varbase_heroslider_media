@@ -28,15 +28,11 @@ local_video_slider:
 youtube_video_slider:
   js:
     js/video.heroslider.youtube.js: { }
-  dependencies:
-    - varbase_media/youtube_player
 
 # Behaviors of Varbase hero slider media for vimeo embeded videos scripts.
 vimeo_video_slider:
   js:
     js/video.heroslider.vimeo.js: { }
-  dependencies:
-    - varbase_media/vimeo_player
 
 # Oembed frame for Youtube video behaviors.
 oembed-frame-video-youtube:
