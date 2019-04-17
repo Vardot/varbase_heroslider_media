@@ -34,8 +34,7 @@
     "drupal/varbase_media": "^6.6",
     "drupal/entityqueue": "~1.0",
     "drupal/rabbit_hole": "~1.0",
-    "drupal/field_group": "~3.0",
-    "embed/embed": "^3.3"
+    "drupal/field_group": "~3.0"
   },
   "extra": {
     "branch-alias": {
