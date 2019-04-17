@@ -75,6 +75,21 @@
 {{ attach_library('varbase_heroslider_media/general-styling') }}
 {{ attach_library('varbase_heroslider_media/general-scripts') }}
 
+{# The the node has the media single field for the slide #}
+{% if node.hasField('field_media_single') %}
+  {% set media_entity_type = node.field_media_single.entity.bundle() %}
+
+  {# If the media type is local video #}
+  {% if media_entity_type == "video" %}
+    {{ attach_library('varbase_heroslider_media/local_video_slider') }}
+
+  {# If the media type is remote video with oembed #}
+  {% elseif media_entity_type == "remote_video" %}
+    {{ attach_library('varbase_heroslider_media/youtube_video_slider') }}
+    {{ attach_library('varbase_heroslider_media/vimeo_video_slider') }}
+  {% endif %}
+{% endif %}
+
 {# The template default set classes. #}
 {%
 set classes = [
