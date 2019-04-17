@@ -14,6 +14,17 @@ use Drupal\media\Entity;
 use Drupal\media\Entity\Media;
 
 /**
+* Implements hook_views_pre_render().
+*/
+function varbase_heroslider_media_views_pre_render(ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'varbase_heroslider_media')
+      && count($view->result) < 1) {
+    // Default empty view style.
+    $view->element['#attached']['library'][] = 'varbase_heroslider_media/view-empty';
+  }
+}
+
+/**
  * Implements hook_theme().
  */
 function varbase_heroslider_media_theme($existing, $type, $theme, $path) {

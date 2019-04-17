@@ -14,6 +14,12 @@ general-scripts:
     - core/jquery.once
     - slick/slick
 
+# Default empty view style.
+view-empty:
+  css:
+    component:
+      css/components/varbase-heroslider-media.view-empty.component.css: { }
+
 # Behaviors of Varbase hero slider media for local video scripts.
 local_video_slider:
   js:
