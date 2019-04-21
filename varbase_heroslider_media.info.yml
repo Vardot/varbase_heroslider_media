@@ -15,3 +15,6 @@ install:
   - entityqueue
   - rh_node
   - field_group
+  - length_indicator
+  - advanced_text_formatter
+  - maxlength
