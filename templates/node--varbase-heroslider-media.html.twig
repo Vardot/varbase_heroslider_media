@@ -93,17 +93,17 @@
 set classes = [
   'node',
   'node--type-' ~ node.bundle|clean_class,
-  view_mode ? 'node--view-mode--' ~ view_mode|clean_class
+  view_mode ? 'node--view-mode--' ~ view_mode|clean_class,
 ]
 %}
 {% if page %}
-{% set page_extra_attributes = create_attribute() %}
-{%
-  set page_extra_classes = [
-   'varbase-heroslider-media',
-   'bg-edge2edge',
-  ]
-%}
+  {% set page_extra_attributes = create_attribute() %}
+  {%
+    set page_extra_classes = [
+     'varbase-heroslider-media',
+     'bg-edge2edge',
+    ]
+  %}
 <div{{ page_extra_attributes.addClass(page_extra_classes) }}>
 {% endif %}
 <div{{ attributes.addClass(classes) }}>
