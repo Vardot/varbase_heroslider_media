@@ -15,11 +15,6 @@
           var nextSlideObject = $('.slide--' + nextSlide);
           var currentVideo = currentSlideObject.find('.varbase-video-player video', context);
           var nextVideo = nextSlideObject.find('.varbase-video-player video', context);
-          var nextCoverImage = nextSlideObject.find('.media-cover-image', context);
-
-          if (nextCoverImage.length > 0){
-            nextCoverImage.hide();
-          }
 
           if (currentVideo.length > 0) {
             var currentPlayer = currentVideo.get(0);
@@ -42,11 +37,6 @@
         // When first slide has a video (Pause the slider and play the video).
         $('.slick--view--varbase-heroslider-media', context).each(function () {
           var firstVideo = $(this).find('.slide').first().find('.varbase-video-player video', context);
-          var firstCoverImage = $(this).find('.slide').first().find('.media-cover-image', context);
-
-          if (firstCoverImage.length > 0){
-            firstCoverImage.hide();
-          }
 
           if (firstVideo.length > 0) {
             $('.slick__slider').slick('slickPause');

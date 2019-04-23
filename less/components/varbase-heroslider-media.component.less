@@ -1,6 +1,9 @@
 /* Varbase Hero slider media style */
 @import "../variables.less";
 .varbase-heroslider-media {
+  position: relative;
+  overflow: hidden;
+
   .slick-slide {
     .slide__caption {
       position: absolute;
@@ -196,6 +199,7 @@
       .contextual-region{
         position: unset;
       }
+
       .varbase-video-player {
         &.embed-responsive {
           position: relative;
@@ -205,15 +209,10 @@
           left: 50%;
           transform: translateY(-50%) translateX(-50%);
           padding-bottom: 0;
-
-          .embed-responsive-item,
-          video {
-            position: unset;
-          }
         }
       }
 
-      .field--type-image{
+      .field--type-image {
         position: absolute;
         top: 0px;
         left: 0px;
@@ -255,9 +254,7 @@
       }
 
       /* 1. No object-fit support: */
-      @media (min-aspect-ratio: 16/9) {
-      }
-      @media (max-aspect-ratio: 16/9) {
+      @media (max-aspect-ratio: ~"16/9") {
         .varbase-video-player {
           &.embed-responsive {
             position: relative;
@@ -273,14 +270,15 @@
       /* 2. If supporting object-fit, overriding (1): */
       @supports (object-fit: cover) {
         img {
-          @media screen and (min-width: @screen-sm-min) {
-            position: unset;
-          }
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
           object-fit: cover;
+
+          @media screen and (min-width: @screen-sm-min) {
+            position: unset;
+          }
         }
 
         .media {
@@ -291,14 +289,15 @@
           object-fit: cover;
 
           img {
-            @media screen and (min-width: @screen-sm-min) {
-              position: unset;
-            }
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+
+            @media screen and (min-width: @screen-sm-min) {
+              position: unset;
+            }
           }
 
           video {
@@ -312,7 +311,6 @@
           iframe {
             position: absolute;
             left: 0;
-            width: 100vw;
             object-fit: cover;
           }
         }
