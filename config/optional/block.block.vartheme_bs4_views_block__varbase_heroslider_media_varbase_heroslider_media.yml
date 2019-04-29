@@ -7,9 +7,9 @@ dependencies:
     - system
     - views
   theme:
-    - vartheme
-id: vartheme_views_block__varbase_heroslider_media_varbase_heroslider_media
-theme: vartheme
+    - vartheme_bs4
+id: vartheme_bs4_views_block__varbase_heroslider_media_varbase_heroslider_media
+theme: vartheme_bs4
 region: hero_slider
 weight: 0
 provider: null
