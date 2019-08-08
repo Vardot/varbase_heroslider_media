@@ -7,10 +7,10 @@ function ready(fn) {
   if (document.readyState != 'loading') {
     fn();
   }
-else if (document.addEventListener) {
+  else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', fn);
   }
-else {
+  else {
     document.attachEvent('onreadystatechange', function () {
       if (document.readyState != 'loading') {
         fn();
@@ -92,14 +92,14 @@ ready(function () {
               window.parent.postMessage("endedYoutube", "*");
               youtube_player.pauseVideo();
             }
-else {
+            else {
               window.parent.postMessage("playingYoutube", "*");
             }
           }
 
           player_confgured = true;
         }
-else {
+        else {
           youtube_player.seekTo(0);
           youtube_player.playVideo();
         }
