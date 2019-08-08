@@ -45,7 +45,7 @@
             firstVideoPlayer.muted = true;
             firstVideoPlayer.play();
 
-            firstVideo.on('ended',function(){
+            firstVideo.on('ended',function () {
               $('.slick__slider').slick('slickPlay');
             });
 
@@ -58,9 +58,9 @@
 
           // When the player is ready, add listeners for pause, finish,
           // and playProgress.
-          player.onpause = onPause ;
-          player.onended = onFinish ;
-          player.onplay = onPlayProgress ;
+          player.onpause = onPause;
+          player.onended = onFinish;
+          player.onplay = onPlayProgress;
         }
 
         // Play when paused.

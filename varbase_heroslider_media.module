@@ -5,17 +5,12 @@
  * The varbase_heroslider_media.module.
  */
 
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\views\ViewExecutable;
-use Drupal\Core\Entity\Entity\EntityViewDisplay;
-use Drupal\Core\Url;
-use Drupal\media\Entity;
 use Drupal\media\Entity\Media;
 
 /**
-* Implements hook_views_pre_render().
-*/
+ * Implements hook_views_pre_render().
+ */
 function varbase_heroslider_media_views_pre_render(ViewExecutable $view) {
   if (isset($view) && ($view->storage->id() == 'varbase_heroslider_media')
       && count($view->result) < 1) {
@@ -34,8 +29,8 @@ function varbase_heroslider_media_theme($existing, $type, $theme, $path) {
       'base hook' => 'node',
     ],
     'media_oembed_iframe__remote_video__varbase_media_hero_slider' => [
-      'template' => 'media-oembed-iframe--remote-video--varbase-media-hero-slider'
-    ]
+      'template' => 'media-oembed-iframe--remote-video--varbase-media-hero-slider',
+    ],
   ];
 }
 

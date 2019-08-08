@@ -6,7 +6,6 @@
  */
 
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Config;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\FileStorage;
@@ -20,8 +19,8 @@ function varbase_heroslider_media_install() {
   $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
 
   // Processer for install: in [$module_name].info.yml file.
-  // ---------------------------------------------------------------------------
-  $module_info_file = $module_path . '/'. $module_name . '.info.yml';
+  // --------------------------------------------------------------------------.
+  $module_info_file = $module_path . '/' . $module_name . '.info.yml';
   if (file_exists($module_info_file)) {
     $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
     if (isset($module_info_data['install'])
@@ -40,7 +39,6 @@ function varbase_heroslider_media_install() {
     $config_installer->installOptionalConfig($storage, '');
     // Have the .settings.yml configs into the active config.
     $settings_config_files = file_scan_directory($optional_install_path, '/^.*\\.(settings.yml)$/i');
-    $settings_config_filenames = array();
     foreach ($settings_config_files as $settings_config_file) {
       $settings_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $settings_config_file->uri);
       $settings_config_file_data = (array) Yaml::parse($settings_config_file_content);
@@ -48,8 +46,7 @@ function varbase_heroslider_media_install() {
       $config_factory->setData($settings_config_file_data)->save(TRUE);
     }
   }
-  // ---------------------------------------------------------------------------
-
+  // --------------------------------------------------------------------------.
 }
 
 /**
@@ -66,20 +63,20 @@ function varbase_heroslider_media_requirements($phase) {
 
   // If library is not found, then look in the current profile libraries path.
   if (!$library_found) {
-    $profile_path = drupal_get_path('profile',  \Drupal::installProfile());
+    $profile_path = drupal_get_path('profile', \Drupal::installProfile());
     $profile_path .= '/libraries/slick/slick/slick.min.js';
     // Is the library found in the current profile libraries path.
     $library_found = file_exists($profile_path);
   }
 
   if (!$library_found) {
-    $requirements['slick_library'] = array(
+    $requirements['slick_library'] = [
       'title' => t('Slick library missing'),
       'description' => t('Media Hero Slider requires the slick.min.js library.
         Download it (https://github.com/kenwheeler/slick) and place it in the
         libraries folder (/libraries)'),
       'severity' => REQUIREMENT_ERROR,
-    );
+    ];
   }
 
   return $requirements;

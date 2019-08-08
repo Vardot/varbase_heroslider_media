@@ -4,14 +4,17 @@
  */
 
 function ready(fn) {
-  if (document.readyState != 'loading'){
+  if (document.readyState != 'loading') {
     fn();
-  } else if (document.addEventListener) {
+  }
+else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', fn);
-  } else {
-    document.attachEvent('onreadystatechange', function() {
-      if (document.readyState != 'loading')
+  }
+else {
+    document.attachEvent('onreadystatechange', function () {
+      if (document.readyState != 'loading') {
         fn();
+      }
     });
   }
 }
@@ -21,7 +24,7 @@ tag.src = "//www.youtube.com/player_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-ready(function() {
+ready(function () {
 
   var media_iframe = document.querySelector('iframe');
   media_iframe.setAttribute('id', 'media-oembed-iframe');
@@ -42,12 +45,12 @@ ready(function() {
           youtubeURL = youtubeURL.replace(/controls=1/gi, "controls=0");
           youtubeURL = youtubeURL + "&controls=0";
           youtubeURL = youtubeURL + "&enablejsapi=1";
-          youtubeURL = youtubeURL + "&showinfo=0";        // Hide the video title
-          youtubeURL = youtubeURL + "&modestbranding=1";  // Hide the Youtube Logo
-          youtubeURL = youtubeURL + "&loop=1";            // Run the video in a loop
-          youtubeURL = youtubeURL + "&fs=1";              // Hide the full screen button
-          youtubeURL = youtubeURL + "&cc_load_policy=1";  // Hide closed captions
-          youtubeURL = youtubeURL + "&iv_load_policy=1";  // Hide the Video Annotations
+          youtubeURL = youtubeURL + "&showinfo=0";        // Hide the video title.
+          youtubeURL = youtubeURL + "&modestbranding=1";  // Hide the Youtube Logo.
+          youtubeURL = youtubeURL + "&loop=1";            // Run the video in a loop.
+          youtubeURL = youtubeURL + "&fs=1";              // Hide the full screen button.
+          youtubeURL = youtubeURL + "&cc_load_policy=1";  // Hide closed captions.
+          youtubeURL = youtubeURL + "&iv_load_policy=1";  // Hide the Video Annotations.
           youtubeURL = youtubeURL + "&volume=0";
           youtubeURL = youtubeURL + "&rel=0";
           youtube_iframe.src = youtubeURL;
@@ -55,14 +58,14 @@ ready(function() {
 
           youtube_player = new YT.Player(youtube_iframe.id, {
             playerVars: {
-              autoplay: 1,        // Auto-play the video on load
-              controls: 0,        // Show pause/play buttons in player
-              showinfo: 0,        // Hide the video title
-              modestbranding: 1,  // Hide the Youtube Logo
-              loop: 1,            // Run the video in a loop
-              fs: 0,              // Hide the full screen button
-              autohide: 0,        // Hide video controls when playing
-              rel: 0,             // Hide related videos
+              autoplay: 1,        // Auto-play the video on load.
+              controls: 0,        // Show pause/play buttons in player.
+              showinfo: 0,        // Hide the video title.
+              modestbranding: 1,  // Hide the Youtube Logo.
+              loop: 1,            // Run the video in a loop.
+              fs: 0,              // Hide the full screen button.
+              autohide: 0,        // Hide video controls when playing.
+              rel: 0,             // Hide related videos.
             },
             events: {
               'onReady': onPlayerReady,
@@ -88,20 +91,22 @@ ready(function() {
             if (event.data === YT.PlayerState.ENDED) {
               window.parent.postMessage("endedYoutube", "*");
               youtube_player.pauseVideo();
-            }else{
+            }
+else {
               window.parent.postMessage("playingYoutube", "*");
             }
           }
 
           player_confgured = true;
-        }else{
+        }
+else {
           youtube_player.seekTo(0);
           youtube_player.playVideo();
         }
 
       }
     }
-    else if (evt.data  === "pause") {
+    else if (evt.data === "pause") {
       if (player_confgured) {
         youtube_player.pauseVideo();
         youtube_player.isPlaying = false;

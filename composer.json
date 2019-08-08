@@ -14,7 +14,8 @@
   ],
   "support": {
     "issues": "http://drupal.org/project/issues/varbase_heroslider_media",
-    "source": "http://cgit.drupalcode.org/varbase_heroslider_media"
+    "source": "http://cgit.drupalcode.org/varbase_heroslider_media",
+    "slack" : "http://slack.varbase.vardot.com"
   },
   "repositories": {
     "drupal": {
