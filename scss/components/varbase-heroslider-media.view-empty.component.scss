@@ -1,8 +1,8 @@
 /* Varbase Hero slider media Empty view style */
-@import "../variables.less";
+@import "../variables.scss";
 .varbase-heroslider-media {
   &> .view-empty {
-    background-color: @hero-empty-view-background;
+    background-color: $hero-empty-view-background;
     padding: 385px 0 75px;
     text-align: center;
     color: #666;
