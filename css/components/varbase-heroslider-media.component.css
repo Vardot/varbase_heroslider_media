@@ -13,7 +13,7 @@
   filter: alpha(opacity=0);
   -webkit-transform: scale(0.95);
   -o-transform: scale(0.95);
-     transform: scale(0.95);
+  transform: scale(0.95);
   -webkit-transition: opacity 1.25s cubic-bezier(0.19, 1, 0.22, 1) 0s, -webkit-transform 0s cubic-bezier(0.19, 1, 0.22, 1) 1.25s;
   transition: opacity 1.25s cubic-bezier(0.19, 1, 0.22, 1) 0s, -webkit-transform 0s cubic-bezier(0.19, 1, 0.22, 1) 1.25s;
   -o-transition: opacity 1.25s cubic-bezier(0.19, 1, 0.22, 1) 0s, -o-transform 0s cubic-bezier(0.19, 1, 0.22, 1) 1.25s;
@@ -31,7 +31,7 @@
   transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1) 0s, -webkit-transform 3s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   -webkit-transform: scale(1.15);
   -o-transform: scale(1.15);
-     transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .varbase-heroslider-media .slick-slide .unpublished {
@@ -50,7 +50,7 @@
   transition: transform 1.25s cubic-bezier(0.19, 1, 0.22, 1) 0.5s, opacity 1.25s cubic-bezier(0.19, 1, 0.22, 1) 0.5s, -webkit-transform 1.25s cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
   -webkit-transform: scale(1);
   -o-transform: scale(1);
-     transform: scale(1);
+  transform: scale(1);
 }
 
 .varbase-heroslider-media .slick-active .img-responsive {
@@ -63,7 +63,7 @@
   transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1) 0s, -webkit-transform 3s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   -webkit-transform: scale(1);
   -o-transform: scale(1);
-     transform: scale(1);
+  transform: scale(1);
 }
 
 .varbase-heroslider-media .slide__caption .slide__title a {
@@ -77,8 +77,8 @@
 .varbase-heroslider-media .slick__arrow {
   top: 150px;
   -webkit-transform: translateY(-150px);
-       -o-transform: translateY(-150px);
-          transform: translateY(-150px);
+  -o-transform: translateY(-150px);
+  transform: translateY(-150px);
 }
 
 .varbase-heroslider-media .slick__arrow .slick-arrow::before {
@@ -91,8 +91,8 @@
   .varbase-heroslider-media .slick__arrow {
     top: 300px;
     -webkit-transform: translateY(-300px);
-         -o-transform: translateY(-300px);
-            transform: translateY(-300px);
+    -o-transform: translateY(-300px);
+    transform: translateY(-300px);
   }
 }
 
@@ -132,15 +132,15 @@
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   min-height: 300px;
   max-height: 300px;
 }
@@ -166,15 +166,15 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content {
@@ -192,7 +192,7 @@
 @media (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.455rem + 2.46vw) ;
+    font-size: calc(1.455rem + 2.46vw);
   }
 }
 
@@ -206,7 +206,7 @@
 @media screen and (min-width: 576px) and (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.455rem + 2.46vw) ;
+    font-size: calc(1.455rem + 2.46vw);
   }
 }
 
@@ -220,7 +220,7 @@
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.48125rem + 2.775vw) ;
+    font-size: calc(1.48125rem + 2.775vw);
   }
 }
 
@@ -234,7 +234,7 @@
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.48125rem + 2.775vw) ;
+    font-size: calc(1.48125rem + 2.775vw);
   }
 }
 
@@ -248,7 +248,7 @@
 @media screen and (min-width: 1200px) and (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.48125rem + 2.775vw) ;
+    font-size: calc(1.48125rem + 2.775vw);
   }
 }
 
@@ -266,7 +266,9 @@
   text-decoration: none;
 }
 
-.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:hover, .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:focus, .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:active {
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:hover,
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:focus,
+.varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-field-link a:active {
   opacity: 0.7;
 }
 
@@ -278,10 +280,10 @@
   /* 2. If supporting object-fit, overriding (1): */
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single {
-    min-height: 300px;
-    max-height: 300px;
+    min-height: 600px;
+    max-height: 600px;
   }
 }
 
@@ -296,8 +298,8 @@
   top: 50%;
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
-       -o-transform: translateY(-50%) translateX(-50%);
-          transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
   padding-bottom: 0;
 }
 
@@ -349,8 +351,8 @@
     height: 140vh;
     top: 50%;
     -webkit-transform: translateY(-50%) translateX(-50%);
-         -o-transform: translateY(-50%) translateX(-50%);
-            transform: translateY(-50%) translateX(-50%);
+    -o-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
     padding-bottom: 0 !important;
     left: 50%;
   }
@@ -363,9 +365,9 @@
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 768px) {
     .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single img {
       position: unset;
     }
@@ -376,7 +378,7 @@
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media img {
     top: 0;
@@ -384,9 +386,9 @@
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 768px) {
     .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media img {
       position: unset;
     }
@@ -397,12 +399,12 @@
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
   .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .media iframe {
     position: absolute;
     left: 0;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
   }
 }

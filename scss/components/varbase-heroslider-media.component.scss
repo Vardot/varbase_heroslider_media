@@ -197,9 +197,9 @@
 
       min-height: $hero-min-height;
       max-height: $hero-max-height;
-      @media screen and (min-width: map-get($grid-breakpoints, "sm")) {
-        min-height: $hero-min-height-sm;
-        max-height: $hero-max-height-sm;
+      @media screen and (min-width: map-get($grid-breakpoints, "md")) {
+        min-height: $hero-min-height-md;
+        max-height: $hero-max-height-md;
       }
 
       .contextual-region{
@@ -282,7 +282,7 @@
           height: 100%;
           object-fit: cover;
 
-          @media screen and (min-width: map-get($grid-breakpoints, "sm")) {
+          @media screen and (min-width: map-get($grid-breakpoints, "md")) {
             position: unset;
           }
         }
@@ -301,7 +301,7 @@
             height: 100%;
             object-fit: cover;
 
-            @media screen and (min-width: map-get($grid-breakpoints, "sm")) {
+            @media screen and (min-width: map-get($grid-breakpoints, "md")) {
               position: unset;
             }
           }
