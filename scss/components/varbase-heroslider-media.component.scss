@@ -78,12 +78,12 @@
 
     $top_max_value: $hero-max-height/2;
 
-    top: $top_max_value;
+    top: $hero-max-height;
     transform: translateY(-$top_max_value);
 
     @media screen and (min-width: map-get($grid-breakpoints, "md")) {
       $top_min_value: $hero-min-height-md/2;
-      top: $top_min_value;
+      top: $hero-min-height-md;
       transform: translateY(-$top_min_value);
     }
 

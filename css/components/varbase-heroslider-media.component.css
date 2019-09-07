@@ -75,7 +75,7 @@
 }
 
 .varbase-heroslider-media .slick__arrow {
-  top: 150px;
+  top: 300px;
   -webkit-transform: translateY(-150px);
   -o-transform: translateY(-150px);
   transform: translateY(-150px);
@@ -89,7 +89,7 @@
 
 @media screen and (min-width: 768px) {
   .varbase-heroslider-media .slick__arrow {
-    top: 300px;
+    top: 600px;
     -webkit-transform: translateY(-300px);
     -o-transform: translateY(-300px);
     transform: translateY(-300px);
