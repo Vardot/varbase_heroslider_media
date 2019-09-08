@@ -294,7 +294,7 @@
 .varbase-heroslider-media .node--type-varbase-heroslider-media .field--name-field-media-single .varbase-video-player.embed-responsive {
   position: relative;
   width: 100vw;
-  height: 190vh;
+  height: 130vh;
   top: 50%;
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
