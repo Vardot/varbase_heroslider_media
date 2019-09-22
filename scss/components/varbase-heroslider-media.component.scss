@@ -48,7 +48,7 @@
     }
 
     .img-responsive {
-      webkit-transition: -webkit-transform 3s cubic-bezier(.19,1,.22,1) 0s;
+      -webkit-transition: -webkit-transform 3s cubic-bezier(.19,1,.22,1) 0s;
       transition: -webkit-transform 3s cubic-bezier(.19,1,.22,1) 0s;
       transition: transform 3s cubic-bezier(.19,1,.22,1) 0s;
       transition: transform 3s cubic-bezier(.19,1,.22,1) 0s,-webkit-transform 3s cubic-bezier(.19,1,.22,1) 0s;
@@ -93,18 +93,10 @@
     left: $hero-arrow-gutter;
     right: auto;
   }
-  [dir="rtl"] .slick-prev {
-    right: $hero-arrow-gutter;
-    left: auto;
-  }
 
   .slick-next {
     right: $hero-arrow-gutter;
     left: auto;
-  }
-  [dir="rtl"] .slick-next {
-    left: $hero-arrow-gutter;
-    right: auto;
   }
 
   .slide__link {
@@ -146,13 +138,13 @@
 
       .field--name-node-title {
         h2,
-        h3, {
+        h3 {
           margin: 0;
           padding: 0;
           color: $hero-title-text-color;
 
           @include font-size($hero-xlarge-title-font-size-xs);
-          
+
           @media screen and (min-width: map-get($grid-breakpoints, "sm")) {
             @include font-size($hero-xlarge-title-font-size-sm);
           }
@@ -227,7 +219,7 @@
         width: 100%;
         height: 100%;
       }
-      
+
       img {
         top: 0;
         left: 0;
@@ -322,5 +314,31 @@
         }
       }
     }
+  }
+}
+
+[dir="rtl"] .varbase-heroslider-media {
+  .node--type-varbase-heroslider-media {
+    .field--name-field-media-single {
+      @media (max-aspect-ratio: #{"16/9"}) {
+        .varbase-video-player {
+          &.embed-responsive {
+            left: 0;
+            right: 0;
+            transform: translateY(-50%) translateX(0);
+          }
+        }
+      }
+    }
+  }
+
+  .slick-prev {
+    right: $hero-arrow-gutter;
+    left: auto;
+  }
+
+  .slick-next {
+    left: $hero-arrow-gutter;
+    right: auto;
   }
 }
