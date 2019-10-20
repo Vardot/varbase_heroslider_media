@@ -42,6 +42,7 @@ ready(function () {
 
         var vimeo_options = {
             background: true,
+            autoplay: true,
             muted: true,
             controls: false
         };
