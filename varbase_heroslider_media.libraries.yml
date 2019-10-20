@@ -33,7 +33,7 @@ youtube_video_slider:
 # Behaviors of Varbase hero slider media for vimeo embeded videos scripts.
 vimeo_video_slider:
   js:
-    js/video.heroslider.vimeo.js: { }
+    js/video.heroslider.vimeo.js: { weight: -1 }
 
 # Oembed frame for Youtube video behaviors.
 oembed-frame-video-youtube:
