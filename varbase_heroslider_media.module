@@ -30,6 +30,10 @@ function varbase_heroslider_media_theme($existing, $type, $theme, $path) {
     ],
     'media_oembed_iframe__remote_video__varbase_media_hero_slider' => [
       'template' => 'media-oembed-iframe--remote-video--varbase-media-hero-slider',
+      'variables' => [
+        'provider' => NULL,
+        'media' => NULL,
+      ],
     ],
   ];
 }
