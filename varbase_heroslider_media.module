@@ -64,11 +64,7 @@ function varbase_heroslider_media_preprocess_node__varbase_heroslider_media(&$va
     $entity_bundle = $entity->bundle();
 
     if ($entity_bundle == 'remote_video') {
-      $oembed_url = $entity->field_media_oembed_video->first()->getValue();
-      $resource_url = \Drupal::service('media.oembed.url_resolver')->getResourceUrl((string) $oembed_url['value']);
-      $resource = \Drupal::service('media.oembed.resource_fetcher')->fetchResource($resource_url);
-      $provider_name = \Drupal::transliteration()->transliterate($resource->getProvider()->getName());
-      $variables['provider'] = preg_replace('/[^a-z0-9_]+/', '_', mb_strtolower($provider_name));
+      $variables['provider'] = $entity->field_provider->value;
     }
   }
 }
