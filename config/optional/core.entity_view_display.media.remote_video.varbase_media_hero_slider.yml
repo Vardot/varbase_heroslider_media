@@ -36,7 +36,7 @@ bundle: remote_video
 mode: varbase_media_hero_slider
 content:
   field_media_oembed_video:
-    type: oembed
+    type: varbase_oembed
     weight: 0
     label: hidden
     settings:
