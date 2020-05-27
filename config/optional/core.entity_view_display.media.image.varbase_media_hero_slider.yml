@@ -8,6 +8,7 @@ dependencies:
     - media.type.image
     - responsive_image.styles.de2e_standard
   module:
+    - ds
     - responsive_image
 id: media.image.varbase_media_hero_slider
 targetEntityType: media
@@ -28,5 +29,6 @@ hidden:
   field_media_in_library: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true
