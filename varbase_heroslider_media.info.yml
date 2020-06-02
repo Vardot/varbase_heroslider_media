@@ -2,12 +2,9 @@ name: 'Media Hero Slider'
 description: 'This app will populate the universal implementation of a "Hero Slider" to be used on the homepage in most cases. A rich hero slider that allows you to display video and/or image slides.'
 type: module
 package: 'Varbase Blocks'
-project: varbase_heroslider_media
-version: 8.x-7.x-dev
-core: 8.x
 core_version_requirement: ^8 || ^9
 dependencies:
-  - varbase_media:varbase_media (>= 6.6)
+  - varbase_media:varbase_media
   - slick:slick
   - slick_views:slick_views
 install:
