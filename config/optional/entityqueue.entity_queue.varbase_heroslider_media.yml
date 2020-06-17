@@ -21,4 +21,4 @@ queue_settings:
   min_size: 0
   max_size: 6
   act_as_queue: true
-  reverse_in_admin: false
+  reverse: false
