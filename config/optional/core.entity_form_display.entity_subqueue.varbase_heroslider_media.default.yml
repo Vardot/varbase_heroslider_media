@@ -20,11 +20,12 @@ content:
       override_labels: true
       label_singular: item
       label_plural: items
-      allow_new: true
       allow_existing: true
       match_operator: CONTAINS
       collapsible: false
       collapsed: false
+      allow_new: false
+      allow_edit: false
       allow_duplicate: false
     region: content
     third_party_settings:
