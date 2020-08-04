@@ -2,18 +2,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.media_browser
     - field.field.node.varbase_heroslider_media.field_brief
     - field.field.node.varbase_heroslider_media.field_link
     - field.field.node.varbase_heroslider_media.field_media_single
     - node.type.varbase_heroslider_media
+    - workflows.workflow.varbase_simple_workflow
   module:
     - advanced_text_formatter
-    - entity_browser
+    - content_moderation
     - field_group
     - length_indicator
     - link
     - maxlength
+    - media_library
+    - media_library_edit
+    - scheduler
+    - scheduler_content_moderation_integration
 third_party_settings:
   field_group:
     group_slide_info:
@@ -75,17 +79,14 @@ content:
   field_media_single:
     weight: 3
     settings:
-      entity_browser: media_browser
-      field_widget_display: rendered_entity
-      field_widget_edit: true
-      field_widget_remove: true
-      open: true
-      selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: field_preview
-      field_widget_replace: false
-    third_party_settings: {  }
-    type: entity_browser_entity_reference
+      media_types:
+        - image
+        - remote_video
+        - video
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
+    type: media_library_widget
     region: content
   langcode:
     type: language_select
@@ -93,6 +94,24 @@ content:
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
@@ -106,7 +125,7 @@ content:
     weight: 1
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Enter title here'
     third_party_settings:
       length_indicator:
         indicator: true
@@ -127,8 +146,21 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     region: content
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   url_redirects:
     weight: 4
     region: content
