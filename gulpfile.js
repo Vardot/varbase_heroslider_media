@@ -25,7 +25,7 @@ function compile () {
   };
 
   // Filter mixins and variables not to be compiled to CSS.
-  const filterFiles = filter(['**', '!**/mixins/*.scss', '!mixins.scss', '!variables.scss']);
+  const filterFiles = filter(['!variables.scss']);
 
   return gulp.src([paths.scss.src])
     .pipe(filterFiles)
