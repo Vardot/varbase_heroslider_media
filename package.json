@@ -21,7 +21,9 @@
   ],
   "author": "Vardot",
   "license": "GPL-2.0",
-  "dependencies": { },
+  "dependencies": {
+    "rfs": "^9.0.3"
+  },
   "devDependencies": {
     "browser-sync": "^2.24.7",
     "del": "^3.0.0",
@@ -69,7 +71,6 @@
     "stylelint-checkstyle-formatter": "^0.1.1",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-no-browser-hacks": "^1.2.1",
-    "stylelint-order": "^2.1.0",
-		"rfs": "^9.0.3"
+    "stylelint-order": "^2.1.0"
   }
 }
