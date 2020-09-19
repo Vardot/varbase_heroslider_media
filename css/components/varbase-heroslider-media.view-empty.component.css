@@ -10,11 +10,11 @@
   background-position: 50% 5rem;
   -webkit-background-size: 15rem 15rem;
   background-size: 15rem;
-  font-size: 1.75rem;
+  font-size: calc(1.3rem + 0.6vw);
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   .varbase-heroslider-media > .view-empty {
-    font-size: calc(1.3rem + 0.6vw) ;
+    font-size: 1.75rem;
   }
 }

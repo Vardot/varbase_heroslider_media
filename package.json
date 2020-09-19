@@ -70,6 +70,6 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-no-browser-hacks": "^1.2.1",
     "stylelint-order": "^2.1.0",
-    "rfs": "^8.0.4"
+		"rfs": "^9.0.3"
   }
 }
