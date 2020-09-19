@@ -15,6 +15,6 @@
 
 @media (max-width: 1200px) {
   .varbase-heroslider-media > .view-empty {
-    font-size: calc(1.3rem + 0.6vw);
+    font-size: calc(1.3rem + 0.6vw) ;
   }
 }

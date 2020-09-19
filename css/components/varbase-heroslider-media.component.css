@@ -181,7 +181,7 @@
 @media (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.455rem + 2.46vw);
+    font-size: calc(1.455rem + 2.46vw) ;
   }
 }
 
@@ -195,7 +195,7 @@
 @media screen and (min-width: 576px) and (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.455rem + 2.46vw);
+    font-size: calc(1.455rem + 2.46vw) ;
   }
 }
 
@@ -209,7 +209,7 @@
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.48125rem + 2.775vw);
+    font-size: calc(1.48125rem + 2.775vw) ;
   }
 }
 
@@ -223,7 +223,7 @@
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.48125rem + 2.775vw);
+    font-size: calc(1.48125rem + 2.775vw) ;
   }
 }
 
@@ -237,7 +237,7 @@
 @media screen and (min-width: 1200px) and (max-width: 1200px) {
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h2,
   .varbase-heroslider-media .node--type-varbase-heroslider-media .hero-slide-content .field--name-node-title h3 {
-    font-size: calc(1.48125rem + 2.775vw);
+    font-size: calc(1.48125rem + 2.775vw) ;
   }
 }
 
@@ -353,6 +353,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+
     -o-object-fit: cover;
     object-fit: cover;
   }
