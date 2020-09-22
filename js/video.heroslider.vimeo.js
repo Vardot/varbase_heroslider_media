@@ -38,23 +38,21 @@
       });
 
       // On first slide load.
-      mediaSliders.each(function(i) {
-        const firstIframeVideo = $(this)
-          .find('.slide')
-          .first()
-          .find('.varbase-video-player iframe[src*="vimeo.com"]', context);
-        if (firstIframeVideo.length > 0) {
-          firstIframeVideo.on('load', function() {
-            if (!firstIframeVideo.hasClass('first-slide-played')) {
-              mediaSliders.slick('slickPause');
-              $(this)
-                .get(0)
-                .contentWindow.postMessage('play', '*');
-              firstIframeVideo.addClass('first-slide-played');
-            }
-          });
-        }
-      });
+      const firstIframeVideo = $('.varbase-heroslider-media')
+        .find('.slide')
+        .first()
+        .find('.varbase-video-player iframe[src*="vimeo.com"]', context);
+      if (firstIframeVideo.length > 0) {
+        firstIframeVideo.on('load', function() {
+          if (!firstIframeVideo.hasClass('first-slide-played')) {
+            mediaSliders.slick('slickPause');
+            $(this)
+              .get(0)
+              .contentWindow.postMessage('play', '*');
+            firstIframeVideo.addClass('first-slide-played');
+          }
+        });
+      }
 
       function vimeoActionProcessor(e) {
         if (e.data === 'endedVimeo' || e.message === 'endedVimeo') {

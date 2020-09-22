@@ -38,20 +38,18 @@
       });
 
       // On first slide load.
-      mediaSliders.each(function(i) {
-        const firstIframeVideo = $(this)
-          .find('.slide')
-          .first()
-          .find('.varbase-video-player iframe[src*="youtube.com"]', context);
-        if (firstIframeVideo.length > 0) {
-          firstIframeVideo.on('load', function() {
-            $('.slick__slider').slick('slickPause');
-            $(this)
-              .get(0)
-              .contentWindow.postMessage('play', '*');
-          });
-        }
-      });
+      const firstIframeVideo = $('.varbase-heroslider-media')
+        .find('.slide')
+        .first()
+        .find('.varbase-video-player iframe[src*="youtube.com"]', context);
+      if (firstIframeVideo.length > 0) {
+        firstIframeVideo.on('load', function() {
+          $('.slick__slider').slick('slickPause');
+          $(this)
+            .get(0)
+            .contentWindow.postMessage('play', '*');
+        });
+      }
 
       function youtubeActionProcessor(e) {
         if (e.data === 'endedYoutube' || e.message === 'endedYoutube') {
