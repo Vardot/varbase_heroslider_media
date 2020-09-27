@@ -28,12 +28,12 @@
     }
   },
   "require": {
-    "composer/installers": "~1.0",
+		"composer/installers": "~1.0",
     "oomphinc/composer-installers-extender": "~1.0",
     "cweagans/composer-patches": "~1.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
-    "drupal/core": "^8.8.0 || ~9.0.0",
-    "drupal/varbase_media": "~7.0",
+    "drupal/core": "^9 || ~10.0.0",
+    "drupal/varbase_media": "^9 || 9.0.x-dev",
     "drupal/entityqueue": "~1.0",
     "drupal/rabbit_hole": "~1.0",
     "drupal/field_group": "~3.0",
@@ -42,9 +42,6 @@
     "drupal/maxlength": "~1.0"
   },
   "extra": {
-    "branch-alias": {
-      "dev-8.x-7.x": "8.7.x-dev"
-    },
     "installer-types": [
       "bower-asset",
       "npm-asset"
