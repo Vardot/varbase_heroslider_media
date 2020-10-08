@@ -83,7 +83,7 @@ function varbase_heroslider_media_requirements($phase) {
 }
 
 /**
- * Issue #3175756: Fix deprecated function getCurrentUserId replaced.
+ * Issue #3175810: Fix deprecated function getCurrentUserId replaced.
  *
  *  By getDefaultEntityOwner in
  *  core.base_field_override.node.varbase_heroslider_media.uid config.
