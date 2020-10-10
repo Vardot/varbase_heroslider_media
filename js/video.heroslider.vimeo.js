@@ -54,13 +54,16 @@
         });
       }
 
-      function vimeoActionProcessor(e) {
-        if (e.data === 'endedVimeo' || e.message === 'endedVimeo') {
-          mediaSliders.slick('slickNext');
-        } else {
-          mediaSliders.slick('slickPause');
+       function vimeoActionProcessor(e) {
+          if (e.data === 'endedVimeo' || e.message === 'endedVimeo') {
+            mediaSliders.slick('slickNext');
+          } else if (
+            e.data === 'playingVimeo' ||
+            e.message === 'playingVimeo'
+          ) {
+            mediaSliders.slick('slickPause');
+          }
         }
-      }
 
       // Setup the event listener for messaging.
       if (window.addEventListener) {
