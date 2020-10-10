@@ -1,7 +1,7 @@
 node_modules/**/*.css
 vendor/**/*.css
-**/*.min.css"
-node_modules/**/*.css
+**/*.min.css
+css/variables.css
 scss/*
 images/*
 fonts/*

@@ -1,7 +1,7 @@
 {
   "name": "varbase_heroslider_media",
   "private": true,
-  "version": "9.0.0",
+  "version": "8.7.0",
   "description": "Varbase Media Hero Slider",
   "main": "index.js",
   "scripts": {
