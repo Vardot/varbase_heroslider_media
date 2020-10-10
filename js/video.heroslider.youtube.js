@@ -54,7 +54,10 @@
       function youtubeActionProcessor(e) {
         if (e.data === 'endedYoutube' || e.message === 'endedYoutube') {
           $('.slick__slider').slick('slickNext');
-        } else {
+        } else if (
+          e.data === 'playingYoutube' ||
+          e.message === 'playingYoutube'
+        ) {
           $('.slick__slider').slick('slickPause');
         }
       }
