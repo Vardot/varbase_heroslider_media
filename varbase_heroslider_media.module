@@ -57,7 +57,9 @@ function varbase_heroslider_media_preprocess_media_oembed_iframe__remote_video__
 function varbase_heroslider_media_preprocess_node__varbase_heroslider_media(&$variables) {
 
   $node = $variables['elements']['#node'];
-  $media = $node->get('field_media_single')->getValue();
+  if ($node->hasField('field_media_single')) {
+    $media = $node->get('field_media_single')->getValue();
+  }
 
   if (!empty($media)) {
     $entity = Media::load($media[0]['target_id']);
