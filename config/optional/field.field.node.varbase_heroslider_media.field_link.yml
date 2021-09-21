@@ -10,12 +10,12 @@ id: node.varbase_heroslider_media.field_link
 field_name: field_link
 entity_type: node
 bundle: varbase_heroslider_media
-label: 'Call for action link'
-description: ''
+label: "Call for action link"
+description: ""
 required: false
 translatable: false
-default_value: {  }
-default_value_callback: ''
+default_value: {}
+default_value_callback: ""
 settings:
   link_type: 17
   title: 2

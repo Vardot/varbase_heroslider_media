@@ -7,11 +7,11 @@ id: node.varbase_heroslider_media.title
 field_name: title
 entity_type: node
 bundle: varbase_heroslider_media
-label: 'Slide title'
-description: ''
+label: "Slide title"
+description: ""
 required: true
 translatable: false
-default_value: {  }
-default_value_callback: ''
-settings: {  }
+default_value: {}
+default_value_callback: ""
+settings: {}
 field_type: string

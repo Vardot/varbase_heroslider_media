@@ -17,14 +17,14 @@ mode: default
 content:
   content_moderation_control:
     weight: -20
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
     region: content
   field_brief:
     weight: 2
     label: hidden
-    settings: {  }
-    third_party_settings: {  }
+    settings: {}
+    third_party_settings: {}
     type: basic_string
     region: content
   field_link:
@@ -34,16 +34,16 @@ content:
       trim_length: 80
       url_only: false
       url_plain: false
-      rel: '0'
-      target: '0'
+      rel: "0"
+      target: "0"
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
     type: link
     region: content
   field_media_single:
@@ -57,9 +57,9 @@ content:
         ft:
           id: default
           settings:
-            lb: ''
+            lb: ""
             lb-col: false
-            classes: {  }
+            classes: {}
     type: entity_reference_entity_view
     region: content
 hidden:

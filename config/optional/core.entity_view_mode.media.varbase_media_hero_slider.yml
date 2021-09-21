@@ -4,6 +4,6 @@ dependencies:
   module:
     - media
 id: media.varbase_media_hero_slider
-label: 'Media Hero Slider'
+label: "Media Hero Slider"
 targetEntityType: media
 cache: true

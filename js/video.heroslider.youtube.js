@@ -3,30 +3,28 @@
  * Behaviors of Varbase hero slider media for Youtube video scripts.
  */
 
-(function($, Drupal) {
+(function ($, Drupal) {
   Drupal.behaviors.varbaseHeroSliderMedia_youtube = {
-    attach: function(context) {
+    attach: function (context) {
       const mediaSliders = $(
         ".slick--view--varbase-heroslider-media .slick__slider",
         context
       );
       // On before slide change.
-      mediaSliders.on("beforeChange", function(
-        event,
-        slick,
-        currentSlide,
-        nextSlide
-      ) {
-        const currentVideo = $(
-          ".slide--" + currentSlide + ".slick-active"
-        ).find('.varbase-video-player iframe[src*="youtube.com"]', context);
-        if (currentVideo.length > 0) {
-          currentVideo.get(0).contentWindow.postMessage("pause", "*");
+      mediaSliders.on(
+        "beforeChange",
+        function (event, slick, currentSlide, nextSlide) {
+          const currentVideo = $(
+            ".slide--" + currentSlide + ".slick-active"
+          ).find('.varbase-video-player iframe[src*="youtube.com"]', context);
+          if (currentVideo.length > 0) {
+            currentVideo.get(0).contentWindow.postMessage("pause", "*");
+          }
         }
-      });
+      );
 
       // On after slide change.
-      mediaSliders.on("afterChange", function(event, slick, currentSlide) {
+      mediaSliders.on("afterChange", function (event, slick, currentSlide) {
         const currentVideo = $(
           ".slide--" + currentSlide + ".slick-active"
         ).find('.varbase-video-player iframe[src*="youtube.com"]', context);
@@ -43,11 +41,9 @@
         .first()
         .find('.varbase-video-player iframe[src*="youtube.com"]', context);
       if (firstIframeVideo.length > 0) {
-        firstIframeVideo.on("load", function() {
+        firstIframeVideo.on("load", function () {
           $(".slick__slider").slick("slickPause");
-          $(this)
-            .get(0)
-            .contentWindow.postMessage("play", "*");
+          $(this).get(0).contentWindow.postMessage("play", "*");
         });
       }
 

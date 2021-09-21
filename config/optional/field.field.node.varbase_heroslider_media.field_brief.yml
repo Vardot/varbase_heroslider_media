@@ -8,11 +8,11 @@ id: node.varbase_heroslider_media.field_brief
 field_name: field_brief
 entity_type: node
 bundle: varbase_heroslider_media
-label: 'Slide text'
-description: ''
+label: "Slide text"
+description: ""
 required: false
 translatable: false
-default_value: {  }
-default_value_callback: ''
-settings: {  }
+default_value: {}
+default_value_callback: ""
+settings: {}
 field_type: string_long

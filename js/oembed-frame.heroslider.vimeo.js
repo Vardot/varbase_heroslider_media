@@ -9,7 +9,7 @@ function ready(fn) {
   } else if (document.addEventListener) {
     document.addEventListener("DOMContentLoaded", fn);
   } else {
-    document.attachEvent("onreadystatechange", function() {
+    document.attachEvent("onreadystatechange", function () {
       if (document.readyState !== "loading") {
         fn();
       }
@@ -23,7 +23,7 @@ tag.src = "//player.vimeo.com/api/player.js";
 const firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-ready(function() {
+ready(function () {
   const mediaIframe = document.querySelector("iframe");
   mediaIframe.setAttribute("id", "media-oembed-iframe");
 
@@ -45,19 +45,19 @@ ready(function() {
 
         vimeoPlayer = new window.Vimeo.Player(vimeoIframe, vimeoOptions);
         vimeoPlayer.setVolume(0);
-        vimeoPlayer.on("ended", function() {
+        vimeoPlayer.on("ended", function () {
           window.parent.postMessage("endedVimeo", "*");
           vimeoPlayer.pause();
         });
 
-        vimeoPlayer.on("play", function() {
+        vimeoPlayer.on("play", function () {
           window.parent.postMessage("playingVimeo", "*");
         });
         playerConfgured = true;
       }
 
-      vimeoPlayer.ready().then(function() {
-        vimeoPlayer.getPaused().then(function(paused) {
+      vimeoPlayer.ready().then(function () {
+        vimeoPlayer.getPaused().then(function (paused) {
           if (paused) {
             vimeoPlayer.play();
           }

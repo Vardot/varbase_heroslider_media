@@ -3,14 +3,14 @@
  * Behaviors of Varbase hero slider media for local video scripts.
  */
 
-(function($, Drupal) {
+(function ($, Drupal) {
   Drupal.behaviors.varbaseHeroSliderMedia_local_video = {
-    attach: function(context) {
-      $(window).on("load", function() {
+    attach: function (context) {
+      $(window).on("load", function () {
         // On before slide change.
         $(".slick--view--varbase-heroslider-media .slick__slider", context).on(
           "beforeChange",
-          function(event, slick, currentSlide, nextSlide) {
+          function (event, slick, currentSlide, nextSlide) {
             const currentSlideObject = $(
               ".slide--" + currentSlide + ".slick-active"
             );
@@ -43,7 +43,7 @@
         );
 
         // When first slide has a video (Pause the slider and play the video).
-        $(".slick--view--varbase-heroslider-media", context).each(function() {
+        $(".slick--view--varbase-heroslider-media", context).each(function () {
           const firstVideo = $(this)
             .find(".slide.slick-active")
             .find(".varbase-video-player video", context);
@@ -55,7 +55,7 @@
             firstVideoPlayer.muted = true;
             firstVideoPlayer.play();
 
-            firstVideo.on("ended", function() {
+            firstVideo.on("ended", function () {
               $(".slick__slider").slick("slickPlay");
             });
           }

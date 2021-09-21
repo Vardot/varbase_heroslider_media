@@ -4,19 +4,19 @@ dependencies:
   module:
     - node
 id: varbase_heroslider_media
-label: 'Media Hero Slider'
+label: "Media Hero Slider"
 handler: simple
-handler_configuration: {  }
+handler_configuration: {}
 entity_settings:
   target_type: node
-  handler: 'default:node'
+  handler: "default:node"
   handler_settings:
     target_bundles:
       varbase_heroslider_media: varbase_heroslider_media
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: ""
 queue_settings:
   min_size: 0
   max_size: 6

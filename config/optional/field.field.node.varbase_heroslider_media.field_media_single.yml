@@ -11,14 +11,14 @@ id: node.varbase_heroslider_media.field_media_single
 field_name: field_media_single
 entity_type: node
 bundle: varbase_heroslider_media
-label: 'Slide media (image/video)'
-description: ''
+label: "Slide media (image/video)"
+description: ""
 required: true
 translatable: false
-default_value: {  }
-default_value_callback: ''
+default_value: {}
+default_value_callback: ""
 settings:
-  handler: 'default:media'
+  handler: "default:media"
   handler_settings:
     target_bundles:
       image: image
