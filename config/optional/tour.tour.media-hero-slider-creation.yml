@@ -16,33 +16,30 @@ tips:
     plugin: text
     label: "Creating a Hero Slide"
     weight: 1
-    attributes: null
+    selector: null
     body: "This tour will take you through the main features of the hero slide creation.\r\n\r\nLets start!"
-    location: top
+    position: top
   slide-content:
     id: slide-content
     plugin: text
     label: "Slide Content"
     weight: 2
-    attributes:
-      data-class: field--name-field-brief
+    selector: ".field--name-field-brief"
     body: "Add the content of the slide in the Slide title and Slide text."
-    location: bottom
+    position: bottom
   add-the-slide-to-the-queue:
     id: add-the-slide-to-the-queue
     plugin: text
     label: "Add The Slide to The Queue"
     weight: 3
-    attributes:
-      data-id: edit-entityqueue-form-widget
+    selectore: "#dit-entityqueue-form-widget"
     body: 'Then add the slide the "Media Hero Slider" queue to push it to the queue directly.'
-    location: left
+    position: left
   preview-and-save:
     id: preview-and-save
     plugin: text
     label: "Preview and Save"
     weight: 4
-    attributes:
-      data-id: edit-preview
+    selectore: "#dit-preview"
     body: "Preview your slide, then publish and save."
-    location: top
+    position: top
