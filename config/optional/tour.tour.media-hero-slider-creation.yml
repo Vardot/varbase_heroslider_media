@@ -32,7 +32,7 @@ tips:
     plugin: text
     label: "Add The Slide to The Queue"
     weight: 3
-    selectore: "#dit-entityqueue-form-widget"
+    selector: "#dit-entityqueue-form-widget"
     body: 'Then add the slide the "Media Hero Slider" queue to push it to the queue directly.'
     position: left
   preview-and-save:
@@ -40,6 +40,6 @@ tips:
     plugin: text
     label: "Preview and Save"
     weight: 4
-    selectore: "#dit-preview"
+    selector: "#dit-preview"
     body: "Preview your slide, then publish and save."
     position: top
