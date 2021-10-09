@@ -16,9 +16,9 @@ tips:
     plugin: text
     label: "Creating a Hero Slide"
     weight: 1
-    selector: null
+    selector: ""
     body: "This tour will take you through the main features of the hero slide creation.\r\n\r\nLets start!"
-    position: top
+    position: auto
   slide-content:
     id: slide-content
     plugin: text
