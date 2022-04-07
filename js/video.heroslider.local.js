@@ -5,22 +5,22 @@
 
 (function ($, Drupal) {
   Drupal.behaviors.varbaseHeroSliderMedia_local_video = {
-    attach: function (context) {
-      $(window).on("load", function () {
+    attach(context) {
+      $(window).on('load', function () {
         // On before slide change.
-        $(".slick--view--varbase-heroslider-media .slick__slider", context).on(
-          "beforeChange",
+        $('.slick--view--varbase-heroslider-media .slick__slider', context).on(
+          'beforeChange',
           function (event, slick, currentSlide, nextSlide) {
             const currentSlideObject = $(
-              ".slide--" + currentSlide + ".slick-active"
+              `.slide--${currentSlide}.slick-active`
             );
-            const nextSlideObject = $(".slide--" + nextSlide);
+            const nextSlideObject = $(`.slide--${nextSlide}`);
             const currentVideo = currentSlideObject.find(
-              ".varbase-video-player video",
+              '.varbase-video-player video',
               context
             );
             const nextVideo = nextSlideObject.find(
-              ".varbase-video-player video",
+              '.varbase-video-player video',
               context
             );
 
@@ -37,26 +37,26 @@
               nextPlayer.onplay = onPlayProgress;
               nextPlayer.play();
             } else {
-              $(".slick__slider").slick("slickPlay");
+              $('.slick__slider').slick('slickPlay');
             }
           }
         );
 
         // When first slide has a video (Pause the slider and play the video).
-        $(".slick--view--varbase-heroslider-media", context).each(function () {
+        $('.slick--view--varbase-heroslider-media', context).each(function () {
           const firstVideo = $(this)
-            .find(".slide.slick-active")
-            .find(".varbase-video-player video", context);
+            .find('.slide.slick-active')
+            .find('.varbase-video-player video', context);
 
           if (firstVideo.length > 0) {
-            $(".slick__slider").slick("slickPause");
+            $('.slick__slider').slick('slickPause');
 
             const firstVideoPlayer = firstVideo.get(0);
             firstVideoPlayer.muted = true;
             firstVideoPlayer.play();
 
-            firstVideo.on("ended", function () {
-              $(".slick__slider").slick("slickPlay");
+            firstVideo.on('ended', function () {
+              $('.slick__slider').slick('slickPlay');
             });
           }
         });
@@ -64,12 +64,12 @@
         // Local Video variable.
         if (
           $(
-            ".slick--view--varbase-heroslider-media .varbase-video-player video",
+            '.slick--view--varbase-heroslider-media .varbase-video-player video',
             context
           ).length > 0
         ) {
           const player = $(
-            ".slick--view--varbase-heroslider-media .varbase-video-player video",
+            '.slick--view--varbase-heroslider-media .varbase-video-player video',
             context
           ).get(0);
 
@@ -82,17 +82,17 @@
 
         // Play when paused.
         function onPause() {
-          $(".slick__slider").slick("slickNext");
+          $('.slick__slider').slick('slickNext');
         }
 
         // Play when finished.
         function onFinish() {
-          $(".slick__slider").slick("slickPlay");
+          $('.slick__slider').slick('slickPlay');
         }
 
         // Pause on play prgress.
         function onPlayProgress() {
-          $(".slick__slider").slick("slickPause");
+          $('.slick__slider').slick('slickPause');
         }
       });
     }

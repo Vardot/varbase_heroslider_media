@@ -4,52 +4,52 @@
  */
 
 function ready(fn) {
-  if (document.readyState !== "loading") {
+  if (document.readyState !== 'loading') {
     fn();
   } else if (document.addEventListener) {
-    document.addEventListener("DOMContentLoaded", fn);
+    document.addEventListener('DOMContentLoaded', fn);
   } else {
-    document.attachEvent("onreadystatechange", function () {
-      if (document.readyState !== "loading") {
+    document.attachEvent('onreadystatechange', function () {
+      if (document.readyState !== 'loading') {
         fn();
       }
     });
   }
 }
 
-const tag = document.createElement("script");
-tag.src = "//www.youtube.com/player_api";
-const firstScriptTag = document.getElementsByTagName("script")[0];
+const tag = document.createElement('script');
+tag.src = '//www.youtube.com/player_api';
+const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 ready(function () {
-  const mediaIframe = document.querySelector("iframe");
-  mediaIframe.setAttribute("id", "media-oembed-iframe");
+  const mediaIframe = document.querySelector('iframe');
+  mediaIframe.setAttribute('id', 'media-oembed-iframe');
 
   let playerConfgured = false;
   let youtubePlayer;
 
   function actionProcessor(evt) {
     // Manage Youtube video.
-    if (evt.data === "play") {
+    if (evt.data === 'play') {
       const youtubeIframe = document.querySelector(
         'iframe[src*="youtube.com"]'
       );
       if (youtubeIframe !== undefined && youtubeIframe.src !== undefined) {
         if (!playerConfgured) {
           let youtubeURL = String(youtubeIframe.src);
-          youtubeURL = youtubeURL.replace(/autoplay=0/gi, "autoplay=1");
-          youtubeURL = youtubeURL.replace(/controls=1/gi, "controls=0");
-          youtubeURL += "&controls=0";
-          youtubeURL += "&enablejsapi=1";
-          youtubeURL += "&showinfo=0"; // Hide the video title.
-          youtubeURL += "&modestbranding=1"; // Hide the Youtube Logo.
-          youtubeURL += "&loop=1"; // Run the video in a loop.
-          youtubeURL += "&fs=1"; // Hide the full screen button.
-          youtubeURL += "&cc_load_policy=1"; // Hide closed captions.
-          youtubeURL += "&iv_load_policy=1"; // Hide the Video Annotations.
-          youtubeURL += "&volume=0";
-          youtubeURL += "&rel=0";
+          youtubeURL = youtubeURL.replace(/autoplay=0/gi, 'autoplay=1');
+          youtubeURL = youtubeURL.replace(/controls=1/gi, 'controls=0');
+          youtubeURL += '&controls=0';
+          youtubeURL += '&enablejsapi=1';
+          youtubeURL += '&showinfo=0'; // Hide the video title.
+          youtubeURL += '&modestbranding=1'; // Hide the Youtube Logo.
+          youtubeURL += '&loop=1'; // Run the video in a loop.
+          youtubeURL += '&fs=1'; // Hide the full screen button.
+          youtubeURL += '&cc_load_policy=1'; // Hide closed captions.
+          youtubeURL += '&iv_load_policy=1'; // Hide the Video Annotations.
+          youtubeURL += '&volume=0';
+          youtubeURL += '&rel=0';
           youtubeIframe.src = youtubeURL;
           youtubeURL = undefined;
 
@@ -76,7 +76,7 @@ ready(function () {
           youtubePlayer.playVideo();
         }
       }
-    } else if (evt.data === "pause") {
+    } else if (evt.data === 'pause') {
       if (playerConfgured) {
         youtubePlayer.pauseVideo();
         youtubePlayer.isPlaying = false;
@@ -98,17 +98,17 @@ ready(function () {
     }
 
     if (event.data === window.YT.PlayerState.ENDED) {
-      window.parent.postMessage("endedYoutube", "*");
+      window.parent.postMessage('endedYoutube', '*');
       youtubePlayer.pauseVideo();
     } else {
-      window.parent.postMessage("playingYoutube", "*");
+      window.parent.postMessage('playingYoutube', '*');
     }
   }
 
   // Setup the event listener for messaging.
   if (window.addEventListener) {
-    window.addEventListener("message", actionProcessor, false);
+    window.addEventListener('message', actionProcessor, false);
   } else {
-    window.attachEvent("onmessage", actionProcessor);
+    window.attachEvent('onmessage', actionProcessor);
   }
 });

@@ -4,13 +4,13 @@
  */
 
 function ready(fn) {
-  if (document.readyState !== "loading") {
+  if (document.readyState !== 'loading') {
     fn();
   } else if (document.addEventListener) {
-    document.addEventListener("DOMContentLoaded", fn);
+    document.addEventListener('DOMContentLoaded', fn);
   } else {
-    document.attachEvent("onreadystatechange", function () {
-      if (document.readyState !== "loading") {
+    document.attachEvent('onreadystatechange', function () {
+      if (document.readyState !== 'loading') {
         fn();
       }
     });
@@ -18,21 +18,21 @@ function ready(fn) {
 }
 
 // Load the Vimeo API library.
-const tag = document.createElement("script");
-tag.src = "//player.vimeo.com/api/player.js";
-const firstScriptTag = document.getElementsByTagName("script")[0];
+const tag = document.createElement('script');
+tag.src = '//player.vimeo.com/api/player.js';
+const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 ready(function () {
-  const mediaIframe = document.querySelector("iframe");
-  mediaIframe.setAttribute("id", "media-oembed-iframe");
+  const mediaIframe = document.querySelector('iframe');
+  mediaIframe.setAttribute('id', 'media-oembed-iframe');
 
   let playerConfgured = false;
   let vimeoPlayer;
 
   function actionProcessor(evt) {
     // Manage Vimeo video.
-    if (evt.data === "play") {
+    if (evt.data === 'play') {
       if (!playerConfgured) {
         const vimeoIframe = document.querySelector('iframe[src*="vimeo.com"]');
 
@@ -45,13 +45,13 @@ ready(function () {
 
         vimeoPlayer = new window.Vimeo.Player(vimeoIframe, vimeoOptions);
         vimeoPlayer.setVolume(0);
-        vimeoPlayer.on("ended", function () {
-          window.parent.postMessage("endedVimeo", "*");
+        vimeoPlayer.on('ended', function () {
+          window.parent.postMessage('endedVimeo', '*');
           vimeoPlayer.pause();
         });
 
-        vimeoPlayer.on("play", function () {
-          window.parent.postMessage("playingVimeo", "*");
+        vimeoPlayer.on('play', function () {
+          window.parent.postMessage('playingVimeo', '*');
         });
         playerConfgured = true;
       }
@@ -63,7 +63,7 @@ ready(function () {
           }
         });
       });
-    } else if (evt.data === "pause") {
+    } else if (evt.data === 'pause') {
       if (playerConfgured) {
         vimeoPlayer.pause();
       }
@@ -72,8 +72,8 @@ ready(function () {
 
   // Setup the event listener for messaging.
   if (window.addEventListener) {
-    window.addEventListener("message", actionProcessor, false);
+    window.addEventListener('message', actionProcessor, false);
   } else {
-    window.attachEvent("onmessage", actionProcessor);
+    window.attachEvent('onmessage', actionProcessor);
   }
 });

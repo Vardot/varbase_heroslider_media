@@ -1,4 +1,5 @@
 /* Varbase Hero slider media style */
+@use 'sass:math';
 @import "../variables.scss";
 .varbase-heroslider-media {
   position: relative;
@@ -76,13 +77,13 @@
       border-radius: 50%;
     }
 
-    $top_max_value: $hero-max-height/2;
+    $top_max_value: math.div($hero-max-height, 2);
 
     top: $hero-max-height;
     transform: translateY(-$top_max_value);
 
     @media screen and (min-width: map-get($grid-breakpoints, "md")) {
-      $top_min_value: $hero-min-height-md/2;
+      $top_min_value: math.div($hero-min-height-md, 2);
       top: $hero-min-height-md;
       transform: translateY(-$top_min_value);
     }
