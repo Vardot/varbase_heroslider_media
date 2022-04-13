@@ -93,9 +93,9 @@ function varbase_heroslider_media_update_8701() {
 }
 
 /**
- * Issue #3272283: Switch to use the Module Installer Factory.
+ * Issue #3272305: Switch to use the Module Installer Factory.
  *
- * In the Varbase Editor module.
+ * In the Varbase Media Hero Slider module.
  */
 function varbase_heroslider_media_update_90001() {
   // Set the weight of the module after installation of list of modules.
