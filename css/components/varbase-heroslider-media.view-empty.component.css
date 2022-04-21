@@ -11,25 +11,21 @@
   background-size: calc(2.625rem + 16.5vw);
   font-size: calc(1.3rem + 0.6vw);
 }
-
 @media (min-width: 1200px) {
   .varbase-heroslider-media > .view-empty {
     padding: 25rem 0 3rem;
   }
 }
-
 @media (min-width: 1200px) {
   .varbase-heroslider-media > .view-empty {
     background-position: 50% 5rem;
   }
 }
-
 @media (min-width: 1200px) {
   .varbase-heroslider-media > .view-empty {
     background-size: 15rem;
   }
 }
-
 @media (min-width: 1200px) {
   .varbase-heroslider-media > .view-empty {
     font-size: 1.75rem;
