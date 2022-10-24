@@ -1,6 +1,6 @@
 /**
  * @file
- * Behaviors of Varbase hero slider media for vimeo embeded videos scripts.
+ * Behaviors of Varbase hero slider media for vimeo embedded videos scripts.
  */
 
 (function ($, Drupal) {
