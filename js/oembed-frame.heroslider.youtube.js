@@ -25,6 +25,8 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 ready(function () {
   const mediaIframe = document.querySelector('iframe');
   mediaIframe.setAttribute('id', 'media-oembed-iframe');
+  mediaIframe.style.opacity = '0';
+  document.body.style.backgroundColor = '#000000';
 
   let playerConfgured = false;
   let youtubePlayer;
@@ -90,6 +92,12 @@ ready(function () {
   }
 
   function onPlayerStateChange(event) {
+    if (event.data === window.YT.PlayerState.BUFFERING) {
+      mediaIframe.style.opacity = '0';
+    } else {
+      mediaIframe.style.opacity = '1';
+    }
+
     if (event.data === window.YT.PlayerState.PLAYING) {
       youtubePlayer.isPlaying = true;
     } else {
