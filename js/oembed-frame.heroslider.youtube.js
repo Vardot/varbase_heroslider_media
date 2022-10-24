@@ -72,7 +72,6 @@ ready(function () {
 
           playerConfgured = true;
         } else {
-          youtubePlayer.seekTo(0);
           youtubePlayer.playVideo();
         }
       }
@@ -100,6 +99,7 @@ ready(function () {
     if (event.data === window.YT.PlayerState.ENDED) {
       window.parent.postMessage('endedYoutube', '*');
       youtubePlayer.pauseVideo();
+      youtubePlayer.seekTo(0);
     } else {
       window.parent.postMessage('playingYoutube', '*');
     }

@@ -51,7 +51,13 @@
 
       function youtubeActionProcessor(e) {
         if (e.data === 'endedYoutube' || e.message === 'endedYoutube') {
-          mediaSliders.slick('slickNext');
+          if ($('.varbase-heroslider-media .slide').length > 1) {
+            // When having 2 or more slides.
+            mediaSliders.slick('slickNext');
+          } else {
+            // When only having one Youtube slide.
+            firstIframeVideo.get(0).contentWindow.postMessage('play', '*');
+          }
         } else if (
           e.data === 'playingYoutube' ||
           e.message === 'playingYoutube'
