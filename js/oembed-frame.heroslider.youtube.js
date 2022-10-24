@@ -73,7 +73,7 @@ ready(function () {
           });
 
           playerConfgured = true;
-        } else {
+        } else if (typeof youtubePlayer.playVideo === "function") {
           youtubePlayer.playVideo();
         }
       }
