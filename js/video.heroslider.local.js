@@ -13,36 +13,39 @@
         );
 
         // On before slide change.
-        mediaSliders.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          const currentSlideObject = $(
-            '.slide--' + currentSlide + '.slick-active'
-          );
-          const nextSlideObject = $('.slide--' + nextSlide);
-          const currentVideo = currentSlideObject.find(
-            '.varbase-video-player video',
-            context
-          );
-          const nextVideo = nextSlideObject.find(
-            '.varbase-video-player video',
-            context
-          );
+        mediaSliders.on(
+          'beforeChange',
+          function (event, slick, currentSlide, nextSlide) {
+            const currentSlideObject = $(
+              `.slide--${currentSlide}.slick - active`
+            );
+            const nextSlideObject = $(`.slide--${nextSlide}`);
+            const currentVideo = currentSlideObject.find(
+              '.varbase-video-player video',
+              context
+            );
+            const nextVideo = nextSlideObject.find(
+              '.varbase-video-player video',
+              context
+            );
 
-          if (currentVideo.length > 0) {
-            const currentPlayer = currentVideo.get(0);
-            currentPlayer.pause();
-          }
+            if (currentVideo.length > 0) {
+              const currentPlayer = currentVideo.get(0);
+              currentPlayer.pause();
+            }
 
-          if (nextVideo.length > 0) {
-            const nextPlayer = nextVideo.get(0);
-            nextPlayer.muted = true;
-            nextPlayer.onpause = onPause;
-            nextPlayer.onended = onFinish;
-            nextPlayer.onplay = onPlayProgress;
-            nextPlayer.play();
-          } else {
-            mediaSliders.slick('slickPlay');
+            if (nextVideo.length > 0) {
+              const nextPlayer = nextVideo.get(0);
+              nextPlayer.muted = true;
+              nextPlayer.onpause = onPause;
+              nextPlayer.onended = onFinish;
+              nextPlayer.onplay = onPlayProgress;
+              nextPlayer.play();
+            } else {
+              mediaSliders.slick('slickPlay');
+            }
           }
-        });
+        );
 
         // When first slide has a video (Pause the slider and play the video).
         $('.slick--view--varbase-heroslider-media', context).each(function () {
@@ -92,7 +95,7 @@
           mediaSliders.slick('slickPlay');
         }
 
-        // Pause on play prgress.
+        // Pause on play progress.
         function onPlayProgress() {
           mediaSliders.slick('slickPause');
         }

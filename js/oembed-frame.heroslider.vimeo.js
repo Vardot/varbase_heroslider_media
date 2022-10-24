@@ -69,7 +69,7 @@ ready(function () {
       if (playerConfgured) {
         vimeoPlayer.pause();
       }
-    } else if (evt.data === "loop") {
+    } else if (evt.data === 'loop') {
       videoLoop = true;
     }
   }

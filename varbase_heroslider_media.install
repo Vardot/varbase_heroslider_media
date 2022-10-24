@@ -13,7 +13,7 @@ use Vardot\Installer\ModuleInstallerFactory;
  */
 function varbase_heroslider_media_install() {
 
-  // Processer for install: in varbase_heroslider_media.info.yml file using ModuleInstallerFactory.
+  // Processor for install: in varbase_heroslider_media.info.yml file.
   // --------------------------------------------------------------------------.
   ModuleInstallerFactory::installList('varbase_heroslider_media');
 
@@ -99,6 +99,7 @@ function varbase_heroslider_media_update_8701() {
  */
 function varbase_heroslider_media_update_90001() {
   // Set the weight of the module after installation of list of modules.
-  // To make sure that any hook or event subscriber workes after all used modules.
+  // To make sure that any hook or event subscriber works after
+  // all used modules.
   ModuleInstallerFactory::setModuleWeightAfterInstallation('varbase_heroslider_media');
 }
