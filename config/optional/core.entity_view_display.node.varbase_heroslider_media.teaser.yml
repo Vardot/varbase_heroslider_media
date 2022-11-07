@@ -18,8 +18,8 @@ content:
     weight: 100
     region: content
 hidden:
+  content_moderation_control: true
   field_brief: true
   field_link: true
   field_media_single: true
   langcode: true
-  content_moderation_control: true

@@ -15,39 +15,34 @@ targetEntityType: node
 bundle: varbase_heroslider_media
 mode: default
 content:
-  content_moderation_control:
-    weight: -20
-    settings: {}
-    third_party_settings: {}
-    region: content
   field_brief:
-    weight: 2
-    label: hidden
-    settings: {}
-    third_party_settings: {}
     type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_link:
-    weight: 3
+    type: link
     label: hidden
     settings:
       trim_length: 80
       url_only: false
       url_plain: false
-      rel: "0"
-      target: "0"
+      rel: '0'
+      target: '0'
     third_party_settings:
       ds:
         ft:
           id: default
           settings:
-            lb: ""
+            lb: ''
             lb-col: false
-            classes: {}
-    type: link
+            classes: {  }
+    weight: 2
     region: content
   field_media_single:
-    weight: 0
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: varbase_media_hero_slider
@@ -57,11 +52,13 @@ content:
         ft:
           id: default
           settings:
-            lb: ""
+            lb: ''
             lb-col: false
-            classes: {}
-    type: entity_reference_entity_view
+            classes: {  }
+    weight: 0
     region: content
 hidden:
+  content_moderation_control: true
   langcode: true
   links: true
+  search_api_excerpt: true
