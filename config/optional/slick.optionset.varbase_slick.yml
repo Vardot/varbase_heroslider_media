@@ -1,30 +1,31 @@
 langcode: en
 status: true
-dependencies: {}
+dependencies: {  }
 id: varbase_slick
 name: varbase_slick
-label: "Varbase Slick"
 weight: 0
-group: ""
-skin: ""
+label: 'Varbase Slick'
+group: ''
+skin: ''
 breakpoints: 0
 optimized: false
 options:
-  options__active_tab: edit-options-settings
+  options__active_tab: edit-options-responsives
   settings:
     mobileFirst: true
-    asNavFor: ""
+    asNavFor: ''
     accessibility: true
     adaptiveHeight: false
     autoplay: true
-    autoplaySpeed: 5000
     pauseOnHover: true
     pauseOnDotsHover: false
+    pauseOnFocus: true
+    autoplaySpeed: 5000
     arrows: true
-    prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="Previous" tabindex="0" role="button">Previous</button>'
-    nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="Next" tabindex="0" role="button">Next</button>'
+    prevArrow: Previous
+    nextArrow: Next
     downArrow: false
-    downArrowTarget: ""
+    downArrowTarget: ''
     downArrowOffset: 0
     centerMode: false
     centerPadding: 50px
@@ -43,7 +44,7 @@ options:
     rtl: false
     rows: 1
     slidesPerRow: 1
-    slide: ""
+    slide: ''
     slidesToShow: 1
     slidesToScroll: 1
     speed: 500
@@ -54,8 +55,8 @@ options:
     touchThreshold: 5
     useCSS: true
     cssEase: ease
-    cssEaseBezier: ""
-    cssEaseOverride: ""
+    cssEaseBezier: ''
+    cssEaseOverride: ''
     useTransform: true
     easing: linear
     variableWidth: false
