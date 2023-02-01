@@ -39,7 +39,7 @@
     "drupal/rabbit_hole": "~1.0",
     "drupal/field_group": "~3.0",
     "drupal/length_indicator": "~1.0",
-    "drupal/advanced_text_formatter": "~2.0",
+    "drupal/advanced_text_formatter": "~2.0 || ~3.0",
     "drupal/maxlength": "~2.0"
   },
   "extra": {
