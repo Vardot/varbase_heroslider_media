@@ -9,7 +9,7 @@
       $(window).on('load', function () {
         const mediaSliders = $(
           '.slick--view--varbase-heroslider-media .slick__slider',
-          context
+          context,
         );
 
         // On before slide change.
@@ -17,16 +17,16 @@
           'beforeChange',
           function (event, slick, currentSlide, nextSlide) {
             const currentSlideObject = $(
-              `.slide--${currentSlide}.slick-active`
+              `.slide--${currentSlide}.slick-active`,
             );
             const nextSlideObject = $(`.slide--${nextSlide}`);
             const currentVideo = currentSlideObject.find(
               '.varbase-video-player video',
-              context
+              context,
             );
             const nextVideo = nextSlideObject.find(
               '.varbase-video-player video',
-              context
+              context,
             );
 
             if (currentVideo.length > 0) {
@@ -44,7 +44,7 @@
             } else {
               mediaSliders.slick('slickPlay');
             }
-          }
+          },
         );
 
         // When first slide has a video (Pause the slider and play the video).
@@ -70,12 +70,12 @@
         if (
           $(
             '.slick--view--varbase-heroslider-media .varbase-video-player video',
-            context
+            context,
           ).length > 0
         ) {
           const player = $(
             '.slick--view--varbase-heroslider-media .varbase-video-player video',
-            context
+            context,
           ).get(0);
 
           // When the player is ready, add listeners for pause, finish,
@@ -100,6 +100,6 @@
           mediaSliders.slick('slickPause');
         }
       });
-    }
+    },
   };
 })(window.jQuery, window.Drupal);

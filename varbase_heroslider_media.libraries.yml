@@ -11,7 +11,7 @@ general-scripts:
     - core/drupal
     - core/drupalSettings
     - core/jquery
-    - core/jquery.once
+    - core/once
     - slick/slick
 
 # Default empty view style.

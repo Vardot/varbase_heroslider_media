@@ -1,5 +1,14 @@
-/* Varbase Hero slider media Empty view style */
-@import "../variables.scss";
+// Varbase Media Hero Slider empty view component style.
+// ----------------------------------------------------------------
+@import "../bootstrap-variables";                         // Override Bootstrap 5 variables.
+@import "../vartheme-variables";                          // Varbase Media Hero Slider custom variables for Vartheme.
+@import "../vartheme-mixins";                             // Varbase Media Hero Slider custom mixins for Vartheme.
+@import "../../node_modules/bootstrap/scss/functions";    // Bootstrap functions.
+@import "../../node_modules/bootstrap/scss/variables";    // Bootstrap variables.
+@import "../../node_modules/bootstrap/scss/maps";         // Bootstrap maps.
+@import "../../node_modules/bootstrap/scss/mixins";       // Bootstrap mixins.
+@import "../../node_modules/bootstrap/scss/utilities";    // Bootstrap utilities.
+
 .varbase-heroslider-media {
   &> .view-empty {
     background-color: $hero-empty-view-background;

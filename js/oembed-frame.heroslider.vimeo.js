@@ -41,7 +41,7 @@ ready(function () {
           background: true,
           autoplay: true,
           muted: true,
-          controls: false
+          controls: false,
         };
 
         vimeoPlayer = new window.Vimeo.Player(vimeoIframe, vimeoOptions);

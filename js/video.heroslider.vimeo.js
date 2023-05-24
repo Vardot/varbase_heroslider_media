@@ -8,7 +8,7 @@
     attach(context) {
       const mediaSliders = $(
         '.slick--view--varbase-heroslider-media .slick__slider',
-        context
+        context,
       );
       // On before slide change.
       mediaSliders.on(
@@ -16,19 +16,19 @@
         function (event, slick, currentSlide, nextSlide) {
           const currentVideo = $(`.slide--${currentSlide}.slick-active`).find(
             '.varbase-video-player iframe[src*="vimeo.com"]',
-            context
+            context,
           );
           if (currentVideo.length > 0) {
             currentVideo.get(0).contentWindow.postMessage('pause', '*');
           }
-        }
+        },
       );
 
       // On after slide change.
       mediaSliders.on('afterChange', function (event, slick, currentSlide) {
         const currentVideo = $(`.slide--${currentSlide}.slick-active`).find(
           '.varbase-video-player iframe[src*="vimeo.com"]',
-          context
+          context,
         );
         if (currentVideo.length > 0) {
           currentVideo.get(0).contentWindow.postMessage('play', '*');
@@ -77,6 +77,6 @@
       } else {
         window.attachEvent('onmessage', vimeoActionProcessor);
       }
-    }
+    },
   };
 })(window.jQuery, window.Drupal);

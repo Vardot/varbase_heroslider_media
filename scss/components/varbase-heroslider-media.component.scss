@@ -1,6 +1,14 @@
-/* Varbase Hero slider media style */
-@use 'sass:math';
-@import "../variables.scss";
+// Varbase Media Hero Slider component style.
+// ----------------------------------------------------------------
+@import "../bootstrap-variables";                         // Override Bootstrap 5 variables.
+@import "../vartheme-variables";                          // Varbase Media Hero Slider custom variables for Vartheme.
+@import "../vartheme-mixins";                             // Varbase Media Hero Slider custom mixins for Vartheme.
+@import "../../node_modules/bootstrap/scss/functions";    // Bootstrap functions.
+@import "../../node_modules/bootstrap/scss/variables";    // Bootstrap variables.
+@import "../../node_modules/bootstrap/scss/maps";         // Bootstrap maps.
+@import "../../node_modules/bootstrap/scss/mixins";       // Bootstrap mixins.
+@import "../../node_modules/bootstrap/scss/utilities";    // Bootstrap utilities.
+
 .varbase-heroslider-media {
   position: relative;
   overflow: hidden;
@@ -211,7 +219,7 @@
       }
 
       .varbase-video-player {
-        &.embed-responsive {
+        &.ratio {
           position: relative;
           width: 100vw;
           height: 130vh;
@@ -269,7 +277,7 @@
       /* 1. No object-fit support: */
       @media (max-aspect-ratio: #{"16/9"}) {
         .varbase-video-player {
-          &.embed-responsive {
+          &.ratio {
             position: relative;
             width: 240vw;
             height: 140vh;
@@ -346,7 +354,7 @@
     .field--name-field-media-single {
       @media (max-aspect-ratio: #{"16/9"}) {
         .varbase-video-player {
-          &.embed-responsive {
+          &.ratio {
             left: 0;
             right: 0;
             transform: translateY(-50%) translateX(0);

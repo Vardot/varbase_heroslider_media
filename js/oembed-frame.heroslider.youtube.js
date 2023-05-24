@@ -35,7 +35,7 @@ ready(function () {
     // Manage Youtube video.
     if (evt.data === 'play') {
       const youtubeIframe = document.querySelector(
-        'iframe[src*="youtube.com"]'
+        'iframe[src*="youtube.com"]',
       );
       if (youtubeIframe !== undefined && youtubeIframe.src !== undefined) {
         if (!playerConfgured) {
@@ -64,12 +64,12 @@ ready(function () {
               loop: 1, // Run the video in a loop.
               fs: 0, // Hide the full screen button.
               autohide: 0, // Hide video controls when playing.
-              rel: 0 // Hide related videos.
+              rel: 0, // Hide related videos.
             },
             events: {
               onReady: onPlayerReady,
-              onStateChange: onPlayerStateChange
-            }
+              onStateChange: onPlayerStateChange,
+            },
           });
 
           playerConfgured = true;
