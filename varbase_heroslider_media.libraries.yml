@@ -1,25 +1,3 @@
-# Varbase hero slider media general styling.
-general-styling:
-  css:
-    component:
-      css/components/varbase-heroslider-media.component.css: {}
-
-# Varbase hero slider media default general scripts.
-general-scripts:
-  js: {}
-  dependencies:
-    - core/drupal
-    - core/drupalSettings
-    - core/jquery
-    - core/once
-    - slick/slick
-
-# Default empty view style.
-view-empty:
-  css:
-    component:
-      css/components/varbase-heroslider-media.view-empty.component.css: {}
-
 # Behaviors of Varbase hero slider media for local video scripts.
 local_video_slider:
   js:

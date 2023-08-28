@@ -5,19 +5,7 @@
  * The varbase_heroslider_media.module.
  */
 
-use Drupal\views\ViewExecutable;
 use Drupal\media\Entity\Media;
-
-/**
- * Implements hook_views_pre_render().
- */
-function varbase_heroslider_media_views_pre_render(ViewExecutable $view) {
-  if (isset($view) && ($view->storage->id() == 'varbase_heroslider_media')
-      && count($view->result) < 1) {
-    // Default empty view style.
-    $view->element['#attached']['library'][] = 'varbase_heroslider_media/view-empty';
-  }
-}
 
 /**
  * Implements hook_theme().
@@ -25,8 +13,12 @@ function varbase_heroslider_media_views_pre_render(ViewExecutable $view) {
 function varbase_heroslider_media_theme($existing, $type, $theme, $path) {
   return [
     'node__varbase_heroslider_media' => [
-      'template' => 'node--varbase-heroslider-media',
+      'template' => 'node--media-hero-slide',
       'base hook' => 'node',
+    ],
+    'views_view__varbase_heroslider_media' => [
+      'template' => 'views-view--media-hero-slider',
+      'base hook' => 'view',
     ],
     'media_oembed_iframe__remote_video__varbase_media_hero_slider' => [
       'template' => 'media-oembed-iframe--remote-video--varbase-media-hero-slider',
