@@ -1,6 +1,9 @@
 {
   "name": "varbase_heroslider_media",
   "description": "Varbase Media Hero Slider",
+  "author": "Vardot",
+  "license": "GPL-2.0",
+  "homepage": "https://www.drupal.org/project/varbase_heroslider_media",
   "private": true,
   "engines": {
     "yarn": ">= 1.6",
@@ -12,9 +15,6 @@
     "lint:js": "node ./node_modules/eslint/bin/eslint.js .",
     "lint:yaml": "node ./node_modules/eslint/bin/eslint.js --ext .yml ."
   },
-  "author": "Vardot",
-  "license": "MIT",
-  "homepage": "https://www.drupal.org/project/varbase_components",
   "keywords": [
     "drupal",
     "webpack",
@@ -53,7 +53,7 @@
     "webpack-notifier": "^1.13.0",
     "webpack-remove-empty-scripts": "^0.7.1",
     "copy-webpack-plugin": "~11.0.0",
-    "clean-webpack-plugin": "^4.0.0",
+    "clean-webpack-plugin": "^4.0.0"
   },
   "browserslist": [
     "last 2 Chrome major versions",
