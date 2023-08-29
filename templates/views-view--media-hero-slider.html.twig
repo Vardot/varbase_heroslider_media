@@ -32,4 +32,24 @@
  * @ingroup themeable
  */
 #}
-{% include "varbase_components:media-hero-slider" %}
+{% 
+  include "varbase_components:media-hero-slider" with {
+    attributes: attributes,
+    css_name: css_name,
+    css_class: css_class,
+    header: header,
+    footer: footer,
+    rows: rows,
+    empty: empty,
+    pager: pager,
+    exposed: exposed,
+    feed_icons: feed_icons,
+    more: more,
+    title: title,
+    title_prefix: title_prefix,
+    title_suffix: title_suffix,
+    attachment_before: attachment_before,
+    attachment_after: attachment_after,
+    dom_id: dom_id
+  }
+%}
