@@ -17,7 +17,7 @@
           'beforeChange',
           function (event, slick, currentSlide, nextSlide) {
             const currentSlideObject = $(
-              `.slide--${currentSlide}.slick - active`
+              `.slide--${currentSlide}.slick-active`
             );
             const nextSlideObject = $(`.slide--${nextSlide}`);
             const currentVideo = currentSlideObject.find(
