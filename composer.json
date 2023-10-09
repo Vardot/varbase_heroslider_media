@@ -36,7 +36,7 @@
     "vardot/module-installer-factory": "~1.0",
     "drupal/varbase_media": "~9.0",
     "drupal/entityqueue": "~1.0",
-    "drupal/rabbit_hole": "~1.0",
+    "drupal/rabbit_hole": "~1.0 || ~2.0",
     "drupal/field_group": "~3.0",
     "drupal/length_indicator": "~1.0",
     "drupal/advanced_text_formatter": "~2.0 || ~3.0",
