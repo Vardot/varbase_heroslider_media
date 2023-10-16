@@ -73,10 +73,10 @@
 
             const firstVideoPlayer = firstVideo.get(0);
             firstVideoPlayer.muted = true;
-            var playPromise = firstVideoPlayer.play();
 
             // DOMException - The play() request was interrupted.
             // https://developer.chrome.com/blog/play-request-was-interrupted
+            var playPromise = firstVideoPlayer.play();
             if (playPromise !== undefined) {
               playPromise.then(_ => {
                 // Automatic playback started!
