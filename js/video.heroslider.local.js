@@ -43,9 +43,10 @@
 
               // DOMException - The play() request was interrupted.
               // https://developer.chrome.com/blog/play-request-was-interrupted
-              var playPromise = nextPlayer.play();
-              if (playPromise !== undefined) {
-                playPromise.then(_ => {
+              let nextPlayPromise;
+              nextPlayPromise = nextPlayer.play();
+              if (nextPlayPromise && Object.keys(nextPlayPromise).length === 0 && nextPlayPromise.constructor === Object) {
+                nextPlayPromise.then(_ => {
                   // Automatic playback started!
                   // Show playing UI.
                   // We can now safely pause video...
@@ -76,9 +77,10 @@
 
             // DOMException - The play() request was interrupted.
             // https://developer.chrome.com/blog/play-request-was-interrupted
-            var playPromise = firstVideoPlayer.play();
-            if (playPromise !== undefined) {
-              playPromise.then(_ => {
+            let firstVideoPlayPromise;
+            firstVideoPlayPromise = firstVideoPlayer.play();
+            if (firstVideoPlayPromise && Object.keys(firstVideoPlayPromise).length === 0 && firstVideoPlayPromise.constructor === Object) {
+              firstVideoPlayPromise.then(_ => {
                 // Automatic playback started!
                 // Show playing UI.
                 // We can now safely pause video...
