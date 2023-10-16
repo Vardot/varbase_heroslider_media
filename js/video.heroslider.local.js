@@ -49,7 +49,7 @@
                   // Automatic playback started!
                   // Show playing UI.
                   // We can now safely pause video...
-                  video.pause();
+                  nextPlayer.pause();
                 })
                 .catch(error => {
                   // Auto-play was prevented
@@ -82,7 +82,7 @@
                 // Automatic playback started!
                 // Show playing UI.
                 // We can now safely pause video...
-                video.pause();
+                firstVideoPlayer.pause();
               })
               .catch(error => {
                 // Auto-play was prevented
