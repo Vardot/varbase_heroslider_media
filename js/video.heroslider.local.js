@@ -50,7 +50,7 @@
         // When first slide has a video (Pause the slider and play the video).
         $('.slick--view--varbase-heroslider-media', context).each(function () {
           const firstVideo = $(this)
-            .find('.slide.slick-active')
+            .find('.slide')
             .find('.varbase-video-player video', context);
 
           if (firstVideo.length > 0) {
