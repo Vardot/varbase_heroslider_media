@@ -40,7 +40,22 @@
               nextPlayer.onpause = onPause;
               nextPlayer.onended = onFinish;
               nextPlayer.onplay = onPlayProgress;
-              nextPlayer.play();
+
+              // DOMException - The play() request was interrupted.
+              // https://developer.chrome.com/blog/play-request-was-interrupted
+              var playPromise = nextPlayer.play();
+              if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                  // Automatic playback started!
+                  // Show playing UI.
+                  // We can now safely pause video...
+                  video.pause();
+                })
+                .catch(error => {
+                  // Auto-play was prevented
+                  // Show paused UI.
+                });
+              }
             } else {
               mediaSliders.slick('slickPlay');
             }
@@ -58,7 +73,22 @@
 
             const firstVideoPlayer = firstVideo.get(0);
             firstVideoPlayer.muted = true;
-            firstVideoPlayer.play();
+            var playPromise = firstVideoPlayer.play();
+
+            // DOMException - The play() request was interrupted.
+            // https://developer.chrome.com/blog/play-request-was-interrupted
+            if (playPromise !== undefined) {
+              playPromise.then(_ => {
+                // Automatic playback started!
+                // Show playing UI.
+                // We can now safely pause video...
+                video.pause();
+              })
+              .catch(error => {
+                // Auto-play was prevented
+                // Show paused UI.
+              });
+            }
 
             firstVideo.on('ended', function () {
               mediaSliders.slick('slickPlay');
