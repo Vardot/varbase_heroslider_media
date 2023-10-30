@@ -66,7 +66,7 @@
         // When first slide has a video (Pause the slider and play the video).
         $('.slick--view--varbase-heroslider-media', context).each(function () {
           const firstVideo = $(this)
-            .find('.slide')
+            .find('.slide.slick-active')
             .find('.varbase-video-player video', context);
 
           if (firstVideo.length > 0) {
@@ -97,6 +97,35 @@
             });
           }
         });
+
+        $('.slick--view--varbase-heroslider-media.slick--less', context).each(function () {
+          const firstVideo = $(this)
+            .find('.slide')
+            .find('.varbase-video-player video', context);
+
+          if (firstVideo.length > 0) {
+
+            const firstVideoPlayer = firstVideo.get(0);
+            firstVideoPlayer.muted = true;
+            firstVideoPlayer.loop = true;
+
+            // DOMException - The play() request was interrupted.
+            // https://developer.chrome.com/blog/play-request-was-interrupted
+            let firstVideoPlayPromise;
+            firstVideoPlayPromise = firstVideoPlayer.play();
+            if (firstVideoPlayPromise && Object.keys(firstVideoPlayPromise).length === 0 && firstVideoPlayPromise.constructor === Object) {
+              firstVideoPlayPromise.then(_ => {
+                // Automatic playback started!
+                // Show playing UI.
+                // We can now safely pause video...
+              })
+              .catch(error => {
+                // Auto-play was prevented
+                // Show paused UI.
+              });
+            }
+          }
+        });  
 
         // Local Video variable.
         if (
