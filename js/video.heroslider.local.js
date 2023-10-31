@@ -118,6 +118,7 @@
                 // Automatic playback started!
                 // Show playing UI.
                 // We can now safely pause video...
+                firstVideoPlayer.pause();
               })
               .catch(error => {
                 // Auto-play was prevented
