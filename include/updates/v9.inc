@@ -7,7 +7,7 @@
 
 use Vardot\Installer\ModuleInstallerFactory;
 
- /**
+/**
  * Issue #3272305: Switch to use the Module Installer Factory.
  *
  * In the Varbase Media Hero Slider module.
