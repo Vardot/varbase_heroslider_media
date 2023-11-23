@@ -1,22 +1,18 @@
 // Varbase Hero slider media theme variables.
-
 @import "../node_modules/rfs/scss";
 
-// Grid breakpoints ( Bootstrap 5 )
+// Grid breakpoints ( Bootstrap 4 )
 //
 // Define the minimum dimensions at which your layout will change,
 // adapting to different screen sizes, for use in media queries.
 
-// scss-docs-start grid-breakpoints
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
+  xl: 1200px
 ) !default;
-// scss-docs-end grid-breakpoints
 
 // Custom Varbase Hero slider media variables.
 // -----------------------------------------------------------------------------
@@ -49,12 +45,11 @@ $hero-min-height: 300px;
 $hero-max-height: 300px;
 
 // For screen size sm and more.
-$hero-min-height-sm: 400px;
-$hero-max-height-sm: 400px;
+$hero-min-height-sm: 300px;
+$hero-max-height-sm: 300px;
 
 // For screen size md and more.
 $hero-min-height-md: 600px;
 $hero-max-height-md: 600px;
 
 $hero-container-v-padding: 60px;
-$hero-container-h-padding-sm: 150px;

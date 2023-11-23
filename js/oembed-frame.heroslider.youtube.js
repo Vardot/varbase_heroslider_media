@@ -25,6 +25,8 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 ready(function () {
   const mediaIframe = document.querySelector('iframe');
   mediaIframe.setAttribute('id', 'media-oembed-iframe');
+  mediaIframe.style.opacity = '0';
+  document.body.style.backgroundColor = '#000000';
 
   let playerConfgured = false;
   let youtubePlayer;
@@ -71,8 +73,7 @@ ready(function () {
           });
 
           playerConfgured = true;
-        } else {
-          youtubePlayer.seekTo(0);
+        } else if (typeof youtubePlayer.playVideo === 'function') {
           youtubePlayer.playVideo();
         }
       }
@@ -91,6 +92,12 @@ ready(function () {
   }
 
   function onPlayerStateChange(event) {
+    if (event.data === window.YT.PlayerState.BUFFERING) {
+      mediaIframe.style.opacity = '0';
+    } else {
+      mediaIframe.style.opacity = '1';
+    }
+
     if (event.data === window.YT.PlayerState.PLAYING) {
       youtubePlayer.isPlaying = true;
     } else {
@@ -100,6 +107,7 @@ ready(function () {
     if (event.data === window.YT.PlayerState.ENDED) {
       window.parent.postMessage('endedYoutube', '*');
       youtubePlayer.pauseVideo();
+      youtubePlayer.seekTo(0);
     } else {
       window.parent.postMessage('playingYoutube', '*');
     }

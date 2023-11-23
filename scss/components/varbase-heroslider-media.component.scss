@@ -122,11 +122,6 @@
       max-height: $hero-max-height-md;
     }
 
-    @media screen and (max-width: map-get($grid-breakpoints, "sm")) {
-      min-height: $hero-min-height-sm;
-      max-height: $hero-max-height-sm;
-    }
-
     .hero-slide-content-wrapper {
       position: absolute;
       z-index: 9;
@@ -141,7 +136,7 @@
     }
 
     .hero-slide-content {
-      @include padding($hero-container-v-padding);
+      padding: $hero-container-v-padding;
 
       .field--name-node-title {
         h2,
@@ -189,10 +184,6 @@
           }
         }
       }
-
-      @media screen and (max-width: map-get($grid-breakpoints, "sm")) {
-        @include padding($hero-container-v-padding $hero-container-h-padding-sm);
-      }
     }
 
     .field--name-field-media-single {
@@ -215,6 +206,9 @@
           position: relative;
           width: 100vw;
           height: 130vh;
+          @media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+            height: auto;
+          }
           top: 50%;
           left: 50%;
           transform: translateY(-50%) translateX(-50%);
@@ -270,6 +264,9 @@
             position: relative;
             width: 240vw;
             height: 140vh;
+            @media screen and (min-width: map-get($grid-breakpoints, "xl")) {
+              height: auto;
+            }
             top: 50%;
             transform: translateY(-50%) translateX(-50%);
             padding-bottom: 0 !important;

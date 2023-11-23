@@ -30,7 +30,7 @@ youtube_video_slider:
   js:
     js/video.heroslider.youtube.js: { weight: -1 }
 
-# Behaviors of Varbase hero slider media for vimeo embeded videos scripts.
+# Behaviors of Varbase hero slider media for vimeo embedded videos scripts.
 vimeo_video_slider:
   js:
     js/video.heroslider.vimeo.js: { weight: -1 }

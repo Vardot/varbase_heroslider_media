@@ -28,6 +28,7 @@ ready(function () {
   mediaIframe.setAttribute('id', 'media-oembed-iframe');
 
   let playerConfgured = false;
+  let videoLoop = false;
   let vimeoPlayer;
 
   function actionProcessor(evt) {
@@ -45,6 +46,7 @@ ready(function () {
 
         vimeoPlayer = new window.Vimeo.Player(vimeoIframe, vimeoOptions);
         vimeoPlayer.setVolume(0);
+        vimeoPlayer.setLoop(videoLoop);
         vimeoPlayer.on('ended', function () {
           window.parent.postMessage('endedVimeo', '*');
           vimeoPlayer.pause();
@@ -67,6 +69,8 @@ ready(function () {
       if (playerConfgured) {
         vimeoPlayer.pause();
       }
+    } else if (evt.data === 'loop') {
+      videoLoop = true;
     }
   }
 

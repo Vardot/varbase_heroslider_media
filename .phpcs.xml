@@ -9,6 +9,7 @@
   <!--Exclude minimized css.-->
   <exclude-pattern>*/*.min.css</exclude-pattern>
   <exclude-pattern>css/variables.css</exclude-pattern>
+  <exclude-pattern>gulpfile.js</exclude-pattern>
 
  <!-- Only include specific sniffs that pass. This ensures that, if new sniffs are added, HEAD does not fail.-->
   <!-- Drupal sniffs -->

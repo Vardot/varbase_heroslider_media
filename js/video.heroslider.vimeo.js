@@ -1,6 +1,6 @@
 /**
  * @file
- * Behaviors of Varbase hero slider media for vimeo embeded videos scripts.
+ * Behaviors of Varbase hero slider media for vimeo embedded videos scripts.
  */
 
 (function ($, Drupal) {
@@ -46,6 +46,11 @@
         firstIframeVideo.on('load', function () {
           if (!firstIframeVideo.hasClass('first-slide-played')) {
             mediaSliders.slick('slickPause');
+
+            if ($('.varbase-heroslider-media .slide').length === 1) {
+              firstIframeVideo.get(0).contentWindow.postMessage('loop', '*');
+            }
+
             $(this).get(0).contentWindow.postMessage('play', '*');
             firstIframeVideo.addClass('first-slide-played');
           }
@@ -54,7 +59,13 @@
 
       function vimeoActionProcessor(e) {
         if (e.data === 'endedVimeo' || e.message === 'endedVimeo') {
-          mediaSliders.slick('slickNext');
+          if ($('.varbase-heroslider-media .slide').length > 1) {
+            // When having 2 or more slides.
+            mediaSliders.slick('slickNext');
+          } else {
+            // When only having one Vimeo slide.
+            firstIframeVideo.get(0).contentWindow.postMessage('play', '*');
+          }
         } else if (e.data === 'playingVimeo' || e.message === 'playingVimeo') {
           mediaSliders.slick('slickPause');
         }
