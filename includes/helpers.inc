@@ -31,7 +31,7 @@ function varbase_heroslider_media_requirements($phase) {
   if (!$slick_library_found) {
     $requirements['slick_library'] = [
       'title' => t('slick library missing'),
-      'description' => t('Varbase Editor requires the Slick library.
+      'description' => t('Varbase Media Hero Slider requires the Slick library.
         Download it (https://github.com/kenwheeler/slick) and place it in the
         libraries folder (/libraries).
         Use the asset-packagist.org method:
@@ -80,7 +80,7 @@ function varbase_heroslider_media_requirements($phase) {
         ```
         No need to add anything else with Varbase Profile
 
-        If the project is a Standard Drupal profile is using Varbase Editor, you need to add the following too:
+        If the project is a Standard Drupal profile is using Varbase Media Hero Slider, you need to add the following too:
         `"npm-asset/slick-carousel": "~1",`
         '),
       'severity' => REQUIREMENT_ERROR,
