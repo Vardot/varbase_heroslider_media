@@ -29,7 +29,7 @@
     "drupal/varbase_media": "~9",
     "drupal/entityqueue": "~1",
     "drupal/rabbit_hole": "~1 || ~2",
-    "drupal/field_group": "~3 || ~4",
+    "drupal/field_group": "~4",
     "drupal/length_indicator": "~1",
     "drupal/advanced_text_formatter": "~2 || ~3",
     "drupal/maxlength": "~2 || ~3"
