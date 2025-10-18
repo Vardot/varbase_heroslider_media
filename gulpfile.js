@@ -1,5 +1,5 @@
 let gulp = require('gulp'),
-  sass = require("gulp-sass")(require('sass')),
+  sass = require('gulp-sass')(require('sass')),
   postcss = require('gulp-postcss'),
   csscomb = require('gulp-csscomb'),
   autoprefixer = require('autoprefixer'),
@@ -22,7 +22,9 @@ function compile() {
     indentType: 'space',
     indentWidth: 2,
     linefeed: 'lf',
-    sourceMap: false
+    sourceMap: false,
+    quietDeps: true,
+    silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin']
   };
 
   return gulp.src([paths.scss.src])

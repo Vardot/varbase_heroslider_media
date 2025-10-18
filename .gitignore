@@ -4,6 +4,9 @@ node_modules
 .DS_Store
 node_modules
 
+# Ignore yarn files
+.yarn/
+
 # Ignore Variables
 /css/variables.css
 /css/mixins/
