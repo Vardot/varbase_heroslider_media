@@ -3,19 +3,34 @@
  * Behaviors of Varbase hero slider media for local video scripts.
  */
 
-(function ($, Drupal) {
+(function varbaseHeroSliderMediaLocalVideo($, Drupal) {
   Drupal.behaviors.varbaseHeroSliderMedia_local_video = {
     attach(context) {
-      $(window).on('load', function () {
+      $(window).on('load', function onWindowLoad() {
         const mediaSliders = $(
           '.slick--view--varbase-heroslider-media .slick__slider',
           context,
         );
 
+        // Play when paused.
+        function onPause() {
+          mediaSliders.slick('slickNext');
+        }
+
+        // Play when finished.
+        function onFinish() {
+          mediaSliders.slick('slickPlay');
+        }
+
+        // Pause on play progress.
+        function onPlayProgress() {
+          mediaSliders.slick('slickPause');
+        }
+
         // On before slide change.
         mediaSliders.on(
           'beforeChange',
-          function (event, slick, currentSlide, nextSlide) {
+          function onBeforeSlideChange(event, slick, currentSlide, nextSlide) {
             const currentSlideObject = $(
               `.slide--${currentSlide}.slick-active`,
             );
@@ -43,19 +58,25 @@
 
               // DOMException - The play() request was interrupted.
               // https://developer.chrome.com/blog/play-request-was-interrupted
-              let nextPlayPromise;
-              nextPlayPromise = nextPlayer.play();
-              if (nextPlayPromise && Object.keys(nextPlayPromise).length === 0 && nextPlayPromise.constructor === Object) {
-                nextPlayPromise.then(_ => {
-                  // Automatic playback started!
-                  // Show playing UI.
-                  // We can now safely pause video...
-                  nextPlayer.pause();
-                })
-                .catch(error => {
-                  // Auto-play was prevented
-                  // Show paused UI.
-                });
+              const nextPlayPromise = nextPlayer.play();
+              if (
+                nextPlayPromise &&
+                Object.keys(nextPlayPromise).length === 0 &&
+                nextPlayPromise.constructor === Object
+              ) {
+                nextPlayPromise
+                  // eslint-disable-next-line max-nested-callbacks
+                  .then(() => {
+                    // Automatic playback started!
+                    // Show playing UI.
+                    // We can now safely pause video...
+                    nextPlayer.pause();
+                  })
+                  // eslint-disable-next-line max-nested-callbacks
+                  .catch(() => {
+                    // Auto-play was prevented
+                    // Show paused UI.
+                  });
               }
             } else {
               mediaSliders.slick('slickPlay');
@@ -64,69 +85,85 @@
         );
 
         // When first slide has a video (Pause the slider and play the video).
-        $('.slick--view--varbase-heroslider-media', context).each(function () {
-          const firstVideo = $(this)
-            .find('.slide.slick-active')
-            .find('.varbase-video-player video', context);
+        $('.slick--view--varbase-heroslider-media', context).each(
+          function processFirstSlideVideo() {
+            const firstVideo = $(this)
+              .find('.slide.slick-active')
+              .find('.varbase-video-player video', context);
 
-          if (firstVideo.length > 0) {
-            mediaSliders.slick('slickPause');
+            if (firstVideo.length > 0) {
+              mediaSliders.slick('slickPause');
 
-            const firstVideoPlayer = firstVideo.get(0);
-            firstVideoPlayer.muted = true;
+              const firstVideoPlayer = firstVideo.get(0);
+              firstVideoPlayer.muted = true;
 
-            // DOMException - The play() request was interrupted.
-            // https://developer.chrome.com/blog/play-request-was-interrupted
-            let firstVideoPlayPromise;
-            firstVideoPlayPromise = firstVideoPlayer.play();
-            if (firstVideoPlayPromise && Object.keys(firstVideoPlayPromise).length === 0 && firstVideoPlayPromise.constructor === Object) {
-              firstVideoPlayPromise.then(_ => {
-                // Automatic playback started!
-                // Show playing UI.
-                // We can now safely pause video...
-                firstVideoPlayer.pause();
-              })
-              .catch(error => {
-                // Auto-play was prevented
-                // Show paused UI.
+              // DOMException - The play() request was interrupted.
+              // https://developer.chrome.com/blog/play-request-was-interrupted
+              const firstVideoPlayPromise = firstVideoPlayer.play();
+              if (
+                firstVideoPlayPromise &&
+                Object.keys(firstVideoPlayPromise).length === 0 &&
+                firstVideoPlayPromise.constructor === Object
+              ) {
+                firstVideoPlayPromise
+                  // eslint-disable-next-line max-nested-callbacks
+                  .then(() => {
+                    // Automatic playback started!
+                    // Show playing UI.
+                    // We can now safely pause video...
+                    firstVideoPlayer.pause();
+                  })
+                  // eslint-disable-next-line max-nested-callbacks
+                  .catch(() => {
+                    // Auto-play was prevented
+                    // Show paused UI.
+                  });
+              }
+
+              // eslint-disable-next-line max-nested-callbacks
+              firstVideo.on('ended', function onFirstVideoEnded() {
+                mediaSliders.slick('slickPlay');
               });
             }
+          },
+        );
 
-            firstVideo.on('ended', function () {
-              mediaSliders.slick('slickPlay');
-            });
-          }
-        });
+        $('.slick--view--varbase-heroslider-media.slick--less', context).each(
+          function processLessSliderVideo() {
+            const firstVideo = $(this)
+              .find('.slide')
+              .find('.varbase-video-player video', context);
 
-        $('.slick--view--varbase-heroslider-media.slick--less', context).each(function () {
-          const firstVideo = $(this)
-            .find('.slide')
-            .find('.varbase-video-player video', context);
+            if (firstVideo.length > 0) {
+              const firstVideoPlayer = firstVideo.get(0);
+              firstVideoPlayer.muted = true;
+              firstVideoPlayer.loop = true;
 
-          if (firstVideo.length > 0) {
-
-            const firstVideoPlayer = firstVideo.get(0);
-            firstVideoPlayer.muted = true;
-            firstVideoPlayer.loop = true;
-
-            // DOMException - The play() request was interrupted.
-            // https://developer.chrome.com/blog/play-request-was-interrupted
-            let firstVideoPlayPromise;
-            firstVideoPlayPromise = firstVideoPlayer.play();
-            if (firstVideoPlayPromise && Object.keys(firstVideoPlayPromise).length === 0 && firstVideoPlayPromise.constructor === Object) {
-              firstVideoPlayPromise.then(_ => {
-                // Automatic playback started!
-                // Show playing UI.
-                // We can now safely pause video...
-                firstVideoPlayer.pause();
-              })
-              .catch(error => {
-                // Auto-play was prevented
-                // Show paused UI.
-              });
+              // DOMException - The play() request was interrupted.
+              // https://developer.chrome.com/blog/play-request-was-interrupted
+              const firstVideoPlayPromise = firstVideoPlayer.play();
+              if (
+                firstVideoPlayPromise &&
+                Object.keys(firstVideoPlayPromise).length === 0 &&
+                firstVideoPlayPromise.constructor === Object
+              ) {
+                firstVideoPlayPromise
+                  // eslint-disable-next-line max-nested-callbacks
+                  .then(() => {
+                    // Automatic playback started!
+                    // Show playing UI.
+                    // We can now safely pause video...
+                    firstVideoPlayer.pause();
+                  })
+                  // eslint-disable-next-line max-nested-callbacks
+                  .catch(() => {
+                    // Auto-play was prevented
+                    // Show paused UI.
+                  });
+              }
             }
-          }
-        });
+          },
+        );
 
         // Local Video variable.
         if (
@@ -145,21 +182,6 @@
           player.onpause = onPause;
           player.onended = onFinish;
           player.onplay = onPlayProgress;
-        }
-
-        // Play when paused.
-        function onPause() {
-          mediaSliders.slick('slickNext');
-        }
-
-        // Play when finished.
-        function onFinish() {
-          mediaSliders.slick('slickPlay');
-        }
-
-        // Pause on play progress.
-        function onPlayProgress() {
-          mediaSliders.slick('slickPause');
         }
       });
     },

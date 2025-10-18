@@ -3,6 +3,7 @@ node_modules
 /*/node_modules
 .DS_Store
 node_modules
+.yarn/
 
 # Ignore Variables
 /css/variables.css

@@ -3,7 +3,7 @@
  * Behaviors of Varbase hero slider media for Youtube video scripts.
  */
 
-(function ($, Drupal) {
+(function varbaseHeroSliderMediaYoutube($, Drupal) {
   Drupal.behaviors.varbaseHeroSliderMedia_youtube = {
     attach(context) {
       const mediaSliders = $(
@@ -13,7 +13,7 @@
       // On before slide change.
       mediaSliders.on(
         'beforeChange',
-        function (event, slick, currentSlide, nextSlide) {
+        function onBeforeYoutubeSlideChange(event, slick, currentSlide) {
           const currentVideo = $(`.slide--${currentSlide}.slick-active`).find(
             '.varbase-video-player iframe[src*="youtube.com"]',
             context,
@@ -25,17 +25,20 @@
       );
 
       // On after slide change.
-      mediaSliders.on('afterChange', function (event, slick, currentSlide) {
-        const currentVideo = $(`.slide--${currentSlide}.slick-active`).find(
-          '.varbase-video-player iframe[src*="youtube.com"]',
-          context,
-        );
-        if (currentVideo.length > 0) {
-          currentVideo.get(0).contentWindow.postMessage('play', '*');
-        } else {
-          mediaSliders.slick('slickPlay');
-        }
-      });
+      mediaSliders.on(
+        'afterChange',
+        function onAfterYoutubeSlideChange(event, slick, currentSlide) {
+          const currentVideo = $(`.slide--${currentSlide}.slick-active`).find(
+            '.varbase-video-player iframe[src*="youtube.com"]',
+            context,
+          );
+          if (currentVideo.length > 0) {
+            currentVideo.get(0).contentWindow.postMessage('play', '*');
+          } else {
+            mediaSliders.slick('slickPlay');
+          }
+        },
+      );
 
       // On first slide load.
       const firstIframeVideo = $('.varbase-heroslider-media')
@@ -43,7 +46,7 @@
         .first()
         .find('.varbase-video-player iframe[src*="youtube.com"]', context);
       if (firstIframeVideo.length > 0) {
-        firstIframeVideo.on('load', function () {
+        firstIframeVideo.on('load', function onFirstYoutubeVideoLoad() {
           mediaSliders.slick('slickPause');
           $(this).get(0).contentWindow.postMessage('play', '*');
         });

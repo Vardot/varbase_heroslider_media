@@ -9,7 +9,7 @@ function ready(fn) {
   } else if (document.addEventListener) {
     document.addEventListener('DOMContentLoaded', fn);
   } else {
-    document.attachEvent('onreadystatechange', function () {
+    document.attachEvent('onreadystatechange', function onReadyStateChange() {
       if (document.readyState !== 'loading') {
         fn();
       }
@@ -23,18 +23,18 @@ tag.src = '//player.vimeo.com/api/player.js';
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-ready(function () {
+ready(function initializeVimeoPlayer() {
   const mediaIframe = document.querySelector('iframe');
   mediaIframe.setAttribute('id', 'media-oembed-iframe');
 
-  let playerConfgured = false;
+  let playerConfigured = false;
   let videoLoop = false;
   let vimeoPlayer;
 
   function actionProcessor(evt) {
     // Manage Vimeo video.
     if (evt.data === 'play') {
-      if (!playerConfgured) {
+      if (!playerConfigured) {
         const vimeoIframe = document.querySelector('iframe[src*="vimeo.com"]');
 
         const vimeoOptions = {
@@ -47,26 +47,26 @@ ready(function () {
         vimeoPlayer = new window.Vimeo.Player(vimeoIframe, vimeoOptions);
         vimeoPlayer.setVolume(0);
         vimeoPlayer.setLoop(videoLoop);
-        vimeoPlayer.on('ended', function () {
+        vimeoPlayer.on('ended', function onVimeoEnded() {
           window.parent.postMessage('endedVimeo', '*');
           vimeoPlayer.pause();
         });
 
-        vimeoPlayer.on('play', function () {
+        vimeoPlayer.on('play', function onVimeoPlay() {
           window.parent.postMessage('playingVimeo', '*');
         });
-        playerConfgured = true;
+        playerConfigured = true;
       }
 
-      vimeoPlayer.ready().then(function () {
-        vimeoPlayer.getPaused().then(function (paused) {
+      vimeoPlayer.ready().then(function onVimeoReady() {
+        vimeoPlayer.getPaused().then(function onGetPausedState(paused) {
           if (paused) {
             vimeoPlayer.play();
           }
         });
       });
     } else if (evt.data === 'pause') {
-      if (playerConfgured) {
+      if (playerConfigured) {
         vimeoPlayer.pause();
       }
     } else if (evt.data === 'loop') {
