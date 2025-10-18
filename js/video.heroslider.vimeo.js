@@ -3,7 +3,7 @@
  * Behaviors of Varbase hero slider media for vimeo embedded videos scripts.
  */
 
-(function ($, Drupal) {
+(function varbaseHeroSliderMediaVimeo($, Drupal) {
   Drupal.behaviors.varbaseHeroSliderMedia_vimeo = {
     attach(context) {
       const mediaSliders = $(
@@ -13,7 +13,7 @@
       // On before slide change.
       mediaSliders.on(
         'beforeChange',
-        function (event, slick, currentSlide, nextSlide) {
+        function onBeforeVimeoSlideChange(event, slick, currentSlide) {
           const currentVideo = $(`.slide--${currentSlide}.slick-active`).find(
             '.varbase-video-player iframe[src*="vimeo.com"]',
             context,
@@ -25,17 +25,20 @@
       );
 
       // On after slide change.
-      mediaSliders.on('afterChange', function (event, slick, currentSlide) {
-        const currentVideo = $(`.slide--${currentSlide}.slick-active`).find(
-          '.varbase-video-player iframe[src*="vimeo.com"]',
-          context,
-        );
-        if (currentVideo.length > 0) {
-          currentVideo.get(0).contentWindow.postMessage('play', '*');
-        } else {
-          mediaSliders.slick('slickPlay');
-        }
-      });
+      mediaSliders.on(
+        'afterChange',
+        function onAfterVimeoSlideChange(event, slick, currentSlide) {
+          const currentVideo = $(`.slide--${currentSlide}.slick-active`).find(
+            '.varbase-video-player iframe[src*="vimeo.com"]',
+            context,
+          );
+          if (currentVideo.length > 0) {
+            currentVideo.get(0).contentWindow.postMessage('play', '*');
+          } else {
+            mediaSliders.slick('slickPlay');
+          }
+        },
+      );
 
       // On first slide load.
       const firstIframeVideo = $('.varbase-heroslider-media')
@@ -43,7 +46,7 @@
         .first()
         .find('.varbase-video-player iframe[src*="vimeo.com"]', context);
       if (firstIframeVideo.length > 0) {
-        firstIframeVideo.on('load', function () {
+        firstIframeVideo.on('load', function onFirstVimeoVideoLoad() {
           if (!firstIframeVideo.hasClass('first-slide-played')) {
             mediaSliders.slick('slickPause');
 
