@@ -1,0 +1,6 @@
+services:
+  Drupal\varbase_heroslider_media\Hook\VarbaseHerosliderMediaHooks:
+    arguments:
+      - '@request_stack'
+      - '@module_handler'
+      - '@entity_type.manager'

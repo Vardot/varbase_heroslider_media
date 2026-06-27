@@ -1,30 +1,31 @@
 {
-  "name": "drupal/varbase_heroslider_media",
-  "description": "Varbase Hero slider media : This app will populate the universal implementation of a \"Hero Slider\" to be used on the homepage in most cases. A rich hero slider that allows you to display video and/or image slides.",
-  "type": "drupal-module",
-  "homepage": "https://www.drupal.org/project/varbase_heroslider_media",
-  "license": "GPL-2.0-or-later",
-  "authors": [
-    {
-      "name": "Vardot",
-      "homepage": "https://www.drupal.org/vardot",
-      "role": "Maintainer"
+    "name": "drupal/varbase_heroslider_media",
+    "description": "Varbase Hero slider media : This app will populate the universal implementation of a \"Hero Slider\" to be used on the homepage in most cases. A rich hero slider that allows you to display video and/or image slides.",
+    "type": "drupal-module",
+    "homepage": "https://www.drupal.org/project/varbase_heroslider_media",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Vardot",
+            "homepage": "https://www.drupal.org/vardot",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "http://drupal.org/project/issues/varbase_heroslider_media",
+        "source": "http://cgit.drupalcode.org/varbase_heroslider_media",
+        "slack": "http://slack.varbase.vardot.com"
+    },
+    "require": {
+        "drupal/core": "~11.3.0",
+        "vardot/module-installer-factory": "~1",
+        "vardot/entity-definition-update-manager": "~1",
+        "drupal/varbase_media": "~9",
+        "drupal/entityqueue": "~1",
+        "drupal/rabbit_hole": "~1 || ~2",
+        "drupal/field_group": "~4",
+        "drupal/length_indicator": "~1",
+        "drupal/advanced_text_formatter": "~2 || ~3",
+        "drupal/maxlength": "~2 || ~3"
     }
-  ],
-  "support": {
-    "issues": "http://drupal.org/project/issues/varbase_heroslider_media",
-    "source": "http://cgit.drupalcode.org/varbase_heroslider_media",
-    "slack" : "http://slack.varbase.vardot.com"
-  },
-  "require": {
-    "drupal/core": "~10.6.0 || ~11.3.0",
-    "vardot/varbase-patches": "~9",
-    "drupal/varbase_media": "~9",
-    "drupal/entityqueue": "~1",
-    "drupal/rabbit_hole": "~1 || ~2",
-    "drupal/field_group": "~4",
-    "drupal/length_indicator": "~1",
-    "drupal/advanced_text_formatter": "~2 || ~3",
-    "drupal/maxlength": "~2 || ~3"
-  }
 }

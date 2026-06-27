@@ -1,0 +1,12 @@
+name: 'Media Hero Slider Test'
+description: 'Provisions a Standard site with Media Hero Slider (and Varbase Media), using vartheme_bs4 as the default theme, for the automated tests.'
+type: 'Testing'
+install:
+  - varbase_media
+  - varbase_heroslider_media
+  - vartheme_bs4
+config:
+  actions:
+    system.theme:
+      simpleConfigUpdate:
+        default: vartheme_bs4
