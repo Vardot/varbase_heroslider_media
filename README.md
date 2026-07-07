@@ -1,3 +1,7 @@
+[![pipeline status](https://git.drupalcode.org/project/varbase_heroslider_media/badges/9.2.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_heroslider_media/-/pipelines)
+[![Media Hero Slider](https://img.shields.io/badge/Media%20Hero%20Slider-9.2.0-0d6efc?labelColor=001d38&style=flat-square)](https://git.drupalcode.org/project/varbase_heroslider_media/-/pipelines?ref=9.2.0)
+[![Automated Functional Testing](https://git.drupalcode.org/project/varbase_heroslider_media/badges/9.2.x/pipeline.svg)](https://git.drupalcode.org/project/varbase_heroslider_media/-/pipelines)
+
 # Varbase Hero Slider Media
 ---
 
