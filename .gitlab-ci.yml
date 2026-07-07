@@ -110,7 +110,7 @@ webship-js-test:
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
     # Media Hero Slider renders Bootstrap/Slick markup; use vartheme_bs4 as the default theme.
     - composer config --no-plugins allow-plugins.vardot/varbase-patches true || true
-    - composer --working-dir=$CI_PROJECT_DIR require "drupal/vartheme_bs4:9.0.x-dev" --no-interaction || true
+    - composer --working-dir=$CI_PROJECT_DIR require "drupal/vartheme_bs4:~9.2.0" --no-interaction || true
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT theme:install vartheme_bs4 -y || true
     - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT config:set system.theme default vartheme_bs4 -y || true
     # Seed a hero slider node + create the role and test users for the access matrix.
@@ -137,6 +137,10 @@ webship-js-test:
 
 # Allow the Varbase stack Composer plugins in the CI build (allow-plugins lives in varbase_project, not modules).
 composer:
+  variables:
+    # varbase_media ~9.2.0 needs Drupal ~11.4; the pinned templates ref $CORE_STABLE is still 11.3.
+    DRUPAL_CORE: "11.4.0"
+    IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
   before_script:
     - composer config --no-plugins allow-plugins.composer/installers true || true
     - composer config --no-plugins allow-plugins.cweagans/composer-patches true || true
