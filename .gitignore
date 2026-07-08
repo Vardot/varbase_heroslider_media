@@ -38,3 +38,11 @@ ehthumbs.db
 .bash_history
 .bashrc
 errors.log
+
+# Ignore generated webship-js test artifacts (keep the directories).
+tests/reports/*
+!tests/reports/.gitkeep
+tests/screenshots/*
+!tests/screenshots/.gitkeep
+tests/videos/*
+!tests/videos/.gitkeep

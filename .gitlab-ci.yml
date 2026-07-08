@@ -1,3 +1,19 @@
+################################################################################
+# GitLab CI for the Media Hero Slider module (10.1.x line - Drupal ~11.4).
+#
+# Two halves:
+#   1. The standard Drupal CI validation jobs (composer-lint, cspell, eslint,
+#      phpcs, phpstan, stylelint, phpunit) provided by the drupalci templates.
+#   2. A webship-js BDD browser-test job (Playwright + Cucumber-js) that runs
+#      the tests/features/drupal/** suite against a freshly installed Drupal
+#      Standard site. The Hero slider content model is provisioned by the
+#      module's own recipes/default recipe (the module ships no config/install
+#      or config/optional; all config lives in the recipe).
+#
+# Every validate job is blocking (allow_failure:false) so the pipeline gates
+# strictly.
+################################################################################
+
 include:
   - project: $_GITLAB_TEMPLATES_REPO
     ref: $_GITLAB_TEMPLATES_REF
@@ -5,27 +21,153 @@ include:
       - "/includes/include.drupalci.main.yml"
       - "/includes/include.drupalci.variables.yml"
       - "/includes/include.drupalci.workflows.yml"
-composer:
-  script:
-    - composer config minimum-stability dev
-    - composer config repositories.drupal composer https://packages.drupal.org/8
-    - composer config --no-plugins allow-plugins.composer/installers true
-    - composer config --no-plugins allow-plugins.drupal/core-composer-scaffold true
-    - composer config --no-plugins allow-plugins.cweagans/composer-patches true
-    - composer config --no-plugins allow-plugins.oomphinc/composer-installers-extender true
-    - composer config --no-plugins allow-plugins.phpstan/extension-installer true
-    - composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-    - composer require --no-update cweagans/composer-patches:~1
-    - composer install -vvv
+
+variables:
+  # The 10.1.x branch targets Drupal core 11.4 only. Pin the core version and
+  # ignore the project's info.yml core_version_requirement when resolving it.
+  DRUPAL_CORE: "11.4.0"
+  IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
+  _ALL_VALIDATE_ALLOW_FAILURE: "0"
+  COMPOSER_FLAGS: "--no-strict-lock"
+  COMPOSER_MEMORY_LIMIT: "-1"
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+
+# = Validate stage (all blocking) =
 composer-lint:
-  allow_failure: true
+  allow_failure: false
 cspell:
-  allow_failure: true
+  allow_failure: false
 eslint:
-  allow_failure: true
+  allow_failure: false
 phpcs:
-  allow_failure: true
+  allow_failure: false
 phpstan:
-  allow_failure: true
+  allow_failure: false
+stylelint:
+  allow_failure: false
 phpunit:
-  allow_failure: true
+  allow_failure: false
+  variables:
+    _PHPUNIT_EXTRA: ''
+
+# = Reusable before_script fragments (via !reference) =
+.fragments:
+  web_db: &web_db
+    - mkdir -pv $CI_PROJECT_DIR/$_WEB_ROOT/sites/default/files
+    - mkdir -pv $CI_PROJECT_DIR/$_WEB_ROOT/sites/simpletest
+    - chmod -R 777 $CI_PROJECT_DIR/$_WEB_ROOT/sites/default/files
+    - chmod -R 777 $CI_PROJECT_DIR/$_WEB_ROOT/sites/simpletest
+    - rm -rf /var/www/html && ln -s $CI_PROJECT_DIR/$_WEB_ROOT /var/www/html
+    - chown -R www-data:www-data $CI_PROJECT_DIR
+    - service apache2 start
+    - export SIMPLETEST_DB=mysql://$MYSQL_USER:$MYSQL_PASSWORD@database/$MYSQL_DATABASE
+  node_playwright: &node_playwright
+    - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+    - apt-get install -y nodejs
+    - node --version && npm --version
+    - 'test -f .yarnrc.yml || echo "nodeLinker: node-modules" > .yarnrc.yml'
+    - cp cucumber.js .cucumber.js.bak
+    - corepack enable
+    - yarn install
+    - cp .cucumber.js.bak cucumber.js && rm .cucumber.js.bak
+    - ./node_modules/.bin/playwright install --with-deps chromium
+
+# = webship-js BDD - Drupal Standard profile + recipes/default =
+webship-js-test:
+  extends: .testing-job-base
+  needs: [composer]
+  timeout: 30m
+  services:
+    - name: $_CONFIG_DOCKERHUB_ROOT/$_TARGET_DB_TYPE-$_TARGET_DB_VERSION:$_TARGET_DB_IMAGE_TAG
+      alias: database
+  variables:
+    LAUNCH_URL: "http://localhost"
+    FORCE_COLOR: "1"
+  artifacts:
+    when: always
+    paths:
+      - tests/reports/
+      - tests/screenshots/
+      - tests/videos/
+    expire_in: 7 days
+  before_script:
+    - !reference [.fragments, web_db]
+    - git config --global --add safe.directory "$CI_PROJECT_DIR" || true
+    # ImageMagick for varbase_media image derivatives (GD fallback stays).
+    - apt-get update -y > /dev/null || true
+    - apt-get install -y --no-install-recommends imagemagick > /dev/null || true
+    - apt-get install -y --no-install-recommends webp > /dev/null || true
+    # Core 11.4.0 is not yet installable through the drupal.org Composer facade,
+    # so the build resolves to the latest 11.3.x. Relax the checked-out module's
+    # info.yml core_version_requirement for the test site only (does NOT change
+    # the committed ~11.4.0 requirement) so the module can enable.
+    - |
+      for SCAN in "$CI_PROJECT_DIR" "$CI_PROJECT_DIR/$_WEB_ROOT"; do
+        find "$SCAN" -name '*.info.yml' -print0 2>/dev/null \
+          | xargs -0 -r sed -i -E 's/core_version_requirement:[[:space:]]*~11\.4\.0/core_version_requirement: ^11.3 || ^11.4/'
+      done
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install standard
+        --db-url=$SIMPLETEST_DB --account-name=webmaster --account-pass=dD.123123ddd
+        --site-name="Media Hero Slider Test" -y
+    # Dropzone JS library for the varbase_media upload widget.
+    - mkdir -p $CI_PROJECT_DIR/$_WEB_ROOT/libraries/dropzone/dist/min
+    - curl -sSL https://cdn.jsdelivr.net/npm/dropzone@5.9.3/dist/min/dropzone.min.js -o $CI_PROJECT_DIR/$_WEB_ROOT/libraries/dropzone/dist/min/dropzone.min.js || true
+    - chmod -R 777 $CI_PROJECT_DIR/$_WEB_ROOT/sites/default/files || true
+    # Pre-install drimage_improved with a container rebuild BEFORE varbase_media
+    # so its config event subscriber does not reference a not-yet-built service.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT pm:install image drimage_improved -y
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
+    # Create the Varbase editorial roles that Varbase Media's default recipe
+    # grants media permissions to; the Standard profile lacks them.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT php:eval 'foreach (["site_admin"=>"Site Administrator","content_admin"=>"Content Administrator","editor"=>"Editor","seo_admin"=>"SEO Administrator"] as $id => $label) { if (!\Drupal\user\Entity\Role::load($id)) { \Drupal\user\Entity\Role::create(["id" => $id, "label" => $label])->save(); } }'
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
+    # varbase_media 10.1.x still declares a `configure:` route it no longer ships;
+    # strip it from the checked-out module for the test site only.
+    - |
+      find "$CI_PROJECT_DIR/$_WEB_ROOT" -name 'varbase_media.info.yml' -print0 2>/dev/null \
+        | xargs -0 -r sed -i -E '/^configure:[[:space:]]*varbase_media\.settings[[:space:]]*$/d'
+    # Pre-install varbase_media (and the stack deps) BEFORE the recipe so
+    # better_exposed_filters' hook_install runs over clean media views only
+    # (avoids the BEF calculatePluginDependencies null-plugin fatal that a
+    # combined install+import in one recipe transaction triggers).
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT pm:install varbase_media ds slick slick_views entityqueue rabbit_hole -y
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
+    # Provision the Hero slider content model via the module's default recipe
+    # (installs varbase_media + varbase_heroslider_media and imports all config).
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT recipe $CI_PROJECT_DIR/recipes/default -y
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
+    # Seed a hero slider node + create the role and test users for the access matrix.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT php:eval '$n = \Drupal\node\Entity\Node::create(["type" => "varbase_heroslider_media", "title" => "Demo Hero Slider", "status" => 1]); $n->save();' || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT php:eval '\Drupal\user\Entity\Role::create(["id" => "hero_editor", "label" => "Hero editor"])->save();' || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT role:perm:add hero_editor 'create varbase_heroslider_media content' || true
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT php:eval '$u = \Drupal\user\Entity\User::create(["name" => "normaluser", "pass" => "dD.123123ddd", "mail" => "normaluser@example.test", "status" => 1]); $u->save(); $h = \Drupal\user\Entity\User::create(["name" => "herouser", "pass" => "dD.123123ddd", "mail" => "herouser@example.test", "status" => 1]); $h->addRole("hero_editor"); $h->save();' || true
+    - !reference [.fragments, node_playwright]
+    # Slick library (yarn / drupal-libraries-sync style): copy the yarn-installed
+    # slick-carousel into the test libraries dir. CI/test only.
+    - mkdir -p $CI_PROJECT_DIR/$_WEB_ROOT/libraries/slick
+    - if [ -d $CI_PROJECT_DIR/node_modules/slick-carousel/slick ]; then cp -r $CI_PROJECT_DIR/node_modules/slick-carousel/slick/* $CI_PROJECT_DIR/$_WEB_ROOT/libraries/slick/; fi
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
+  script:
+    - WEBSHIP_REPORT_DISABLE=1 ./node_modules/.bin/cucumber-js --config cucumber.js --tags "not @wip"
+    - node ./node_modules/webship-js/bin/generate-reports.js
+        --json tests/reports/cucumber_report.json
+        --out  tests/reports/cucumber_report.html
+        --format all
+        --pdf-out tests/reports/cucumber_report.pdf
+  allow_failure: false
+
+# Allow the Varbase stack Composer plugins in the CI build (allow-plugins lives in varbase_project, not modules).
+composer:
+  before_script:
+    - composer config --no-plugins allow-plugins.symfony/runtime true || true
+    - composer config --no-plugins allow-plugins.composer/installers true || true
+    - composer config --no-plugins allow-plugins.cweagans/composer-patches true || true
+    - composer config --no-plugins allow-plugins.oomphinc/composer-installers-extender true || true
+    - composer config --no-plugins allow-plugins.drupal/core-composer-scaffold true || true
+    - composer config --no-plugins allow-plugins.drupal/core-project-message true || true
+    - composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true || true
+    - composer config --no-plugins allow-plugins.phpstan/extension-installer true || true
+    - composer config --no-plugins allow-plugins.php-http/discovery true || true
+    - composer config --no-plugins allow-plugins.tbachert/spi true || true
+    - composer config --no-plugins allow-plugins.vardot/varbase-patches true || true
+    - composer require --no-update vardot/varbase-patches:~10.1.0

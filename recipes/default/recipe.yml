@@ -1,0 +1,19 @@
+name: 'Media Hero Slider'
+description: 'Provides the Hero slider content type with slide text, media and call-to-action, and its listing view.'
+type: 'Content type'
+install:
+  - node
+  - field
+  - menu_ui
+  - path
+  - link
+  - options
+  - media
+  - image
+  - entityqueue
+  - rabbit_hole
+  - slick
+  - slick_views
+  - ds
+  - varbase_media
+  - varbase_heroslider_media
