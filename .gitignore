@@ -39,7 +39,7 @@ ehthumbs.db
 .bashrc
 errors.log
 
-# Ignore generated webship-js test artifacts (keep the directories).
+# Ignore generated varbase-e2e test artifacts (keep the directories).
 tests/reports/*
 !tests/reports/.gitkeep
 tests/screenshots/*
